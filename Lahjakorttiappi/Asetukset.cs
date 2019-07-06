@@ -10,14 +10,19 @@ using System.Windows.Forms;
 
 namespace Lahjakorttiappi
 {
-    public partial class Paaikkuna : Form
+    public partial class Asetukset : Form
     {
-        public Paaikkuna()
+        public Asetukset()
         {
             InitializeComponent();
         }
 
-        private void btnMuokkaa_Click(object sender, EventArgs e)
+        private void txtBoxIdentifier_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
         {
 
         }

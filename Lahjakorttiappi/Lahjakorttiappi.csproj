@@ -45,11 +45,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="Asetukset.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Asetukset.Designer.cs">
+      <DependentUpon>Asetukset.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Paaikkuna.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Paaikkuna.Designer.cs">
+      <DependentUpon>Paaikkuna.cs</DependentUpon>
     </Compile>
     <Compile Include="Lisaaminen.cs">
       <SubType>Form</SubType>
@@ -59,8 +65,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="Asetukset.resx">
+      <DependentUpon>Asetukset.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Paaikkuna.resx">
+      <DependentUpon>Paaikkuna.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Lisaaminen.resx">
       <DependentUpon>Lisaaminen.cs</DependentUpon>

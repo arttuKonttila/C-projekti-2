@@ -167,6 +167,7 @@
             this.lopetaToolStripMenuItem.Name = "lopetaToolStripMenuItem";
             this.lopetaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.lopetaToolStripMenuItem.Text = "Lopeta";
+            this.lopetaToolStripMenuItem.Click += new System.EventHandler(this.lopetaToolStripMenuItem_Click);
             // 
             // haeToolStripMenuItem
             // 
