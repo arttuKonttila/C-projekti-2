@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.pnlGiftCardByer = new System.Windows.Forms.Panel();
             this.lblEmail = new System.Windows.Forms.Label();
             this.lblPhone = new System.Windows.Forms.Label();
             this.lblPo = new System.Windows.Forms.Label();
@@ -47,7 +47,7 @@
             this.btnEmpty = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnSend = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.pnGiftCardInfo = new System.Windows.Forms.Panel();
             this.dtmSellTime = new System.Windows.Forms.DateTimePicker();
             this.numAmount = new System.Windows.Forms.NumericUpDown();
             this.cmBoxService = new System.Windows.Forms.ComboBox();
@@ -58,32 +58,32 @@
             this.lblDate = new System.Windows.Forms.Label();
             this.cmBoxSeller = new System.Windows.Forms.ComboBox();
             this.lblSeller = new System.Windows.Forms.Label();
-            this.panel1.SuspendLayout();
+            this.pnlGiftCardByer.SuspendLayout();
             this.pnlControls.SuspendLayout();
-            this.panel2.SuspendLayout();
+            this.pnGiftCardInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numAmount)).BeginInit();
             this.SuspendLayout();
             // 
-            // panel1
+            // pnlGiftCardByer
             // 
-            this.panel1.AccessibleDescription = "Tietojen lisäys paneeli";
-            this.panel1.Controls.Add(this.lblEmail);
-            this.panel1.Controls.Add(this.lblPhone);
-            this.panel1.Controls.Add(this.lblPo);
-            this.panel1.Controls.Add(this.lblAdress);
-            this.panel1.Controls.Add(this.lblLastName);
-            this.panel1.Controls.Add(this.lblFristName);
-            this.panel1.Controls.Add(this.txtBoxEmail);
-            this.panel1.Controls.Add(this.txtBoxPhone);
-            this.panel1.Controls.Add(this.txtBoxPoPlace);
-            this.panel1.Controls.Add(this.txtBoxPoNbr);
-            this.panel1.Controls.Add(this.TxtBoxAdress);
-            this.panel1.Controls.Add(this.txtBoxLastName);
-            this.panel1.Controls.Add(this.txtBoxFristName);
-            this.panel1.Location = new System.Drawing.Point(12, 13);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(589, 254);
-            this.panel1.TabIndex = 0;
+            this.pnlGiftCardByer.AccessibleDescription = "Tietojen lisäys paneeli";
+            this.pnlGiftCardByer.Controls.Add(this.lblEmail);
+            this.pnlGiftCardByer.Controls.Add(this.lblPhone);
+            this.pnlGiftCardByer.Controls.Add(this.lblPo);
+            this.pnlGiftCardByer.Controls.Add(this.lblAdress);
+            this.pnlGiftCardByer.Controls.Add(this.lblLastName);
+            this.pnlGiftCardByer.Controls.Add(this.lblFristName);
+            this.pnlGiftCardByer.Controls.Add(this.txtBoxEmail);
+            this.pnlGiftCardByer.Controls.Add(this.txtBoxPhone);
+            this.pnlGiftCardByer.Controls.Add(this.txtBoxPoPlace);
+            this.pnlGiftCardByer.Controls.Add(this.txtBoxPoNbr);
+            this.pnlGiftCardByer.Controls.Add(this.TxtBoxAdress);
+            this.pnlGiftCardByer.Controls.Add(this.txtBoxLastName);
+            this.pnlGiftCardByer.Controls.Add(this.txtBoxFristName);
+            this.pnlGiftCardByer.Location = new System.Drawing.Point(12, 13);
+            this.pnlGiftCardByer.Name = "pnlGiftCardByer";
+            this.pnlGiftCardByer.Size = new System.Drawing.Size(589, 254);
+            this.pnlGiftCardByer.TabIndex = 0;
             // 
             // lblEmail
             // 
@@ -263,22 +263,22 @@
             this.btnSend.Text = "Lähetä";
             this.btnSend.UseVisualStyleBackColor = true;
             // 
-            // panel2
+            // pnGiftCardInfo
             // 
-            this.panel2.Controls.Add(this.lblSeller);
-            this.panel2.Controls.Add(this.cmBoxSeller);
-            this.panel2.Controls.Add(this.lblDate);
-            this.panel2.Controls.Add(this.lblAmmount);
-            this.panel2.Controls.Add(this.lblTime);
-            this.panel2.Controls.Add(this.lblService);
-            this.panel2.Controls.Add(this.cmBoxTime);
-            this.panel2.Controls.Add(this.cmBoxService);
-            this.panel2.Controls.Add(this.numAmount);
-            this.panel2.Controls.Add(this.dtmSellTime);
-            this.panel2.Location = new System.Drawing.Point(12, 273);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(588, 164);
-            this.panel2.TabIndex = 2;
+            this.pnGiftCardInfo.Controls.Add(this.lblSeller);
+            this.pnGiftCardInfo.Controls.Add(this.cmBoxSeller);
+            this.pnGiftCardInfo.Controls.Add(this.lblDate);
+            this.pnGiftCardInfo.Controls.Add(this.lblAmmount);
+            this.pnGiftCardInfo.Controls.Add(this.lblTime);
+            this.pnGiftCardInfo.Controls.Add(this.lblService);
+            this.pnGiftCardInfo.Controls.Add(this.cmBoxTime);
+            this.pnGiftCardInfo.Controls.Add(this.cmBoxService);
+            this.pnGiftCardInfo.Controls.Add(this.numAmount);
+            this.pnGiftCardInfo.Controls.Add(this.dtmSellTime);
+            this.pnGiftCardInfo.Location = new System.Drawing.Point(12, 273);
+            this.pnGiftCardInfo.Name = "pnGiftCardInfo";
+            this.pnGiftCardInfo.Size = new System.Drawing.Size(588, 164);
+            this.pnGiftCardInfo.TabIndex = 2;
             // 
             // dtmSellTime
             // 
@@ -382,16 +382,16 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.pnGiftCardInfo);
             this.Controls.Add(this.pnlControls);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.pnlGiftCardByer);
             this.Name = "Lisaaminen";
             this.Text = "Lisaaminen";
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.pnlGiftCardByer.ResumeLayout(false);
+            this.pnlGiftCardByer.PerformLayout();
             this.pnlControls.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
+            this.pnGiftCardInfo.ResumeLayout(false);
+            this.pnGiftCardInfo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numAmount)).EndInit();
             this.ResumeLayout(false);
 
@@ -399,7 +399,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel pnlGiftCardByer;
         private System.Windows.Forms.Label lblEmail;
         private System.Windows.Forms.Label lblPhone;
         private System.Windows.Forms.Label lblPo;
@@ -418,7 +418,7 @@
         private System.Windows.Forms.Button btnEmpty;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnSend;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel pnGiftCardInfo;
         private System.Windows.Forms.Label lblDate;
         private System.Windows.Forms.Label lblAmmount;
         private System.Windows.Forms.Label lblTime;

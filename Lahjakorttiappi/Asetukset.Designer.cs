@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.PnSettings = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.PnInfo = new System.Windows.Forms.Panel();
+            this.pnControls = new System.Windows.Forms.Panel();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
             this.lblFirm = new System.Windows.Forms.Label();
@@ -48,49 +48,55 @@
             this.txtBoxEmail = new System.Windows.Forms.TextBox();
             this.lblWeb = new System.Windows.Forms.Label();
             this.txtBoxWeb = new System.Windows.Forms.TextBox();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.pnlMoreIfno = new System.Windows.Forms.Panel();
             this.btnAddLogo = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnRemoveLogo = new System.Windows.Forms.Button();
             this.lblOpenTiime = new System.Windows.Forms.Label();
-            this.txtBoxOpenTimes = new System.Windows.Forms.TextBox();
-            this.PnSettings.SuspendLayout();
-            this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
+            this.rTextBoxOpenTimes = new System.Windows.Forms.RichTextBox();
+            this.btnAddItems = new System.Windows.Forms.Button();
+            this.lblLogo = new System.Windows.Forms.Label();
+            this.lblItems = new System.Windows.Forms.Label();
+            this.PnInfo.SuspendLayout();
+            this.pnControls.SuspendLayout();
+            this.pnlMoreIfno.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // PnSettings
+            // PnInfo
             // 
-            this.PnSettings.Controls.Add(this.txtBoxWeb);
-            this.PnSettings.Controls.Add(this.lblWeb);
-            this.PnSettings.Controls.Add(this.txtBoxEmail);
-            this.PnSettings.Controls.Add(this.lblEmail);
-            this.PnSettings.Controls.Add(this.txtBoxPhone);
-            this.PnSettings.Controls.Add(this.lblPhone);
-            this.PnSettings.Controls.Add(this.textBoxPostState);
-            this.PnSettings.Controls.Add(this.lblPostState);
-            this.PnSettings.Controls.Add(this.txtBoxPostNumber);
-            this.PnSettings.Controls.Add(this.lblPostNumber);
-            this.PnSettings.Controls.Add(this.txtBoxAdress);
-            this.PnSettings.Controls.Add(this.lblFirmAdress);
-            this.PnSettings.Controls.Add(this.txtBoxIdentifier);
-            this.PnSettings.Controls.Add(this.lblIdentifier);
-            this.PnSettings.Controls.Add(this.txtBoxFirmName);
-            this.PnSettings.Controls.Add(this.lblFirm);
-            this.PnSettings.Location = new System.Drawing.Point(13, 13);
-            this.PnSettings.Name = "PnSettings";
-            this.PnSettings.Size = new System.Drawing.Size(502, 560);
-            this.PnSettings.TabIndex = 0;
+            this.PnInfo.AccessibleName = "Yrityksen tiedot";
+            this.PnInfo.Controls.Add(this.txtBoxWeb);
+            this.PnInfo.Controls.Add(this.lblWeb);
+            this.PnInfo.Controls.Add(this.txtBoxEmail);
+            this.PnInfo.Controls.Add(this.lblEmail);
+            this.PnInfo.Controls.Add(this.txtBoxPhone);
+            this.PnInfo.Controls.Add(this.lblPhone);
+            this.PnInfo.Controls.Add(this.textBoxPostState);
+            this.PnInfo.Controls.Add(this.lblPostState);
+            this.PnInfo.Controls.Add(this.txtBoxPostNumber);
+            this.PnInfo.Controls.Add(this.lblPostNumber);
+            this.PnInfo.Controls.Add(this.txtBoxAdress);
+            this.PnInfo.Controls.Add(this.lblFirmAdress);
+            this.PnInfo.Controls.Add(this.txtBoxIdentifier);
+            this.PnInfo.Controls.Add(this.lblIdentifier);
+            this.PnInfo.Controls.Add(this.txtBoxFirmName);
+            this.PnInfo.Controls.Add(this.lblFirm);
+            this.PnInfo.Location = new System.Drawing.Point(13, 13);
+            this.PnInfo.Name = "PnInfo";
+            this.PnInfo.Size = new System.Drawing.Size(492, 575);
+            this.PnInfo.TabIndex = 0;
             // 
-            // panel1
+            // pnControls
             // 
-            this.panel1.Controls.Add(this.btnClear);
-            this.panel1.Controls.Add(this.btnSave);
-            this.panel1.Location = new System.Drawing.Point(521, 13);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(161, 560);
-            this.panel1.TabIndex = 1;
+            this.pnControls.AccessibleName = "Hallinta paneeli";
+            this.pnControls.Controls.Add(this.btnClear);
+            this.pnControls.Controls.Add(this.btnSave);
+            this.pnControls.Location = new System.Drawing.Point(724, 13);
+            this.pnControls.Name = "pnControls";
+            this.pnControls.Size = new System.Drawing.Size(166, 575);
+            this.pnControls.TabIndex = 1;
+            this.pnControls.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // btnSave
             // 
@@ -250,22 +256,26 @@
             this.txtBoxWeb.Size = new System.Drawing.Size(459, 32);
             this.txtBoxWeb.TabIndex = 15;
             // 
-            // panel2
+            // pnlMoreIfno
             // 
-            this.panel2.Controls.Add(this.txtBoxOpenTimes);
-            this.panel2.Controls.Add(this.lblOpenTiime);
-            this.panel2.Controls.Add(this.btnRemoveLogo);
-            this.panel2.Controls.Add(this.pictureBox1);
-            this.panel2.Controls.Add(this.btnAddLogo);
-            this.panel2.Location = new System.Drawing.Point(12, 579);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(670, 196);
-            this.panel2.TabIndex = 2;
+            this.pnlMoreIfno.AccessibleName = "Lisätiedot";
+            this.pnlMoreIfno.Controls.Add(this.lblItems);
+            this.pnlMoreIfno.Controls.Add(this.lblLogo);
+            this.pnlMoreIfno.Controls.Add(this.btnAddItems);
+            this.pnlMoreIfno.Controls.Add(this.rTextBoxOpenTimes);
+            this.pnlMoreIfno.Controls.Add(this.lblOpenTiime);
+            this.pnlMoreIfno.Controls.Add(this.btnRemoveLogo);
+            this.pnlMoreIfno.Controls.Add(this.pictureBox1);
+            this.pnlMoreIfno.Controls.Add(this.btnAddLogo);
+            this.pnlMoreIfno.Location = new System.Drawing.Point(511, 13);
+            this.pnlMoreIfno.Name = "pnlMoreIfno";
+            this.pnlMoreIfno.Size = new System.Drawing.Size(207, 575);
+            this.pnlMoreIfno.TabIndex = 2;
             // 
             // btnAddLogo
             // 
             this.btnAddLogo.AccessibleName = "Lisää logo";
-            this.btnAddLogo.Location = new System.Drawing.Point(21, 17);
+            this.btnAddLogo.Location = new System.Drawing.Point(15, 128);
             this.btnAddLogo.Name = "btnAddLogo";
             this.btnAddLogo.Size = new System.Drawing.Size(136, 45);
             this.btnAddLogo.TabIndex = 1;
@@ -274,7 +284,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(163, 17);
+            this.pictureBox1.Location = new System.Drawing.Point(15, 238);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(175, 159);
             this.pictureBox1.TabIndex = 2;
@@ -283,7 +293,7 @@
             // btnRemoveLogo
             // 
             this.btnRemoveLogo.AccessibleName = "Lisää logo";
-            this.btnRemoveLogo.Location = new System.Drawing.Point(21, 68);
+            this.btnRemoveLogo.Location = new System.Drawing.Point(15, 179);
             this.btnRemoveLogo.Name = "btnRemoveLogo";
             this.btnRemoveLogo.Size = new System.Drawing.Size(136, 45);
             this.btnRemoveLogo.TabIndex = 3;
@@ -293,39 +303,68 @@
             // lblOpenTiime
             // 
             this.lblOpenTiime.AutoSize = true;
-            this.lblOpenTiime.Location = new System.Drawing.Point(370, 17);
+            this.lblOpenTiime.Location = new System.Drawing.Point(11, 409);
             this.lblOpenTiime.Name = "lblOpenTiime";
             this.lblOpenTiime.Size = new System.Drawing.Size(123, 24);
             this.lblOpenTiime.TabIndex = 4;
             this.lblOpenTiime.Text = "Auki olo ajat";
+            this.lblOpenTiime.Click += new System.EventHandler(this.lblOpenTiime_Click);
             // 
-            // txtBoxOpenTimes
+            // rTextBoxOpenTimes
             // 
-            this.txtBoxOpenTimes.AccessibleName = "Auki oloajat";
-            this.txtBoxOpenTimes.Location = new System.Drawing.Point(374, 41);
-            this.txtBoxOpenTimes.Multiline = true;
-            this.txtBoxOpenTimes.Name = "txtBoxOpenTimes";
-            this.txtBoxOpenTimes.Size = new System.Drawing.Size(283, 135);
-            this.txtBoxOpenTimes.TabIndex = 5;
+            this.rTextBoxOpenTimes.AccessibleName = "Auki olo ajat";
+            this.rTextBoxOpenTimes.Location = new System.Drawing.Point(15, 436);
+            this.rTextBoxOpenTimes.Name = "rTextBoxOpenTimes";
+            this.rTextBoxOpenTimes.Size = new System.Drawing.Size(175, 132);
+            this.rTextBoxOpenTimes.TabIndex = 5;
+            this.rTextBoxOpenTimes.Text = "";
+            // 
+            // btnAddItems
+            // 
+            this.btnAddItems.AccessibleName = " Lisää tuotteita";
+            this.btnAddItems.Location = new System.Drawing.Point(15, 29);
+            this.btnAddItems.Name = "btnAddItems";
+            this.btnAddItems.Size = new System.Drawing.Size(136, 60);
+            this.btnAddItems.TabIndex = 6;
+            this.btnAddItems.Text = "Lisää tuotteita";
+            this.btnAddItems.UseVisualStyleBackColor = true;
+            // 
+            // lblLogo
+            // 
+            this.lblLogo.AutoSize = true;
+            this.lblLogo.Location = new System.Drawing.Point(11, 101);
+            this.lblLogo.Name = "lblLogo";
+            this.lblLogo.Size = new System.Drawing.Size(142, 24);
+            this.lblLogo.TabIndex = 7;
+            this.lblLogo.Text = "Yrityksen logo";
+            // 
+            // lblItems
+            // 
+            this.lblItems.AutoSize = true;
+            this.lblItems.Location = new System.Drawing.Point(11, 2);
+            this.lblItems.Name = "lblItems";
+            this.lblItems.Size = new System.Drawing.Size(86, 24);
+            this.lblItems.TabIndex = 8;
+            this.lblItems.Text = "Tuotteet";
             // 
             // Asetukset
             // 
             this.AccessibleName = "Asetukset";
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(698, 807);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.PnSettings);
+            this.ClientSize = new System.Drawing.Size(899, 603);
+            this.Controls.Add(this.pnlMoreIfno);
+            this.Controls.Add(this.pnControls);
+            this.Controls.Add(this.PnInfo);
             this.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.Name = "Asetukset";
             this.ShowInTaskbar = false;
             this.Text = "Asetukset";
-            this.PnSettings.ResumeLayout(false);
-            this.PnSettings.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
+            this.PnInfo.ResumeLayout(false);
+            this.PnInfo.PerformLayout();
+            this.pnControls.ResumeLayout(false);
+            this.pnlMoreIfno.ResumeLayout(false);
+            this.pnlMoreIfno.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
@@ -333,8 +372,8 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel PnSettings;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel PnInfo;
+        private System.Windows.Forms.Panel pnControls;
         internal System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Label lblFirmAdress;
         private System.Windows.Forms.TextBox txtBoxIdentifier;
@@ -353,11 +392,14 @@
         private System.Windows.Forms.TextBox textBoxPostState;
         private System.Windows.Forms.TextBox txtBoxWeb;
         private System.Windows.Forms.Label lblWeb;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.TextBox txtBoxOpenTimes;
+        private System.Windows.Forms.Panel pnlMoreIfno;
         private System.Windows.Forms.Label lblOpenTiime;
         private System.Windows.Forms.Button btnRemoveLogo;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnAddLogo;
+        private System.Windows.Forms.RichTextBox rTextBoxOpenTimes;
+        private System.Windows.Forms.Button btnAddItems;
+        private System.Windows.Forms.Label lblItems;
+        private System.Windows.Forms.Label lblLogo;
     }
 }

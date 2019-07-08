@@ -35,8 +35,8 @@
             this.btnTulosta = new System.Windows.Forms.Button();
             this.btnLisaa = new System.Windows.Forms.Button();
             this.btnLaheta = new System.Windows.Forms.Button();
-            this.cmBoxJarjestys = new System.Windows.Forms.ComboBox();
-            this.gBoxHallinta = new System.Windows.Forms.GroupBox();
+            this.cmBoxOrder = new System.Windows.Forms.ComboBox();
+            this.gBoxControl = new System.Windows.Forms.GroupBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.tiedostoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lisääUusiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -44,7 +44,7 @@
             this.lopetaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.haeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.gBoxHallinta.SuspendLayout();
+            this.gBoxControl.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -106,28 +106,30 @@
             this.btnLaheta.Text = "Lahetä";
             this.btnLaheta.UseVisualStyleBackColor = true;
             // 
-            // cmBoxJarjestys
+            // cmBoxOrder
             // 
-            this.cmBoxJarjestys.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmBoxJarjestys.FormattingEnabled = true;
-            this.cmBoxJarjestys.Location = new System.Drawing.Point(13, 50);
-            this.cmBoxJarjestys.Name = "cmBoxJarjestys";
-            this.cmBoxJarjestys.Size = new System.Drawing.Size(278, 26);
-            this.cmBoxJarjestys.TabIndex = 6;
+            this.cmBoxOrder.AccessibleName = "Järjestys";
+            this.cmBoxOrder.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmBoxOrder.FormattingEnabled = true;
+            this.cmBoxOrder.Location = new System.Drawing.Point(13, 50);
+            this.cmBoxOrder.Name = "cmBoxOrder";
+            this.cmBoxOrder.Size = new System.Drawing.Size(278, 32);
+            this.cmBoxOrder.TabIndex = 6;
             // 
-            // gBoxHallinta
+            // gBoxControl
             // 
-            this.gBoxHallinta.Controls.Add(this.btnLaheta);
-            this.gBoxHallinta.Controls.Add(this.btnLisaa);
-            this.gBoxHallinta.Controls.Add(this.btnTulosta);
-            this.gBoxHallinta.Controls.Add(this.btnPoista);
-            this.gBoxHallinta.Controls.Add(this.btnMuokkaa);
-            this.gBoxHallinta.Location = new System.Drawing.Point(970, 26);
-            this.gBoxHallinta.Name = "gBoxHallinta";
-            this.gBoxHallinta.Size = new System.Drawing.Size(162, 438);
-            this.gBoxHallinta.TabIndex = 7;
-            this.gBoxHallinta.TabStop = false;
-            this.gBoxHallinta.Text = "Hallinta";
+            this.gBoxControl.AccessibleName = "Hallinta paneeli";
+            this.gBoxControl.Controls.Add(this.btnLaheta);
+            this.gBoxControl.Controls.Add(this.btnLisaa);
+            this.gBoxControl.Controls.Add(this.btnTulosta);
+            this.gBoxControl.Controls.Add(this.btnPoista);
+            this.gBoxControl.Controls.Add(this.btnMuokkaa);
+            this.gBoxControl.Location = new System.Drawing.Point(970, 26);
+            this.gBoxControl.Name = "gBoxControl";
+            this.gBoxControl.Size = new System.Drawing.Size(162, 438);
+            this.gBoxControl.TabIndex = 7;
+            this.gBoxControl.TabStop = false;
+            this.gBoxControl.Text = "Hallinta";
             // 
             // menuStrip1
             // 
@@ -189,12 +191,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1132, 789);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.gBoxHallinta);
-            this.Controls.Add(this.cmBoxJarjestys);
+            this.Controls.Add(this.gBoxControl);
+            this.Controls.Add(this.cmBoxOrder);
             this.Controls.Add(this.menuStrip1);
             this.Name = "Paaikkuna";
             this.Text = "Pääikkuna";
-            this.gBoxHallinta.ResumeLayout(false);
+            this.gBoxControl.ResumeLayout(false);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -210,8 +212,8 @@
         private System.Windows.Forms.Button btnTulosta;
         private System.Windows.Forms.Button btnLisaa;
         private System.Windows.Forms.Button btnLaheta;
-        private System.Windows.Forms.ComboBox cmBoxJarjestys;
-        private System.Windows.Forms.GroupBox gBoxHallinta;
+        private System.Windows.Forms.ComboBox cmBoxOrder;
+        private System.Windows.Forms.GroupBox gBoxControl;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem tiedostoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem lisääUusiToolStripMenuItem;
