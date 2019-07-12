@@ -44,9 +44,22 @@
             this.lopetaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.haeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.pnlSearch = new System.Windows.Forms.Panel();
+            this.cmBoxService = new System.Windows.Forms.ComboBox();
+            this.lblService = new System.Windows.Forms.Label();
+            this.cmBoxSeller = new System.Windows.Forms.ComboBox();
+            this.lblSeller = new System.Windows.Forms.Label();
+            this.dTPOrderDate = new System.Windows.Forms.DateTimePicker();
+            this.lblDTPOrderDate = new System.Windows.Forms.Label();
+            this.cmBoxByer = new System.Windows.Forms.ComboBox();
+            this.lblByer = new System.Windows.Forms.Label();
+            this.lblSum = new System.Windows.Forms.Label();
+            this.cmBoxSum = new System.Windows.Forms.ComboBox();
+            this.btnSearch = new System.Windows.Forms.Button();
             this.gBoxControl.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.pnlSearch.SuspendLayout();
             this.SuspendLayout();
             // 
             // contextMenuStrip1
@@ -111,9 +124,9 @@
             this.cmBoxOrder.AccessibleName = "Järjestys";
             this.cmBoxOrder.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmBoxOrder.FormattingEnabled = true;
-            this.cmBoxOrder.Location = new System.Drawing.Point(13, 50);
+            this.cmBoxOrder.Location = new System.Drawing.Point(969, 486);
             this.cmBoxOrder.Name = "cmBoxOrder";
-            this.cmBoxOrder.Size = new System.Drawing.Size(278, 32);
+            this.cmBoxOrder.Size = new System.Drawing.Size(163, 32);
             this.cmBoxOrder.TabIndex = 6;
             // 
             // gBoxControl
@@ -180,19 +193,150 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(13, 92);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 45);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(951, 514);
             this.dataGridView1.TabIndex = 9;
+            // 
+            // pnlSearch
+            // 
+            this.pnlSearch.AccessibleName = "Hae lahjakortteja";
+            this.pnlSearch.Controls.Add(this.btnSearch);
+            this.pnlSearch.Controls.Add(this.cmBoxSum);
+            this.pnlSearch.Controls.Add(this.lblSum);
+            this.pnlSearch.Controls.Add(this.lblByer);
+            this.pnlSearch.Controls.Add(this.cmBoxByer);
+            this.pnlSearch.Controls.Add(this.lblDTPOrderDate);
+            this.pnlSearch.Controls.Add(this.dTPOrderDate);
+            this.pnlSearch.Controls.Add(this.lblSeller);
+            this.pnlSearch.Controls.Add(this.cmBoxSeller);
+            this.pnlSearch.Controls.Add(this.lblService);
+            this.pnlSearch.Controls.Add(this.cmBoxService);
+            this.pnlSearch.Location = new System.Drawing.Point(13, 585);
+            this.pnlSearch.Name = "pnlSearch";
+            this.pnlSearch.Size = new System.Drawing.Size(1107, 175);
+            this.pnlSearch.TabIndex = 10;
+            this.pnlSearch.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // cmBoxService
+            // 
+            this.cmBoxService.AccessibleName = "Palvelu";
+            this.cmBoxService.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmBoxService.FormattingEnabled = true;
+            this.cmBoxService.Location = new System.Drawing.Point(13, 37);
+            this.cmBoxService.Name = "cmBoxService";
+            this.cmBoxService.Size = new System.Drawing.Size(170, 32);
+            this.cmBoxService.TabIndex = 0;
+            // 
+            // lblService
+            // 
+            this.lblService.AutoSize = true;
+            this.lblService.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblService.Location = new System.Drawing.Point(9, 10);
+            this.lblService.Name = "lblService";
+            this.lblService.Size = new System.Drawing.Size(62, 24);
+            this.lblService.TabIndex = 1;
+            this.lblService.Text = "Tuote";
+            // 
+            // cmBoxSeller
+            // 
+            this.cmBoxSeller.AccessibleName = "Myyjä";
+            this.cmBoxSeller.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmBoxSeller.FormattingEnabled = true;
+            this.cmBoxSeller.Location = new System.Drawing.Point(208, 37);
+            this.cmBoxSeller.Name = "cmBoxSeller";
+            this.cmBoxSeller.Size = new System.Drawing.Size(170, 32);
+            this.cmBoxSeller.TabIndex = 2;
+            // 
+            // lblSeller
+            // 
+            this.lblSeller.AutoSize = true;
+            this.lblSeller.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSeller.Location = new System.Drawing.Point(204, 10);
+            this.lblSeller.Name = "lblSeller";
+            this.lblSeller.Size = new System.Drawing.Size(65, 24);
+            this.lblSeller.TabIndex = 3;
+            this.lblSeller.Text = "Myyjä";
+            // 
+            // dTPOrderDate
+            // 
+            this.dTPOrderDate.AccessibleName = "Tilaus päivämäärä";
+            this.dTPOrderDate.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dTPOrderDate.Location = new System.Drawing.Point(426, 37);
+            this.dTPOrderDate.Name = "dTPOrderDate";
+            this.dTPOrderDate.Size = new System.Drawing.Size(350, 32);
+            this.dTPOrderDate.TabIndex = 4;
+            // 
+            // lblDTPOrderDate
+            // 
+            this.lblDTPOrderDate.AutoSize = true;
+            this.lblDTPOrderDate.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDTPOrderDate.Location = new System.Drawing.Point(422, 10);
+            this.lblDTPOrderDate.Name = "lblDTPOrderDate";
+            this.lblDTPOrderDate.Size = new System.Drawing.Size(180, 24);
+            this.lblDTPOrderDate.TabIndex = 5;
+            this.lblDTPOrderDate.Text = "Tilaus päivämäärä";
+            // 
+            // cmBoxByer
+            // 
+            this.cmBoxByer.AccessibleName = "Ostaja";
+            this.cmBoxByer.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmBoxByer.FormattingEnabled = true;
+            this.cmBoxByer.Location = new System.Drawing.Point(13, 117);
+            this.cmBoxByer.Name = "cmBoxByer";
+            this.cmBoxByer.Size = new System.Drawing.Size(170, 32);
+            this.cmBoxByer.TabIndex = 6;
+            // 
+            // lblByer
+            // 
+            this.lblByer.AutoSize = true;
+            this.lblByer.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblByer.Location = new System.Drawing.Point(9, 90);
+            this.lblByer.Name = "lblByer";
+            this.lblByer.Size = new System.Drawing.Size(71, 24);
+            this.lblByer.TabIndex = 7;
+            this.lblByer.Text = "Ostaja";
+            // 
+            // lblSum
+            // 
+            this.lblSum.AutoSize = true;
+            this.lblSum.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSum.Location = new System.Drawing.Point(207, 90);
+            this.lblSum.Name = "lblSum";
+            this.lblSum.Size = new System.Drawing.Size(70, 24);
+            this.lblSum.TabIndex = 8;
+            this.lblSum.Text = "Määrä";
+            // 
+            // cmBoxSum
+            // 
+            this.cmBoxSum.AccessibleName = "Määrä";
+            this.cmBoxSum.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmBoxSum.FormattingEnabled = true;
+            this.cmBoxSum.Location = new System.Drawing.Point(211, 117);
+            this.cmBoxSum.Name = "cmBoxSum";
+            this.cmBoxSum.Size = new System.Drawing.Size(170, 32);
+            this.cmBoxSum.TabIndex = 9;
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.AccessibleName = "Etsi";
+            this.btnSearch.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearch.Location = new System.Drawing.Point(844, 37);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(164, 77);
+            this.btnSearch.TabIndex = 10;
+            this.btnSearch.Text = "Hae";
+            this.btnSearch.UseVisualStyleBackColor = true;
             // 
             // Paaikkuna
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1132, 789);
+            this.Controls.Add(this.cmBoxOrder);
+            this.Controls.Add(this.pnlSearch);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.gBoxControl);
-            this.Controls.Add(this.cmBoxOrder);
             this.Controls.Add(this.menuStrip1);
             this.Name = "Paaikkuna";
             this.Text = "Pääikkuna";
@@ -200,6 +344,8 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.pnlSearch.ResumeLayout(false);
+            this.pnlSearch.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -221,6 +367,18 @@
         private System.Windows.Forms.ToolStripMenuItem lopetaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem haeToolStripMenuItem;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Panel pnlSearch;
+        private System.Windows.Forms.ComboBox cmBoxService;
+        private System.Windows.Forms.Label lblService;
+        private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.ComboBox cmBoxSum;
+        private System.Windows.Forms.Label lblSum;
+        private System.Windows.Forms.Label lblByer;
+        private System.Windows.Forms.ComboBox cmBoxByer;
+        private System.Windows.Forms.Label lblDTPOrderDate;
+        private System.Windows.Forms.DateTimePicker dTPOrderDate;
+        private System.Windows.Forms.Label lblSeller;
+        private System.Windows.Forms.ComboBox cmBoxSeller;
     }
 }
 
