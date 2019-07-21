@@ -5,6 +5,12 @@ VisualStudioVersion = 15.0.27703.2000
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lahjakorttiappi", "Lahjakorttiappi\Lahjakorttiappi.csproj", "{DF78ED59-2853-4490-BB6D-80184DD58E5D}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{98A8784C-FEAE-4BE3-9BA8-6D0DD7F8764A}"
+	ProjectSection(SolutionItems) = preProject
+		Lahjakorttiappi\Lahjakortti.ldf = Lahjakorttiappi\Lahjakortti.ldf
+		Lahjakorttiappi\Lahjakortti.mdf = Lahjakorttiappi\Lahjakortti.mdf
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

@@ -43,21 +43,21 @@
             this.txtBoxLastName = new System.Windows.Forms.TextBox();
             this.txtBoxFristName = new System.Windows.Forms.TextBox();
             this.pnlControls = new System.Windows.Forms.Panel();
+            this.btnSend = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
             this.btnEmpty = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
-            this.btnSend = new System.Windows.Forms.Button();
             this.pnGiftCardInfo = new System.Windows.Forms.Panel();
-            this.dtmSellTime = new System.Windows.Forms.DateTimePicker();
-            this.numAmount = new System.Windows.Forms.NumericUpDown();
-            this.cmBoxService = new System.Windows.Forms.ComboBox();
-            this.cmBoxTime = new System.Windows.Forms.ComboBox();
-            this.lblService = new System.Windows.Forms.Label();
-            this.lblTime = new System.Windows.Forms.Label();
-            this.lblAmmount = new System.Windows.Forms.Label();
-            this.lblDate = new System.Windows.Forms.Label();
-            this.cmBoxSeller = new System.Windows.Forms.ComboBox();
             this.lblSeller = new System.Windows.Forms.Label();
+            this.cmBoxSeller = new System.Windows.Forms.ComboBox();
+            this.lblDate = new System.Windows.Forms.Label();
+            this.lblAmmount = new System.Windows.Forms.Label();
+            this.lblTime = new System.Windows.Forms.Label();
+            this.lblService = new System.Windows.Forms.Label();
+            this.cmBoxTime = new System.Windows.Forms.ComboBox();
+            this.cmBoxService = new System.Windows.Forms.ComboBox();
+            this.numAmount = new System.Windows.Forms.NumericUpDown();
+            this.dtmSellTime = new System.Windows.Forms.DateTimePicker();
             this.pnlGiftCardByer.SuspendLayout();
             this.pnlControls.SuspendLayout();
             this.pnGiftCardInfo.SuspendLayout();
@@ -220,6 +220,18 @@
             this.pnlControls.Size = new System.Drawing.Size(181, 425);
             this.pnlControls.TabIndex = 1;
             // 
+            // btnSend
+            // 
+            this.btnSend.AccessibleName = "Lähetä ";
+            this.btnSend.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnSend.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSend.Location = new System.Drawing.Point(15, 246);
+            this.btnSend.Name = "btnSend";
+            this.btnSend.Size = new System.Drawing.Size(152, 71);
+            this.btnSend.TabIndex = 3;
+            this.btnSend.Text = "Lähetä";
+            this.btnSend.UseVisualStyleBackColor = true;
+            // 
             // btnExit
             // 
             this.btnExit.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -229,6 +241,7 @@
             this.btnExit.TabIndex = 2;
             this.btnExit.Text = "Poistu";
             this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // btnEmpty
             // 
@@ -251,18 +264,6 @@
             this.btnAdd.Text = "Lisää";
             this.btnAdd.UseVisualStyleBackColor = true;
             // 
-            // btnSend
-            // 
-            this.btnSend.AccessibleName = "Lähetä ";
-            this.btnSend.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btnSend.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSend.Location = new System.Drawing.Point(15, 246);
-            this.btnSend.Name = "btnSend";
-            this.btnSend.Size = new System.Drawing.Size(152, 71);
-            this.btnSend.TabIndex = 3;
-            this.btnSend.Text = "Lähetä";
-            this.btnSend.UseVisualStyleBackColor = true;
-            // 
             // pnGiftCardInfo
             // 
             this.pnGiftCardInfo.Controls.Add(this.lblSeller);
@@ -280,82 +281,15 @@
             this.pnGiftCardInfo.Size = new System.Drawing.Size(588, 164);
             this.pnGiftCardInfo.TabIndex = 2;
             // 
-            // dtmSellTime
+            // lblSeller
             // 
-            this.dtmSellTime.CalendarFont = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtmSellTime.Location = new System.Drawing.Point(374, 37);
-            this.dtmSellTime.Name = "dtmSellTime";
-            this.dtmSellTime.Size = new System.Drawing.Size(211, 20);
-            this.dtmSellTime.TabIndex = 0;
-            // 
-            // numAmount
-            // 
-            this.numAmount.AccessibleName = "Kerrtojen märä";
-            this.numAmount.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numAmount.Location = new System.Drawing.Point(213, 37);
-            this.numAmount.Name = "numAmount";
-            this.numAmount.Size = new System.Drawing.Size(120, 32);
-            this.numAmount.TabIndex = 1;
-            // 
-            // cmBoxService
-            // 
-            this.cmBoxService.AccessibleName = "Palvelu ";
-            this.cmBoxService.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmBoxService.FormattingEnabled = true;
-            this.cmBoxService.Location = new System.Drawing.Point(13, 37);
-            this.cmBoxService.Name = "cmBoxService";
-            this.cmBoxService.Size = new System.Drawing.Size(151, 32);
-            this.cmBoxService.TabIndex = 0;
-            // 
-            // cmBoxTime
-            // 
-            this.cmBoxTime.AccessibleName = "Kesto";
-            this.cmBoxTime.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmBoxTime.FormattingEnabled = true;
-            this.cmBoxTime.Location = new System.Drawing.Point(13, 110);
-            this.cmBoxTime.Name = "cmBoxTime";
-            this.cmBoxTime.Size = new System.Drawing.Size(151, 32);
-            this.cmBoxTime.TabIndex = 2;
-            // 
-            // lblService
-            // 
-            this.lblService.AutoSize = true;
-            this.lblService.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblService.Location = new System.Drawing.Point(9, 9);
-            this.lblService.Name = "lblService";
-            this.lblService.Size = new System.Drawing.Size(78, 24);
-            this.lblService.TabIndex = 3;
-            this.lblService.Text = "Palvelu";
-            // 
-            // lblTime
-            // 
-            this.lblTime.AutoSize = true;
-            this.lblTime.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTime.Location = new System.Drawing.Point(9, 83);
-            this.lblTime.Name = "lblTime";
-            this.lblTime.Size = new System.Drawing.Size(68, 24);
-            this.lblTime.TabIndex = 4;
-            this.lblTime.Text = "Pituus";
-            // 
-            // lblAmmount
-            // 
-            this.lblAmmount.AutoSize = true;
-            this.lblAmmount.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAmmount.Location = new System.Drawing.Point(209, 9);
-            this.lblAmmount.Name = "lblAmmount";
-            this.lblAmmount.Size = new System.Drawing.Size(70, 24);
-            this.lblAmmount.TabIndex = 5;
-            this.lblAmmount.Text = "Määrä";
-            // 
-            // lblDate
-            // 
-            this.lblDate.AutoSize = true;
-            this.lblDate.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDate.Location = new System.Drawing.Point(370, 9);
-            this.lblDate.Name = "lblDate";
-            this.lblDate.Size = new System.Drawing.Size(186, 24);
-            this.lblDate.TabIndex = 6;
-            this.lblDate.Text = "Voimaan tulo päivä";
+            this.lblSeller.AutoSize = true;
+            this.lblSeller.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSeller.Location = new System.Drawing.Point(211, 83);
+            this.lblSeller.Name = "lblSeller";
+            this.lblSeller.Size = new System.Drawing.Size(65, 24);
+            this.lblSeller.TabIndex = 8;
+            this.lblSeller.Text = "Myyjä";
             // 
             // cmBoxSeller
             // 
@@ -367,15 +301,82 @@
             this.cmBoxSeller.Size = new System.Drawing.Size(151, 32);
             this.cmBoxSeller.TabIndex = 7;
             // 
-            // lblSeller
+            // lblDate
             // 
-            this.lblSeller.AutoSize = true;
-            this.lblSeller.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSeller.Location = new System.Drawing.Point(211, 83);
-            this.lblSeller.Name = "lblSeller";
-            this.lblSeller.Size = new System.Drawing.Size(65, 24);
-            this.lblSeller.TabIndex = 8;
-            this.lblSeller.Text = "Myyjä";
+            this.lblDate.AutoSize = true;
+            this.lblDate.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDate.Location = new System.Drawing.Point(370, 9);
+            this.lblDate.Name = "lblDate";
+            this.lblDate.Size = new System.Drawing.Size(186, 24);
+            this.lblDate.TabIndex = 6;
+            this.lblDate.Text = "Voimaan tulo päivä";
+            // 
+            // lblAmmount
+            // 
+            this.lblAmmount.AutoSize = true;
+            this.lblAmmount.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAmmount.Location = new System.Drawing.Point(209, 9);
+            this.lblAmmount.Name = "lblAmmount";
+            this.lblAmmount.Size = new System.Drawing.Size(70, 24);
+            this.lblAmmount.TabIndex = 5;
+            this.lblAmmount.Text = "Määrä";
+            // 
+            // lblTime
+            // 
+            this.lblTime.AutoSize = true;
+            this.lblTime.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTime.Location = new System.Drawing.Point(9, 83);
+            this.lblTime.Name = "lblTime";
+            this.lblTime.Size = new System.Drawing.Size(68, 24);
+            this.lblTime.TabIndex = 4;
+            this.lblTime.Text = "Pituus";
+            // 
+            // lblService
+            // 
+            this.lblService.AutoSize = true;
+            this.lblService.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblService.Location = new System.Drawing.Point(9, 9);
+            this.lblService.Name = "lblService";
+            this.lblService.Size = new System.Drawing.Size(78, 24);
+            this.lblService.TabIndex = 3;
+            this.lblService.Text = "Palvelu";
+            // 
+            // cmBoxTime
+            // 
+            this.cmBoxTime.AccessibleName = "Kesto";
+            this.cmBoxTime.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmBoxTime.FormattingEnabled = true;
+            this.cmBoxTime.Location = new System.Drawing.Point(13, 110);
+            this.cmBoxTime.Name = "cmBoxTime";
+            this.cmBoxTime.Size = new System.Drawing.Size(151, 32);
+            this.cmBoxTime.TabIndex = 2;
+            // 
+            // cmBoxService
+            // 
+            this.cmBoxService.AccessibleName = "Palvelu ";
+            this.cmBoxService.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmBoxService.FormattingEnabled = true;
+            this.cmBoxService.Location = new System.Drawing.Point(13, 37);
+            this.cmBoxService.Name = "cmBoxService";
+            this.cmBoxService.Size = new System.Drawing.Size(151, 32);
+            this.cmBoxService.TabIndex = 0;
+            // 
+            // numAmount
+            // 
+            this.numAmount.AccessibleName = "Kerrtojen märä";
+            this.numAmount.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numAmount.Location = new System.Drawing.Point(213, 37);
+            this.numAmount.Name = "numAmount";
+            this.numAmount.Size = new System.Drawing.Size(120, 32);
+            this.numAmount.TabIndex = 1;
+            // 
+            // dtmSellTime
+            // 
+            this.dtmSellTime.CalendarFont = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtmSellTime.Location = new System.Drawing.Point(374, 37);
+            this.dtmSellTime.Name = "dtmSellTime";
+            this.dtmSellTime.Size = new System.Drawing.Size(211, 20);
+            this.dtmSellTime.TabIndex = 0;
             // 
             // Lisaaminen
             // 

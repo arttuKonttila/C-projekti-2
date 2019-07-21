@@ -19,7 +19,7 @@ namespace Lahjakorttiappi
 
         private void btnMuokkaa_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         private void lopetaToolStripMenuItem_Click(object sender, EventArgs e)
@@ -35,6 +35,24 @@ namespace Lahjakorttiappi
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void btnLisaa_Click(object sender, EventArgs e)
+        {
+            Lisaaminen Lisaa = new Lisaaminen();
+            Lisaa.ShowDialog();
+        }
+
+        private void asetuksetToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Asetukset Asetukset = new Asetukset();
+            Asetukset.ShowDialog();
+        }
+
+        private void lisääUusiToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Lisaaminen Lisaa = new Lisaaminen();
+            Lisaa.ShowDialog();
         }
     }
 }
