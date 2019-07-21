@@ -305,7 +305,7 @@
             // 
             this.lblDate.AutoSize = true;
             this.lblDate.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDate.Location = new System.Drawing.Point(370, 9);
+            this.lblDate.Location = new System.Drawing.Point(303, 9);
             this.lblDate.Name = "lblDate";
             this.lblDate.Size = new System.Drawing.Size(186, 24);
             this.lblDate.TabIndex = 6;
@@ -367,15 +367,16 @@
             this.numAmount.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numAmount.Location = new System.Drawing.Point(213, 37);
             this.numAmount.Name = "numAmount";
-            this.numAmount.Size = new System.Drawing.Size(120, 32);
+            this.numAmount.Size = new System.Drawing.Size(66, 32);
             this.numAmount.TabIndex = 1;
             // 
             // dtmSellTime
             // 
             this.dtmSellTime.CalendarFont = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtmSellTime.Location = new System.Drawing.Point(374, 37);
+            this.dtmSellTime.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtmSellTime.Location = new System.Drawing.Point(307, 37);
             this.dtmSellTime.Name = "dtmSellTime";
-            this.dtmSellTime.Size = new System.Drawing.Size(211, 20);
+            this.dtmSellTime.Size = new System.Drawing.Size(278, 32);
             this.dtmSellTime.TabIndex = 0;
             // 
             // Lisaaminen
