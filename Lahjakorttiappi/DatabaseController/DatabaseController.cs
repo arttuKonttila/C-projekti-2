@@ -12,7 +12,7 @@ namespace Lahjakorttiappi.DatabaseController
     {
         //Connects to sql database
         SqlConnection connect = new SqlConnection();
-        string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=\Lahjakorttiappi\Lahjakortti.mdf;Integrated Security=True";
+        string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\arttu\source\repos\Lahjakorttiappi\Lahjakorttiappi\Lahjakortti.mdf;Integrated Security=True";
 
         public bool connectDatabase()
         {
@@ -39,11 +39,13 @@ namespace Lahjakorttiappi.DatabaseController
         //Gets all data from Asiakastiedot table
         public DataSet bringAllData(DataSet ds)
         {
+            connectDatabase();
             var select = "SELECT * FROM Asiakastiedot";
             var c = connect;
             var dataAdapter = new SqlDataAdapter(select, c);
             var commandBuilder = new SqlCommandBuilder(dataAdapter);
-            dataAdapter.Fill(ds);
+            ds.Tables.Add("Asiakastiedot");
+            dataAdapter.Fill(ds, "Asiakastiedot");
             disconnectDatabse();
             return ds;
         }
