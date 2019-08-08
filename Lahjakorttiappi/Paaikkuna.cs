@@ -19,7 +19,9 @@ namespace Lahjakorttiappi
 
         private void btnMuokkaa_Click(object sender, EventArgs e)
         {
-            
+           
+                Lisaaminen Lisaa = new Lisaaminen();
+            Lisaa.ShowDialog();
         }
 
         private void lopetaToolStripMenuItem_Click(object sender, EventArgs e)
