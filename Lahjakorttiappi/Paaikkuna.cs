@@ -20,6 +20,7 @@ namespace Lahjakorttiappi
             dBController.bringAllData(ds);
             dataGridView1.AutoGenerateColumns = true;
             dataGridView1.DataSource = ds;
+            dataGridView1.DataMember = "Asiakastiedot";
         }
 
         private void btnMuokkaa_Click(object sender, EventArgs e)

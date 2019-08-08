@@ -44,7 +44,8 @@ namespace Lahjakorttiappi.DatabaseController
             var c = connect;
             var dataAdapter = new SqlDataAdapter(select, c);
             var commandBuilder = new SqlCommandBuilder(dataAdapter);
-            dataAdapter.Fill(ds);
+            ds.Tables.Add("Asiakastiedot");
+            dataAdapter.Fill(ds, "Asiakastiedot");
             disconnectDatabse();
             return ds;
         }
