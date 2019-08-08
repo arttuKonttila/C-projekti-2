@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Lahjakorttiappi
 {
-    public partial class Lisaaminen : Form
+    public partial class AsiakasTiedot : Form
     {
-        public Lisaaminen()
+        public AsiakasTiedot()
         {
             InitializeComponent();
         }
