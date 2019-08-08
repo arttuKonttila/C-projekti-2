@@ -12,9 +12,14 @@ namespace Lahjakorttiappi
 {
     public partial class Paaikkuna : Form
     {
+        DatabaseController.DatabaseController dBController = new DatabaseController.DatabaseController();
+        DataSet ds = new DataSet();
         public Paaikkuna()
         {
             InitializeComponent();
+            dBController.bringAllData(ds);
+            dataGridView1.AutoGenerateColumns = true;
+            dataGridView1.DataSource = ds;
         }
 
         private void btnMuokkaa_Click(object sender, EventArgs e)
@@ -53,6 +58,11 @@ namespace Lahjakorttiappi
         {
             Lisaaminen Lisaa = new Lisaaminen();
             Lisaa.ShowDialog();
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

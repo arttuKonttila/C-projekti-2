@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data;
 using System.Data.SqlClient;
 
 namespace Lahjakorttiappi.DatabaseController
@@ -35,6 +36,16 @@ namespace Lahjakorttiappi.DatabaseController
             connect.Close();
         }
 
-
+        //Gets all data from Asiakastiedot table
+        public DataSet bringAllData(DataSet ds)
+        {
+            var select = "SELECT * FROM Asiakastiedot";
+            var c = connect;
+            var dataAdapter = new SqlDataAdapter(select, c);
+            var commandBuilder = new SqlCommandBuilder(dataAdapter);
+            dataAdapter.Fill(ds);
+            disconnectDatabse();
+            return ds;
+        }
     }
 }
