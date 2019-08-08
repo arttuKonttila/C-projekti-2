@@ -29,5 +29,12 @@ namespace Lahjakorttiappi.DatabaseController
             }
         }
 
+        //Closes the connection between the database
+        public void disconnectDatabse()
+        {
+            connect.Close();
+        }
+
+
     }
 }
