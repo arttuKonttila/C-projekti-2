@@ -1,6 +1,6 @@
 ﻿namespace Lahjakorttiappi
 {
-    partial class Lisaaminen
+    partial class AsiakasTiedot
     {
         /// <summary>
         /// Required designer variable.
@@ -58,6 +58,8 @@
             this.cmBoxService = new System.Windows.Forms.ComboBox();
             this.numAmount = new System.Windows.Forms.NumericUpDown();
             this.dtmSellTime = new System.Windows.Forms.DateTimePicker();
+            this.lblID = new System.Windows.Forms.Label();
+            this.txtBoxID = new System.Windows.Forms.TextBox();
             this.pnlGiftCardByer.SuspendLayout();
             this.pnlControls.SuspendLayout();
             this.pnGiftCardInfo.SuspendLayout();
@@ -67,6 +69,8 @@
             // pnlGiftCardByer
             // 
             this.pnlGiftCardByer.AccessibleDescription = "Tietojen lisäys paneeli";
+            this.pnlGiftCardByer.Controls.Add(this.txtBoxID);
+            this.pnlGiftCardByer.Controls.Add(this.lblID);
             this.pnlGiftCardByer.Controls.Add(this.lblEmail);
             this.pnlGiftCardByer.Controls.Add(this.lblPhone);
             this.pnlGiftCardByer.Controls.Add(this.lblPo);
@@ -82,14 +86,14 @@
             this.pnlGiftCardByer.Controls.Add(this.txtBoxFristName);
             this.pnlGiftCardByer.Location = new System.Drawing.Point(12, 13);
             this.pnlGiftCardByer.Name = "pnlGiftCardByer";
-            this.pnlGiftCardByer.Size = new System.Drawing.Size(589, 254);
+            this.pnlGiftCardByer.Size = new System.Drawing.Size(589, 317);
             this.pnlGiftCardByer.TabIndex = 0;
             // 
             // lblEmail
             // 
             this.lblEmail.AutoSize = true;
             this.lblEmail.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEmail.Location = new System.Drawing.Point(50, 199);
+            this.lblEmail.Location = new System.Drawing.Point(51, 246);
             this.lblEmail.Name = "lblEmail";
             this.lblEmail.Size = new System.Drawing.Size(114, 24);
             this.lblEmail.TabIndex = 12;
@@ -99,7 +103,7 @@
             // 
             this.lblPhone.AutoSize = true;
             this.lblPhone.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPhone.Location = new System.Drawing.Point(50, 162);
+            this.lblPhone.Location = new System.Drawing.Point(51, 209);
             this.lblPhone.Name = "lblPhone";
             this.lblPhone.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.lblPhone.Size = new System.Drawing.Size(147, 24);
@@ -110,7 +114,7 @@
             // 
             this.lblPo.AutoSize = true;
             this.lblPo.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPo.Location = new System.Drawing.Point(50, 129);
+            this.lblPo.Location = new System.Drawing.Point(51, 176);
             this.lblPo.Name = "lblPo";
             this.lblPo.Size = new System.Drawing.Size(50, 24);
             this.lblPo.TabIndex = 10;
@@ -120,7 +124,7 @@
             // 
             this.lblAdress.AutoSize = true;
             this.lblAdress.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAdress.Location = new System.Drawing.Point(50, 94);
+            this.lblAdress.Location = new System.Drawing.Point(51, 141);
             this.lblAdress.Name = "lblAdress";
             this.lblAdress.Size = new System.Drawing.Size(72, 24);
             this.lblAdress.TabIndex = 9;
@@ -130,7 +134,7 @@
             // 
             this.lblLastName.AutoSize = true;
             this.lblLastName.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLastName.Location = new System.Drawing.Point(50, 59);
+            this.lblLastName.Location = new System.Drawing.Point(51, 106);
             this.lblLastName.Name = "lblLastName";
             this.lblLastName.Size = new System.Drawing.Size(99, 24);
             this.lblLastName.TabIndex = 8;
@@ -140,7 +144,7 @@
             // 
             this.lblFristName.AutoSize = true;
             this.lblFristName.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFristName.Location = new System.Drawing.Point(50, 24);
+            this.lblFristName.Location = new System.Drawing.Point(51, 71);
             this.lblFristName.Name = "lblFristName";
             this.lblFristName.Size = new System.Drawing.Size(84, 24);
             this.lblFristName.TabIndex = 7;
@@ -150,7 +154,7 @@
             // 
             this.txtBoxEmail.AccessibleName = "Sähköposti";
             this.txtBoxEmail.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBoxEmail.Location = new System.Drawing.Point(213, 197);
+            this.txtBoxEmail.Location = new System.Drawing.Point(214, 244);
             this.txtBoxEmail.Name = "txtBoxEmail";
             this.txtBoxEmail.Size = new System.Drawing.Size(260, 29);
             this.txtBoxEmail.TabIndex = 6;
@@ -159,7 +163,7 @@
             // 
             this.txtBoxPhone.AccessibleName = "Puhelinnumero";
             this.txtBoxPhone.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBoxPhone.Location = new System.Drawing.Point(213, 162);
+            this.txtBoxPhone.Location = new System.Drawing.Point(214, 209);
             this.txtBoxPhone.Name = "txtBoxPhone";
             this.txtBoxPhone.Size = new System.Drawing.Size(260, 29);
             this.txtBoxPhone.TabIndex = 5;
@@ -168,7 +172,7 @@
             // 
             this.txtBoxPoPlace.AccessibleName = "Postitoimipaikka";
             this.txtBoxPoPlace.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBoxPoPlace.Location = new System.Drawing.Point(329, 127);
+            this.txtBoxPoPlace.Location = new System.Drawing.Point(330, 174);
             this.txtBoxPoPlace.Name = "txtBoxPoPlace";
             this.txtBoxPoPlace.Size = new System.Drawing.Size(144, 29);
             this.txtBoxPoPlace.TabIndex = 4;
@@ -177,7 +181,7 @@
             // 
             this.txtBoxPoNbr.AccessibleName = "Postinumero";
             this.txtBoxPoNbr.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBoxPoNbr.Location = new System.Drawing.Point(213, 127);
+            this.txtBoxPoNbr.Location = new System.Drawing.Point(214, 174);
             this.txtBoxPoNbr.Name = "txtBoxPoNbr";
             this.txtBoxPoNbr.Size = new System.Drawing.Size(110, 29);
             this.txtBoxPoNbr.TabIndex = 3;
@@ -186,7 +190,7 @@
             // 
             this.TxtBoxAdress.AccessibleName = "Osoite";
             this.TxtBoxAdress.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtBoxAdress.Location = new System.Drawing.Point(213, 92);
+            this.TxtBoxAdress.Location = new System.Drawing.Point(214, 139);
             this.TxtBoxAdress.Name = "TxtBoxAdress";
             this.TxtBoxAdress.Size = new System.Drawing.Size(260, 29);
             this.TxtBoxAdress.TabIndex = 2;
@@ -195,7 +199,7 @@
             // 
             this.txtBoxLastName.AccessibleName = "Sukunimi";
             this.txtBoxLastName.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBoxLastName.Location = new System.Drawing.Point(213, 57);
+            this.txtBoxLastName.Location = new System.Drawing.Point(214, 104);
             this.txtBoxLastName.Name = "txtBoxLastName";
             this.txtBoxLastName.Size = new System.Drawing.Size(260, 29);
             this.txtBoxLastName.TabIndex = 1;
@@ -204,7 +208,7 @@
             // 
             this.txtBoxFristName.AccessibleName = "Etunimi";
             this.txtBoxFristName.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBoxFristName.Location = new System.Drawing.Point(213, 22);
+            this.txtBoxFristName.Location = new System.Drawing.Point(214, 69);
             this.txtBoxFristName.Name = "txtBoxFristName";
             this.txtBoxFristName.Size = new System.Drawing.Size(260, 29);
             this.txtBoxFristName.TabIndex = 0;
@@ -217,7 +221,7 @@
             this.pnlControls.Controls.Add(this.btnAdd);
             this.pnlControls.Location = new System.Drawing.Point(607, 13);
             this.pnlControls.Name = "pnlControls";
-            this.pnlControls.Size = new System.Drawing.Size(181, 425);
+            this.pnlControls.Size = new System.Drawing.Size(181, 492);
             this.pnlControls.TabIndex = 1;
             // 
             // btnSend
@@ -276,7 +280,7 @@
             this.pnGiftCardInfo.Controls.Add(this.cmBoxService);
             this.pnGiftCardInfo.Controls.Add(this.numAmount);
             this.pnGiftCardInfo.Controls.Add(this.dtmSellTime);
-            this.pnGiftCardInfo.Location = new System.Drawing.Point(12, 273);
+            this.pnGiftCardInfo.Location = new System.Drawing.Point(13, 341);
             this.pnGiftCardInfo.Name = "pnGiftCardInfo";
             this.pnGiftCardInfo.Size = new System.Drawing.Size(588, 164);
             this.pnGiftCardInfo.TabIndex = 2;
@@ -379,16 +383,36 @@
             this.dtmSellTime.Size = new System.Drawing.Size(278, 32);
             this.dtmSellTime.TabIndex = 0;
             // 
-            // Lisaaminen
+            // lblID
+            // 
+            this.lblID.AutoSize = true;
+            this.lblID.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblID.Location = new System.Drawing.Point(51, 38);
+            this.lblID.Name = "lblID";
+            this.lblID.Size = new System.Drawing.Size(120, 24);
+            this.lblID.TabIndex = 13;
+            this.lblID.Text = "Asiakas nro";
+            // 
+            // txtBoxID
+            // 
+            this.txtBoxID.AccessibleName = "Asiakas numero";
+            this.txtBoxID.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBoxID.Location = new System.Drawing.Point(214, 33);
+            this.txtBoxID.Name = "txtBoxID";
+            this.txtBoxID.ReadOnly = true;
+            this.txtBoxID.Size = new System.Drawing.Size(66, 29);
+            this.txtBoxID.TabIndex = 14;
+            // 
+            // AsiakasTiedot
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(809, 517);
             this.Controls.Add(this.pnGiftCardInfo);
             this.Controls.Add(this.pnlControls);
             this.Controls.Add(this.pnlGiftCardByer);
-            this.Name = "Lisaaminen";
-            this.Text = "Lisaaminen";
+            this.Name = "AsiakasTiedot";
+            this.Text = "Asiakas tiedot";
             this.pnlGiftCardByer.ResumeLayout(false);
             this.pnlGiftCardByer.PerformLayout();
             this.pnlControls.ResumeLayout(false);
@@ -431,5 +455,7 @@
         private System.Windows.Forms.DateTimePicker dtmSellTime;
         private System.Windows.Forms.Label lblSeller;
         private System.Windows.Forms.ComboBox cmBoxSeller;
+        private System.Windows.Forms.TextBox txtBoxID;
+        private System.Windows.Forms.Label lblID;
     }
 }

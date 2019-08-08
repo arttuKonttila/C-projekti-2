@@ -24,7 +24,9 @@ namespace Lahjakorttiappi
 
         private void btnMuokkaa_Click(object sender, EventArgs e)
         {
-            
+           
+                AsiakasTiedot Lisaa = new AsiakasTiedot();
+            Lisaa.ShowDialog();
         }
 
         private void lopetaToolStripMenuItem_Click(object sender, EventArgs e)
@@ -44,7 +46,7 @@ namespace Lahjakorttiappi
 
         private void btnLisaa_Click(object sender, EventArgs e)
         {
-            Lisaaminen Lisaa = new Lisaaminen();
+            AsiakasTiedot Lisaa = new AsiakasTiedot();
             Lisaa.ShowDialog();
         }
 
@@ -56,7 +58,7 @@ namespace Lahjakorttiappi
 
         private void lisääUusiToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Lisaaminen Lisaa = new Lisaaminen();
+            AsiakasTiedot Lisaa = new AsiakasTiedot();
             Lisaa.ShowDialog();
         }
 
