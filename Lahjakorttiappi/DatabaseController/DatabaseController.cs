@@ -39,6 +39,7 @@ namespace Lahjakorttiappi.DatabaseController
         //Gets all data from Asiakastiedot table
         public DataSet bringAllData(DataSet ds)
         {
+            connectDatabase();
             var select = "SELECT * FROM Asiakastiedot";
             var c = connect;
             var dataAdapter = new SqlDataAdapter(select, c);
