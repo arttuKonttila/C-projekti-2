@@ -25,9 +25,34 @@ namespace Lahjakorttiappi
 
         private void btnMuokkaa_Click(object sender, EventArgs e)
         {
-           
-                AsiakasTiedot Lisaa = new AsiakasTiedot();
-            Lisaa.ShowDialog();
+            AsiakasTiedot lisaa = new AsiakasTiedot();
+            lisaa.ShowDialog();
+            var dialogResult = lisaa.DialogResult;
+
+            //saves the text field data into the database
+            if(dialogResult == DialogResult.OK) 
+            {
+                try
+                {
+                    var fName = lisaa.getFName;
+                    var lName = lisaa.getLName;
+                    var id = lisaa.getID;
+                    var email = lisaa.getEmail;
+                    var pNumber = lisaa.getPNumber;
+                    var zip = lisaa.getZip;
+                    var poAdress = lisaa.getPoAdress;
+                    var adress = lisaa.getAdress;
+                    dBController.changeCustomerInfo(fName, lName, adress, email, id, poAdress, zip, pNumber);
+                }
+                catch
+                {
+
+                }
+            }
+            else
+            {
+                return;
+            }
         }
 
         private void lopetaToolStripMenuItem_Click(object sender, EventArgs e)

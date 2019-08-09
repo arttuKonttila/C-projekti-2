@@ -14,7 +14,6 @@ namespace Lahjakorttiappi.DatabaseController
 
         //Connects to sql database
         SqlConnection connect = new SqlConnection();
-        // string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\arttu\source\repos\Lahjakorttiappi\Lahjakorttiappi\Lahjakortti.mdf;Integrated Security=True";
         string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Lahjakortti;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
         public bool connectDatabase()
         {
@@ -50,6 +49,18 @@ namespace Lahjakorttiappi.DatabaseController
             dataAdapter.Fill(ds, "Asiakastiedot");
             disconnectDatabse();
             return ds;
+        }
+
+        public bool changeCustomerInfo(string fName, string lName, string adress, string email, string id, string poAdress, string zip, string pNumber)
+        {
+            if(fName == lName)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }
