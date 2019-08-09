@@ -10,10 +10,12 @@ namespace Lahjakorttiappi.DatabaseController
 {
     class DatabaseController
     {
+       
+
         //Connects to sql database
         SqlConnection connect = new SqlConnection();
-        string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\arttu\source\repos\Lahjakorttiappi\Lahjakorttiappi\Lahjakortti.mdf;Integrated Security=True";
-
+        // string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\arttu\source\repos\Lahjakorttiappi\Lahjakorttiappi\Lahjakortti.mdf;Integrated Security=True";
+        string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Lahjakortti;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
         public bool connectDatabase()
         {
             connect.ConnectionString = connectionString;
