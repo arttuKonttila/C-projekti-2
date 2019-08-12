@@ -67,6 +67,12 @@
       <DependentUpon>Asetukset.cs</DependentUpon>
     </Compile>
     <Compile Include="DatabaseController\DatabaseController.cs" />
+    <Compile Include="Tuotteet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tuotteet.Designer.cs">
+      <DependentUpon>Tuotteet.cs</DependentUpon>
+    </Compile>
     <Compile Include="Paaikkuna.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -83,6 +89,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Asetukset.resx">
       <DependentUpon>Asetukset.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tuotteet.resx">
+      <DependentUpon>Tuotteet.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Paaikkuna.resx">
       <DependentUpon>Paaikkuna.cs</DependentUpon>
