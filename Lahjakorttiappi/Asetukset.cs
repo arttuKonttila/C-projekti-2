@@ -69,5 +69,17 @@ namespace Lahjakorttiappi
             Tuotteet Tuotteet = new Tuotteet();
             Tuotteet.ShowDialog();
         }
+
+        private void txtBoxFirmName_TextChanged(object sender, EventArgs e)
+        {
+            if (txtBoxFirmName.Text == "")
+            {
+                MessageBox.Show("Lisää yrityksen nimi");
+            }
+
+            
+                    
+                    
+        }
     }
 }
