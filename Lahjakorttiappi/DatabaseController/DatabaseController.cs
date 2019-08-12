@@ -12,7 +12,7 @@ namespace Lahjakorttiappi.DatabaseController
     {
         //Connects to sql database
         SqlConnection connect = new SqlConnection();
-        string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\arttu\source\repos\Lahjakorttiappi\Lahjakorttiappi\Lahjakortti.mdf;Integrated Security=True";
+        string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\arttu\source\repos\<<Lahjakorttiappi\Lahjakorttiappi\Lahjakortti.mdf;Integrated Security=True";
 
         public bool connectDatabase()
         {
