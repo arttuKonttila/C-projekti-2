@@ -18,19 +18,27 @@ namespace Lahjakorttiappi
         public Tuotteet()
         {
             InitializeComponent();
+            loadData();
+        }
+
+        private void loadData()
+        {
+
             dBController.bringProductInfo(ds);
             dGWProducts.AutoGenerateColumns = true;
             dGWProducts.DataSource = ds;
             dGWProducts.DataMember = "ProductInfo";
-
-
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
+        }
+
+        private void btnLisaaTuoet_Click(object sender, EventArgs e)
+        {
             Class.Products product = new Class.Products();
             product.Palvelu = txtBoxLisaaTuote.Text;
-            if(dBController.addProduct(product) == true)
+            if (dBController.addProduct(product) == true)
             {
                 MessageBox.Show("Tuote lisättiin onnistuneesti");
             }
@@ -38,12 +46,8 @@ namespace Lahjakorttiappi
             {
                 MessageBox.Show("Tuotteen lisäyksessä tapahtui virhe");
             }
-        }
-
-        private void btnLisaaTuoet_Click(object sender, EventArgs e)
-        {
-            
-            //txtBoxLisaaTuote
+            ds.Tables.Remove("ProductInfo");
+            loadData();
         }
         private void textBoxEmptyTest()
         {
@@ -76,6 +80,20 @@ namespace Lahjakorttiappi
 
             }
 
+        }
+
+        private void btnDelProduct_Click(object sender, EventArgs e)
+        {
+            if (this.dGWProducts.SelectedRows.Count > 0)
+            {
+                int id = Convert.ToInt32(dGWProducts.CurrentRow.Cells["PalveluNro"].Value);
+                dGWProducts.Rows.RemoveAt(this.dGWProducts.SelectedRows[0].Index);
+                dBController.removeById();
+            }
+            else
+            {
+                return;
+            }
         }
     }
 }

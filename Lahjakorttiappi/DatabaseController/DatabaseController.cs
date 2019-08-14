@@ -66,9 +66,35 @@ namespace Lahjakorttiappi.DatabaseController
             return ds;
         }
 
+        /*public DataSet bringProductsOnly(DataSet ds)
+        {
+            connectDatabase();
+            var select = "SELECT * FROM Palvelut";
+            var c = connect;
+            var dataAdapter = new SqlDataAdapter(select, c);
+            var commandBuilder = new SqlCommandBuilder(dataAdapter);
+            dataAdapter.Fill(ds, "ProductInfo");
+            disconnectDatabse();
+            return ds;
+        }*/
+
+        public void removeById(string table ,int id)
+        {
+            connectDatabase();
+            SqlCommand cmd = new SqlCommand("DELETE FROM [@table] WHERE @id == ID", connect);
+            cmd.Parameters.AddWithValue("@table", table);
+            cmd.Parameters.AddWithValue("@id", id);
+            using(cmd)
+            {
+                cmd.ExecuteNonQuery();
+                disconnectDatabse();
+            }
+        }
+        
         //saves the product to database
         public bool addProduct(Class.Products prod)
         {
+            bool error = false;
             SqlCommand cmd = new SqlCommand("INSERT INTO [Palvelut]([Palvelu]) VALUES (@Palvelu)", connect);
             cmd.Parameters.AddWithValue("@Palvelu", prod.Palvelu);
             connectDatabase();
@@ -78,14 +104,21 @@ namespace Lahjakorttiappi.DatabaseController
                 {
                     cmd.ExecuteNonQuery();
                     disconnectDatabse();
-                    return true;
                 }
                 catch (Exception ex)
                 {
                     disconnectDatabse();
-                    return false;
+                    error = true;
                     //merkintä logiin tai jtn vastaavaa
                 }
+            }
+            if(error == true)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
             }
         }
 
