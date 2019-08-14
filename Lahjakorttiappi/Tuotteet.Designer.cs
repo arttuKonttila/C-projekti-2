@@ -30,19 +30,19 @@
         {
             this.pnAddProduct = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.dGWTuotteet = new System.Windows.Forms.DataGridView();
+            this.dGWProducts = new System.Windows.Forms.DataGridView();
             this.btnAddProduct = new System.Windows.Forms.Button();
-            this.btnPoistaTuote = new System.Windows.Forms.Button();
+            this.btnDelProduct = new System.Windows.Forms.Button();
             this.txtBoxLisaaTuote = new System.Windows.Forms.TextBox();
             this.pnAddProduct.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dGWTuotteet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dGWProducts)).BeginInit();
             this.SuspendLayout();
             // 
             // pnAddProduct
             // 
             this.pnAddProduct.AccessibleName = "Lisää tuote  paneeli";
-            this.pnAddProduct.Controls.Add(this.btnPoistaTuote);
+            this.pnAddProduct.Controls.Add(this.btnDelProduct);
             this.pnAddProduct.Controls.Add(this.txtBoxLisaaTuote);
             this.pnAddProduct.Controls.Add(this.btnAddProduct);
             this.pnAddProduct.Location = new System.Drawing.Point(13, 24);
@@ -53,20 +53,20 @@
             // panel3
             // 
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel3.Controls.Add(this.dGWTuotteet);
+            this.panel3.Controls.Add(this.dGWProducts);
             this.panel3.Location = new System.Drawing.Point(13, 140);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(723, 483);
             this.panel3.TabIndex = 1;
             // 
-            // dGWTuotteet
+            // dGWProducts
             // 
-            this.dGWTuotteet.AccessibleName = "Tuotteet";
-            this.dGWTuotteet.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dGWTuotteet.Location = new System.Drawing.Point(3, 3);
-            this.dGWTuotteet.Name = "dGWTuotteet";
-            this.dGWTuotteet.Size = new System.Drawing.Size(713, 580);
-            this.dGWTuotteet.TabIndex = 0;
+            this.dGWProducts.AccessibleName = "Tuotteet";
+            this.dGWProducts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dGWProducts.Location = new System.Drawing.Point(3, 3);
+            this.dGWProducts.Name = "dGWProducts";
+            this.dGWProducts.Size = new System.Drawing.Size(713, 580);
+            this.dGWProducts.TabIndex = 0;
             // 
             // btnAddProduct
             // 
@@ -79,14 +79,15 @@
             this.btnAddProduct.UseVisualStyleBackColor = true;
             this.btnAddProduct.Click += new System.EventHandler(this.btnLisaaTuoet_Click);
             // 
-            // btnPoistaTuote
+            // btnDelProduct
             // 
-            this.btnPoistaTuote.Location = new System.Drawing.Point(562, 12);
-            this.btnPoistaTuote.Name = "btnPoistaTuote";
-            this.btnPoistaTuote.Size = new System.Drawing.Size(148, 73);
-            this.btnPoistaTuote.TabIndex = 1;
-            this.btnPoistaTuote.Text = "Poista tuote";
-            this.btnPoistaTuote.UseVisualStyleBackColor = true;
+            this.btnDelProduct.AccessibleName = "Poista tuote";
+            this.btnDelProduct.Location = new System.Drawing.Point(562, 12);
+            this.btnDelProduct.Name = "btnDelProduct";
+            this.btnDelProduct.Size = new System.Drawing.Size(148, 73);
+            this.btnDelProduct.TabIndex = 1;
+            this.btnDelProduct.Text = "Poista tuote";
+            this.btnDelProduct.UseVisualStyleBackColor = true;
             // 
             // txtBoxLisaaTuote
             // 
@@ -111,7 +112,7 @@
             this.pnAddProduct.ResumeLayout(false);
             this.pnAddProduct.PerformLayout();
             this.panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dGWTuotteet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dGWProducts)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -120,9 +121,9 @@
 
         private System.Windows.Forms.Panel pnAddProduct;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.DataGridView dGWTuotteet;
+        private System.Windows.Forms.DataGridView dGWProducts;
         private System.Windows.Forms.TextBox txtBoxLisaaTuote;
-        private System.Windows.Forms.Button btnPoistaTuote;
+        private System.Windows.Forms.Button btnDelProduct;
         private System.Windows.Forms.Button btnAddProduct;
     }
 }
