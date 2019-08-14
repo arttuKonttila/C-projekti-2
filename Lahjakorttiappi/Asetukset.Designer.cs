@@ -350,6 +350,7 @@
             this.logoBox.Location = new System.Drawing.Point(15, 238);
             this.logoBox.Name = "logoBox";
             this.logoBox.Size = new System.Drawing.Size(175, 159);
+            this.logoBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.logoBox.TabIndex = 2;
             this.logoBox.TabStop = false;
             // 

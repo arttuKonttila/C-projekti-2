@@ -45,8 +45,6 @@ namespace Lahjakorttiappi
 
         private void btnAddLogo_Click(object sender, EventArgs e)
         {
-            logoBox.SizeMode = PictureBoxSizeMode.Zoom;
-
             OpenFileDialog open = new OpenFileDialog();
             open.InitialDirectory = @"C:\";
             open.Title = "Select your preferred logo";
@@ -62,61 +60,6 @@ namespace Lahjakorttiappi
             {
                 return;
             }
-        }
-
-        private void btnAddItems_Click(object sender, EventArgs e)
-        {
-            Tuotteet Tuotteet = new Tuotteet();
-            Tuotteet.ShowDialog();
-        }
-
-        private void txtBoxFirmName_TextChanged(object sender, EventArgs e)
-        {
-           
-        
-                    
-        }
-
-        private void btnSave_Click(object sender, EventArgs e)
-        {
-           
-
-        textBoxEmptyTest();
-        }
-        /// <summary>
-        /// This method test if the TextBox is empty. 
-        /// </summary>
-        private void textBoxEmptyTest ()
-        {
-            //Basic info message if 
-            string ilmoitus = "Ole hyvä ja täytä kentät: ";
-            string tulokset;
-            bool kytkin = true;
-            //Go over every TextBox in PnInfo panel. 
-            foreach (TextBox testattava in PnInfo.Controls.OfType<TextBox>())
-            {
-                //Test if the TextBox is empty.
-                if (testattava.Text == "")
-                {
-                    //Gets the AccessibilityName of the TextBox for identyfying which TextBox it is
-                    tulokset = testattava.AccessibleName;
-                    // Adds the AccessibilityName to the ilmoitus string.
-                    ilmoitus = ilmoitus + tulokset +", ";
-                    //Puts the cursor to the TextBox whits is empty
-                    testattava.Select();
-                    kytkin = false;                  
-
-                }
-
-            }
-            
-            if (kytkin == false)
-            {
-                //Shows Message box whit the TextBoxes names in seperat
-                MessageBox.Show(ilmoitus);
-
-            }
-            
         }
     }
 }
