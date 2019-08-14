@@ -58,8 +58,9 @@ namespace Lahjakorttiappi
             if (open.ShowDialog() == DialogResult.OK)
             {
 
-                PictureBox logo = new PictureBox();
-                logo.Image = new Bitmap (open.FileName);
+                
+                    logoBox.Image = new Bitmap (open.FileName);
+           
             }
             else
             {
