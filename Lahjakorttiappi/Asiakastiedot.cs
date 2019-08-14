@@ -19,44 +19,25 @@ namespace Lahjakorttiappi
 
 
         //saves the data from text fields into a public string format so that i can be utilized in the main form
-        public string getFName
+        public Class.Asiakastiedot getCustomerInfo()
         {
-            get { return txtBoxFirstName.Text; }
-        }
+            Class.Asiakastiedot info = new Class.Asiakastiedot();
+            try
+            {
+                info.AsiakasNro = Convert.ToInt32(txtBoxID.Text);
+            }
+            catch
+            {
 
-        public string getLName
-        {
-            get { return txtBoxLastName.Text; }
-        }
-
-        public string getID
-        {
-            get { return txtBoxID.Text; }
-        }
-
-        public string getAdress
-        {
-            get { return TxtBoxAdress.Text; }
-        }
-
-        public string getEmail
-        {
-            get { return txtBoxEmail.Text; }
-        }
-
-        public string getZip
-        {
-            get { return txtBoxPoNbr.Text; }
-        }
-
-        public string getPoAdress
-        {
-            get { return txtBoxPoPlace.Text; }
-        }
-
-        public string getPNumber
-        {
-            get { return txtBoxPhone.Text; }
+            }
+            info.Etunimi = txtBoxFirstName.Text;
+            info.Sukunimi = txtBoxLastName.Text;
+            info.PuhNro = txtBoxPhone.Text;
+            info.Sahkoposti = txtBoxEmail.Text;
+            info.Postinumero = txtBoxPoNbr.Text;
+            info.Paikka = txtBoxPoPlace.Text;
+            info.Adress = TxtBoxAdress.Text;
+            return info;
         }
 
         private void btnExit_Click(object sender, EventArgs e)

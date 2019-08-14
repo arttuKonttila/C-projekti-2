@@ -6,76 +6,83 @@ using System.Threading.Tasks;
 
 namespace Lahjakorttiappi.Class
 {
-    class Asiakastiedot
+    public class Asiakastiedot
     {
         int asiakasNro;
-        int AsiakasNro
+        public int AsiakasNro
         {
             get { return asiakasNro; }
             set { asiakasNro = value; }
         }
 
         string etunimi;
-        string Etunimi
+        public string Etunimi
         {
             get { return etunimi; }
             set { etunimi = value; }
         }
 
         string sukunimi;
-        string Sukunimi
+        public string Sukunimi
         {
             get { return sukunimi; }
             set { sukunimi = value; }
         }
 
         string osoite;
-        string Osoite
+        public string Osoite
         {
             get { return osoite; }
             set { osoite = value; }
         }
 
         string puhNro;
-        string PuhNro
+        public string PuhNro
         {
             get { return puhNro; }
             set { puhNro = value; }
         }
 
         string sahkoposti;
-        string Sahkoposti
+        public string Sahkoposti
         {
             get { return sahkoposti; }
             set { sahkoposti = value; }
         }
 
-        int postinumeroID;
-        int PostinumeroID
+        string postinumero;
+        public string Postinumero
         {
-            get { return postinumeroID; }
-            set { postinumeroID = value; }
+            get { return postinumero; }
+            set { postinumero = value; }
         }
 
-        int paikkaID;
-        int PaikkaID
+        string paikka;
+        public string Paikka
         {
-            get { return paikkaID; }
-            set { paikkaID = value; }
+            get { return paikka; }
+            set { paikka = value; }
         }
 
         int palveluID;
-        int PalveluID
+        public int PalveluID
         {
             get { return palveluID; }
             set { palveluID = value; }
         }
 
         int tilausID;
-        int TilausID
+        public int TilausID
         {
             get { return tilausID; }
             set { tilausID = value; }
+        }
+
+        string adress;
+        public string Adress
+        {
+            get { return adress; }
+            set { adress = value; }
         }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Lahjakorttiappi.Class
 {
-    class Products
+    public class Products
     {
         int palveluNro;
         public int PalveluNro

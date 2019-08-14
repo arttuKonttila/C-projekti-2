@@ -12,9 +12,18 @@ namespace Lahjakorttiappi
 {
     public partial class Tuotteet : Form
     {
+        DatabaseController.DatabaseController dBController = new DatabaseController.DatabaseController();
+        DataSet pInfo;
+        //fills product gridview with product info from database
         public Tuotteet()
         {
             InitializeComponent();
+            dBController.bringProductInfo(pInfo);
+            dGWProducts.AutoGenerateColumns = true;
+            dGWProducts.DataSource = pInfo;
+            dGWProducts.DataMember = "ProductInfo";
+
+
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)

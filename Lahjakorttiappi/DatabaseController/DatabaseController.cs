@@ -51,12 +51,46 @@ namespace Lahjakorttiappi.DatabaseController
             disconnectDatabse();
             return ds;
         }
-
-        public void addProduct(Class.Products prod)
+        
+        //fills product screen with product info
+        public DataSet bringProductInfo(DataSet ds)
         {
             connectDatabase();
-            SqlCommand cmd = new SqlCommand("INSERT INTO [Palvelut]([Palvelu]) VALUES @Palvelu");
+            var select = "SELECT * FROM Palvelut";
+            var c = connect;
+            var dataAdapter = new SqlDataAdapter(select, c);
+            var commandBuilder = new SqlCommandBuilder(dataAdapter);
+            ds.Tables.Add("ProductInfo");
+            dataAdapter.Fill(ds, "ProductInfo");
+            disconnectDatabse();
+            return ds;
+        }
+
+        //saves the product to database
+        public void addProduct(Class.Products prod)
+        {
+            SqlCommand cmd = new SqlCommand("INSERT INTO [Palvelut]([Palvelu]) VALUES (@Palvelu)", connect);
             cmd.Parameters.AddWithValue("@Palvelu", prod.Palvelu);
+            connectDatabase();
+            using(cmd)
+            {
+                try
+                {
+                    cmd.ExecuteNonQuery();
+                    disconnectDatabse();
+                }
+                catch(Exception ex)
+                {
+                    disconnectDatabse();
+                    //merkintä logiin tai jtn vastaavaa
+                }
+            }
+            disconnectDatabse();
+        }
+
+        public void changeCustomerInfo(Class.Asiakastiedot info)
+        {
+
         }
     }
 }
