@@ -8,14 +8,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Drawing.Imaging;
+using System.IO;
 
 namespace Lahjakorttiappi
 {
     public partial class Asetukset : Form
     {
+        static string logoName = "logo.jpg";
+        string path = Path.Combine(Environment.CurrentDirectory, @"Pictures\", logoName);
         public Asetukset()
         {
             InitializeComponent();
+            loadLogo();
         }
 
         private void txtBoxIdentifier_TextChanged(object sender, EventArgs e)
@@ -46,7 +50,7 @@ namespace Lahjakorttiappi
         private void btnAddLogo_Click(object sender, EventArgs e)
         {
            
-
+            //Gets file from user to use as logo
             OpenFileDialog open = new OpenFileDialog();
             open.InitialDirectory = @"C:\";
             open.Title = "Select your preferred logo";
@@ -58,9 +62,11 @@ namespace Lahjakorttiappi
             if (open.ShowDialog() == DialogResult.OK)
             {
 
-                
-                    logoBox.Image = new Bitmap (open.FileName);
-           
+                // Sets loaded image to picturePox
+                logoBox.Image = new Bitmap (open.FileName);
+                //Saves the image to image folder
+                logoBox.Image.Save("image/logo.jpg");
+               
             }
             else
             {
@@ -109,6 +115,11 @@ namespace Lahjakorttiappi
         {
             Tuotteet Products = new Tuotteet();
             Products.ShowDialog();
+        }
+
+        private void loadLogo()
+        {
+            logoBox.ImageLocation = @"image\logo.jpg";
         }
     }
 }
