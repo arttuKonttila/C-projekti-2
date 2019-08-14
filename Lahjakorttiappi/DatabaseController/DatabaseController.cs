@@ -67,25 +67,26 @@ namespace Lahjakorttiappi.DatabaseController
         }
 
         //saves the product to database
-        public void addProduct(Class.Products prod)
+        public bool addProduct(Class.Products prod)
         {
             SqlCommand cmd = new SqlCommand("INSERT INTO [Palvelut]([Palvelu]) VALUES (@Palvelu)", connect);
             cmd.Parameters.AddWithValue("@Palvelu", prod.Palvelu);
             connectDatabase();
-            using(cmd)
+            using (cmd)
             {
                 try
                 {
                     cmd.ExecuteNonQuery();
                     disconnectDatabse();
+                    return true;
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     disconnectDatabse();
+                    return false;
                     //merkintä logiin tai jtn vastaavaa
                 }
             }
-            disconnectDatabse();
         }
 
         public void changeCustomerInfo(Class.Asiakastiedot info)

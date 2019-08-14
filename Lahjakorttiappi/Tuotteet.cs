@@ -28,12 +28,22 @@ namespace Lahjakorttiappi
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-  
+            Class.Products product = new Class.Products();
+            product.Palvelu = txtBoxLisaaTuote.Text;
+            if(dBController.addProduct(product) == true)
+            {
+                MessageBox.Show("Tuote lisättiin onnistuneesti");
+            }
+            else
+            {
+                MessageBox.Show("Tuotteen lisäyksessä tapahtui virhe");
+            }
         }
 
         private void btnLisaaTuoet_Click(object sender, EventArgs e)
         {
-
+            
+            //txtBoxLisaaTuote
         }
         private void textBoxEmptyTest()
         {
