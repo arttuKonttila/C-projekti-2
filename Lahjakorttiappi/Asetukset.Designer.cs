@@ -216,7 +216,6 @@
             this.txtBoxFirmName.Name = "txtBoxFirmName";
             this.txtBoxFirmName.Size = new System.Drawing.Size(459, 32);
             this.txtBoxFirmName.TabIndex = 1;
-            this.txtBoxFirmName.TextChanged += new System.EventHandler(this.txtBoxFirmName_TextChanged);
             // 
             // lblFirm
             // 
@@ -314,7 +313,6 @@
             this.btnAddItems.TabIndex = 6;
             this.btnAddItems.Text = "Lisää tuotteita";
             this.btnAddItems.UseVisualStyleBackColor = true;
-            this.btnAddItems.Click += new System.EventHandler(this.btnAddItems_Click);
             // 
             // rTextBoxOpenTimes
             // 
