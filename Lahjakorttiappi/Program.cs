@@ -14,6 +14,10 @@ namespace Lahjakorttiappi
         [STAThread]
         static void Main()
         {
+            /*string executable = System.Reflection.Assembly.GetExecutingAssembly().Location;
+            string path = (System.IO.Path.GetDirectoryName(executable));
+            AppDomain.CurrentDomain.SetData("DataDirectory", path);*/
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Paaikkuna());

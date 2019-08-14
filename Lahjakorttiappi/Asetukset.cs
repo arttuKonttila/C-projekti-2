@@ -45,7 +45,6 @@ namespace Lahjakorttiappi
 
         private void btnAddLogo_Click(object sender, EventArgs e)
         {
-            logoBox.SizeMode = PictureBoxSizeMode.Zoom;
             OpenFileDialog open = new OpenFileDialog();
             open.InitialDirectory = @"C:\";
             open.Title = "Select your preferred logo";
