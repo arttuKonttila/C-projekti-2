@@ -80,7 +80,7 @@ namespace Lahjakorttiappi
         }
         private void textBoxEmptyTest()
         {
-            //Basic info message if 
+            //Basic info message if some or all TextBoxes are empty
             string ilmoitus = "Ole hyvä ja täytä kentät: ";
             string tulokset;
             bool kytkin = true;
@@ -120,6 +120,27 @@ namespace Lahjakorttiappi
         private void loadLogo()
         {
             logoBox.ImageLocation = @"image\logo.jpg";
+        }
+
+        private void btnRemoveLogo_Click(object sender, EventArgs e)
+        {
+            DialogResult delete = MessageBox.Show("Haluatko varmasti poistaa logon? ","Tämä poistaa logon lopullisesti", MessageBoxButtons.YesNo);
+            if (delete == DialogResult.Yes)
+            {
+
+                File.Delete(@"image\logo.jpg");
+                if (!File.Exists(@"image\logo.jpg"))
+                {
+                    MessageBox.Show("Logo poistettu");
+                    logoBox.Dispose();
+                }
+                else
+                {
+                    MessageBox.Show("Logoa ei poistettu");
+                }
+            }
+
+            
         }
     }
 }
