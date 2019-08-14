@@ -104,5 +104,11 @@ namespace Lahjakorttiappi
             }
 
         }
+
+        private void btnAddItems_Click(object sender, EventArgs e)
+        {
+            Tuotteet Products = new Tuotteet();
+            Products.ShowDialog();
+        }
     }
 }
