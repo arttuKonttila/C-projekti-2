@@ -88,7 +88,7 @@ namespace Lahjakorttiappi
             {
                 int id = Convert.ToInt32(dGWProducts.CurrentRow.Cells["PalveluNro"].Value);
                 dGWProducts.Rows.RemoveAt(this.dGWProducts.SelectedRows[0].Index);
-                dBController.removeById();
+                dBController.removeById("PalveluNro", id);
             }
             else
             {
