@@ -66,26 +66,60 @@ namespace Lahjakorttiappi.DatabaseController
             return ds;
         }
 
-        //saves the product to database
-        public void addProduct(Class.Products prod)
+        /*public DataSet bringProductsOnly(DataSet ds)
         {
+            connectDatabase();
+            var select = "SELECT * FROM Palvelut";
+            var c = connect;
+            var dataAdapter = new SqlDataAdapter(select, c);
+            var commandBuilder = new SqlCommandBuilder(dataAdapter);
+            dataAdapter.Fill(ds, "ProductInfo");
+            disconnectDatabse();
+            return ds;
+        }*/
+
+        public void removeById(string table ,int id)
+        {
+            connectDatabase();
+            SqlCommand cmd = new SqlCommand("DELETE FROM [@table] WHERE @id == ID", connect);
+            cmd.Parameters.AddWithValue("@table", table);
+            cmd.Parameters.AddWithValue("@id", id);
+            using(cmd)
+            {
+                cmd.ExecuteNonQuery();
+                disconnectDatabse();
+            }
+        }
+        
+        //saves the product to database
+        public bool addProduct(Class.Products prod)
+        {
+            bool error = false;
             SqlCommand cmd = new SqlCommand("INSERT INTO [Palvelut]([Palvelu]) VALUES (@Palvelu)", connect);
             cmd.Parameters.AddWithValue("@Palvelu", prod.Palvelu);
             connectDatabase();
-            using(cmd)
+            using (cmd)
             {
                 try
                 {
                     cmd.ExecuteNonQuery();
                     disconnectDatabse();
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     disconnectDatabse();
+                    error = true;
                     //merkintä logiin tai jtn vastaavaa
                 }
             }
-            disconnectDatabse();
+            if(error == true)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
         }
 
         public void changeCustomerInfo(Class.Asiakastiedot info)

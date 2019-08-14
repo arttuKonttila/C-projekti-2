@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.pnAddProduct = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.dGWProducts = new System.Windows.Forms.DataGridView();
-            this.btnAddProduct = new System.Windows.Forms.Button();
             this.btnDelProduct = new System.Windows.Forms.Button();
             this.txtBoxLisaaTuote = new System.Windows.Forms.TextBox();
+            this.btnAddProduct = new System.Windows.Forms.Button();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.dGWProducts = new System.Windows.Forms.DataGridView();
             this.pnAddProduct.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dGWProducts)).BeginInit();
@@ -49,6 +49,36 @@
             this.pnAddProduct.Name = "pnAddProduct";
             this.pnAddProduct.Size = new System.Drawing.Size(723, 100);
             this.pnAddProduct.TabIndex = 0;
+            // 
+            // btnDelProduct
+            // 
+            this.btnDelProduct.AccessibleName = "Poista tuote";
+            this.btnDelProduct.Location = new System.Drawing.Point(562, 12);
+            this.btnDelProduct.Name = "btnDelProduct";
+            this.btnDelProduct.Size = new System.Drawing.Size(148, 73);
+            this.btnDelProduct.TabIndex = 1;
+            this.btnDelProduct.Text = "Poista tuote";
+            this.btnDelProduct.UseVisualStyleBackColor = true;
+            this.btnDelProduct.Click += new System.EventHandler(this.btnDelProduct_Click);
+            // 
+            // txtBoxLisaaTuote
+            // 
+            this.txtBoxLisaaTuote.AccessibleName = "Lisää tuote";
+            this.txtBoxLisaaTuote.Location = new System.Drawing.Point(23, 33);
+            this.txtBoxLisaaTuote.Name = "txtBoxLisaaTuote";
+            this.txtBoxLisaaTuote.Size = new System.Drawing.Size(345, 38);
+            this.txtBoxLisaaTuote.TabIndex = 0;
+            // 
+            // btnAddProduct
+            // 
+            this.btnAddProduct.AccessibleName = "Lisää tuote";
+            this.btnAddProduct.Location = new System.Drawing.Point(391, 12);
+            this.btnAddProduct.Name = "btnAddProduct";
+            this.btnAddProduct.Size = new System.Drawing.Size(148, 73);
+            this.btnAddProduct.TabIndex = 0;
+            this.btnAddProduct.Text = "Lisää tuote";
+            this.btnAddProduct.UseVisualStyleBackColor = true;
+            this.btnAddProduct.Click += new System.EventHandler(this.btnLisaaTuoet_Click);
             // 
             // panel3
             // 
@@ -68,39 +98,9 @@
             this.dGWProducts.Size = new System.Drawing.Size(713, 580);
             this.dGWProducts.TabIndex = 0;
             // 
-            // btnAddProduct
-            // 
-            this.btnAddProduct.AccessibleName = "Lisää tuote";
-            this.btnAddProduct.Location = new System.Drawing.Point(391, 12);
-            this.btnAddProduct.Name = "btnAddProduct";
-            this.btnAddProduct.Size = new System.Drawing.Size(148, 73);
-            this.btnAddProduct.TabIndex = 0;
-            this.btnAddProduct.Text = "Lisää tuote";
-            this.btnAddProduct.UseVisualStyleBackColor = true;
-            this.btnAddProduct.Click += new System.EventHandler(this.btnLisaaTuoet_Click);
-            // 
-            // btnDelProduct
-            // 
-            this.btnDelProduct.AccessibleName = "Poista tuote";
-            this.btnDelProduct.Location = new System.Drawing.Point(562, 12);
-            this.btnDelProduct.Name = "btnDelProduct";
-            this.btnDelProduct.Size = new System.Drawing.Size(148, 73);
-            this.btnDelProduct.TabIndex = 1;
-            this.btnDelProduct.Text = "Poista tuote";
-            this.btnDelProduct.UseVisualStyleBackColor = true;
-            // 
-            // txtBoxLisaaTuote
-            // 
-            this.txtBoxLisaaTuote.AccessibleName = "Lisää tuote";
-            this.txtBoxLisaaTuote.Location = new System.Drawing.Point(23, 33);
-            this.txtBoxLisaaTuote.Name = "txtBoxLisaaTuote";
-            this.txtBoxLisaaTuote.Size = new System.Drawing.Size(345, 32);
-            this.txtBoxLisaaTuote.TabIndex = 0;
-            this.txtBoxLisaaTuote.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
-            // 
             // Tuotteet
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 24F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(15F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(743, 638);
             this.Controls.Add(this.panel3);
