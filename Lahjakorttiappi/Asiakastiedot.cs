@@ -65,5 +65,43 @@ namespace Lahjakorttiappi
 
             this.Close();
         }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            textBoxEmptyTest();
+        }
+
+        private void textBoxEmptyTest()
+        {
+            //Basic info message if 
+            string ilmoitus = "Ole hyvä ja täytä kentät: ";
+            string tulokset;
+            bool kytkin = true;
+            //Go over every TextBox in PnInfo panel. 
+            foreach (TextBox testattava in pnlGiftCardByer.Controls.OfType<TextBox>())
+            {
+                //Test if the TextBox is empty.
+                if (testattava.Text == "")
+                {
+                    //Gets the AccessibilityName of the TextBox for identyfying which TextBox it is
+                    tulokset = testattava.AccessibleName;
+                    // Adds the AccessibilityName to the ilmoitus string.
+                    ilmoitus = ilmoitus + tulokset + ", ";
+                    //Puts the cursor to the TextBox whits is empty
+                    testattava.Select();
+                    kytkin = false;
+
+                }
+
+            }
+
+            if (kytkin == false)
+            {
+                //Shows Message box whit the TextBoxes names in seperat
+                MessageBox.Show(ilmoitus);
+
+            }
+
+        }
     }
 }
