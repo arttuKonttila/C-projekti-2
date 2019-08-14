@@ -13,14 +13,14 @@ namespace Lahjakorttiappi
     public partial class Tuotteet : Form
     {
         DatabaseController.DatabaseController dBController = new DatabaseController.DatabaseController();
-        DataSet pInfo;
+        DataSet ds = new DataSet();
         //fills product gridview with product info from database
         public Tuotteet()
         {
             InitializeComponent();
-            dBController.bringProductInfo(pInfo);
+            ds = dBController.bringProductInfo();
             dGWProducts.AutoGenerateColumns = true;
-            dGWProducts.DataSource = pInfo;
+            dGWProducts.DataSource = ds;
             dGWProducts.DataMember = "ProductInfo";
 
 

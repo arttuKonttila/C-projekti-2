@@ -39,8 +39,9 @@ namespace Lahjakorttiappi.DatabaseController
         }
 
         //Gets all data from Asiakastiedot table
-        public DataSet bringAllData(DataSet ds)
+        public DataSet bringAllData()
         {
+            DataSet ds = new DataSet();
             connectDatabase();
             var select = "SELECT * FROM Asiakastiedot";
             var c = connect;
@@ -53,8 +54,9 @@ namespace Lahjakorttiappi.DatabaseController
         }
         
         //fills product screen with product info
-        public DataSet bringProductInfo(DataSet ds)
+        public DataSet bringProductInfo()
         {
+            DataSet ds = new DataSet();
             connectDatabase();
             var select = "SELECT * FROM Palvelut";
             var c = connect;

@@ -17,7 +17,7 @@ namespace Lahjakorttiappi
         public Paaikkuna()
         {
             InitializeComponent();
-            dBController.bringAllData(ds);
+            ds = dBController.bringAllData();
             dataGridView1.AutoGenerateColumns = true;
             dataGridView1.DataSource = ds;
             dataGridView1.DataMember = "Asiakastiedot";
