@@ -35,7 +35,7 @@
             this.lblEmail = new System.Windows.Forms.Label();
             this.txtBoxPhone = new System.Windows.Forms.TextBox();
             this.lblPhone = new System.Windows.Forms.Label();
-            this.textBoxPostState = new System.Windows.Forms.TextBox();
+            this.txtBoxPostState = new System.Windows.Forms.TextBox();
             this.lblPostState = new System.Windows.Forms.Label();
             this.txtBoxPostNumber = new System.Windows.Forms.TextBox();
             this.lblPostNumber = new System.Windows.Forms.Label();
@@ -73,7 +73,7 @@
             this.PnInfo.Controls.Add(this.lblEmail);
             this.PnInfo.Controls.Add(this.txtBoxPhone);
             this.PnInfo.Controls.Add(this.lblPhone);
-            this.PnInfo.Controls.Add(this.textBoxPostState);
+            this.PnInfo.Controls.Add(this.txtBoxPostState);
             this.PnInfo.Controls.Add(this.lblPostState);
             this.PnInfo.Controls.Add(this.txtBoxPostNumber);
             this.PnInfo.Controls.Add(this.lblPostNumber);
@@ -139,13 +139,13 @@
             this.lblPhone.TabIndex = 10;
             this.lblPhone.Text = "Puhelinnumero";
             // 
-            // textBoxPostState
+            // txtBoxPostState
             // 
-            this.textBoxPostState.AccessibleName = "Postitoimipaikka";
-            this.textBoxPostState.Location = new System.Drawing.Point(241, 274);
-            this.textBoxPostState.Name = "textBoxPostState";
-            this.textBoxPostState.Size = new System.Drawing.Size(194, 32);
-            this.textBoxPostState.TabIndex = 9;
+            this.txtBoxPostState.AccessibleName = "Postitoimipaikka";
+            this.txtBoxPostState.Location = new System.Drawing.Point(241, 274);
+            this.txtBoxPostState.Name = "txtBoxPostState";
+            this.txtBoxPostState.Size = new System.Drawing.Size(194, 32);
+            this.txtBoxPostState.TabIndex = 9;
             // 
             // lblPostState
             // 
@@ -269,6 +269,7 @@
             this.btnSave.TabIndex = 0;
             this.btnSave.Text = "Tallenna";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // pnlMoreIfno
             // 
@@ -405,7 +406,7 @@
         private System.Windows.Forms.Label lblEmail;
         private System.Windows.Forms.TextBox txtBoxPhone;
         private System.Windows.Forms.Label lblPhone;
-        private System.Windows.Forms.TextBox textBoxPostState;
+        private System.Windows.Forms.TextBox txtBoxPostState;
         private System.Windows.Forms.TextBox txtBoxWeb;
         private System.Windows.Forms.Label lblWeb;
         private System.Windows.Forms.Panel pnlMoreIfno;
