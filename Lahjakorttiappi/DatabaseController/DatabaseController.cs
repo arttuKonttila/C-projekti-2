@@ -46,22 +46,51 @@ namespace Lahjakorttiappi.DatabaseController
             var c = connect;
             var dataAdapter = new SqlDataAdapter(select, c);
             var commandBuilder = new SqlCommandBuilder(dataAdapter);
-            ds.Tables.Add("Asiakastiedot");
-            dataAdapter.Fill(ds, "Asiakastiedot");
+            ds.Tables.Add("CustomerInfo");
+            dataAdapter.Fill(ds, "CustomerInfo");
+            disconnectDatabse();
+            return ds;
+        }
+        
+        //fills product screen with product info
+        public DataSet bringProductInfo(DataSet ds)
+        {
+            connectDatabase();
+            var select = "SELECT * FROM Palvelut";
+            var c = connect;
+            var dataAdapter = new SqlDataAdapter(select, c);
+            var commandBuilder = new SqlCommandBuilder(dataAdapter);
+            ds.Tables.Add("ProductInfo");
+            dataAdapter.Fill(ds, "ProductInfo");
             disconnectDatabse();
             return ds;
         }
 
-        public bool changeCustomerInfo(string fName, string lName, string adress, string email, string id, string poAdress, string zip, string pNumber)
+        //saves the product to database
+        public void addProduct(Class.Products prod)
         {
-            if(fName == lName)
+            SqlCommand cmd = new SqlCommand("INSERT INTO [Palvelut]([Palvelu]) VALUES (@Palvelu)", connect);
+            cmd.Parameters.AddWithValue("@Palvelu", prod.Palvelu);
+            connectDatabase();
+            using(cmd)
             {
-                return true;
+                try
+                {
+                    cmd.ExecuteNonQuery();
+                    disconnectDatabse();
+                }
+                catch(Exception ex)
+                {
+                    disconnectDatabse();
+                    //merkintä logiin tai jtn vastaavaa
+                }
             }
-            else
-            {
-                return false;
-            }
+            disconnectDatabse();
+        }
+
+        public void changeCustomerInfo(Class.Asiakastiedot info)
+        {
+
         }
     }
 }
