@@ -46,22 +46,17 @@ namespace Lahjakorttiappi.DatabaseController
             var c = connect;
             var dataAdapter = new SqlDataAdapter(select, c);
             var commandBuilder = new SqlCommandBuilder(dataAdapter);
-            ds.Tables.Add("Asiakastiedot");
-            dataAdapter.Fill(ds, "Asiakastiedot");
+            ds.Tables.Add("CustomerInfo");
+            dataAdapter.Fill(ds, "CustomerInfo");
             disconnectDatabse();
             return ds;
         }
 
-        public bool changeCustomerInfo(string fName, string lName, string adress, string email, string id, string poAdress, string zip, string pNumber)
+        public void addProduct(Class.Products prod)
         {
-            if(fName == lName)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            connectDatabase();
+            SqlCommand cmd = new SqlCommand("INSERT INTO [Palvelut]([Palvelu]) VALUES @Palvelu");
+            cmd.Parameters.AddWithValue("@Palvelu", prod.Palvelu);
         }
     }
 }

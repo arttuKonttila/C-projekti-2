@@ -66,6 +66,8 @@
     <Compile Include="Asetukset.Designer.cs">
       <DependentUpon>Asetukset.cs</DependentUpon>
     </Compile>
+    <Compile Include="Class\Asiakastiedot.cs" />
+    <Compile Include="Class\Products.cs" />
     <Compile Include="DatabaseController\DatabaseController.cs" />
     <Compile Include="Tuotteet.cs">
       <SubType>Form</SubType>
