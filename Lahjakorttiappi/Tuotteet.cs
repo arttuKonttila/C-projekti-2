@@ -18,7 +18,7 @@ namespace Lahjakorttiappi
         public Tuotteet()
         {
             InitializeComponent();
-            ds = dBController.bringProductInfo();
+            dBController.bringProductInfo(ds);
             dGWProducts.AutoGenerateColumns = true;
             dGWProducts.DataSource = ds;
             dGWProducts.DataMember = "ProductInfo";
