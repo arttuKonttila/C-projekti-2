@@ -45,6 +45,8 @@ namespace Lahjakorttiappi
 
         private void btnAddLogo_Click(object sender, EventArgs e)
         {
+           
+
             OpenFileDialog open = new OpenFileDialog();
             open.InitialDirectory = @"C:\";
             open.Title = "Select your preferred logo";
@@ -52,9 +54,12 @@ namespace Lahjakorttiappi
             open.CheckFileExists = true;
             open.CheckPathExists = true;
             open.Filter = "Image files (*.jpg, *.jpeg, *.jpe, *.jfif, *.png)|*.jpg; *.jpeg; *.jpe; *.jfif; *.png";
-            if(open.ShowDialog() == DialogResult.OK)
+           
+            if (open.ShowDialog() == DialogResult.OK)
             {
-                logoBox.BackgroundImage = new Bitmap(open.FileName);
+
+                PictureBox logo = new PictureBox();
+                logo.Image = new Bitmap (open.FileName);
             }
             else
             {
