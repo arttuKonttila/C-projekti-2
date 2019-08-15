@@ -138,5 +138,8 @@
   <ItemGroup>
     <Folder Include="Pictures\" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="XML\testi.xml" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

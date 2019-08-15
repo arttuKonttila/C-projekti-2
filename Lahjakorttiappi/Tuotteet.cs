@@ -75,7 +75,7 @@ namespace Lahjakorttiappi
 
             if (kytkin == false)
             {
-                //Shows Message box whit the TextBoxes names in seperat
+                //Shows Message box with the TextBox's names in seperate fields
                 MessageBox.Show(ilmoitus);
 
             }
@@ -86,12 +86,23 @@ namespace Lahjakorttiappi
         {
             if (this.dGWProducts.SelectedRows.Count > 0)
             {
-                int id = Convert.ToInt32(dGWProducts.CurrentRow.Cells["PalveluNro"].Value);
-                dGWProducts.Rows.RemoveAt(this.dGWProducts.SelectedRows[0].Index);
-                dBController.removeById("Palvelut", id);
+                int selectedRowIndex = dGWProducts.SelectedCells[0].RowIndex;
+                DataGridViewRow selectedRow = dGWProducts.Rows[selectedRowIndex];
+               
+                try
+                {
+                    int id = Convert.ToInt32(selectedRow.Cells["ID"].Value);
+                    dBController.removeById("Palvelut", id);
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
+                dGWProducts.Rows.Remove(selectedRow);
             }
             else
             {
+                MessageBox.Show("Valitse poistettava rivi");
                 return;
             }
         }

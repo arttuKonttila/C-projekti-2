@@ -81,7 +81,7 @@ namespace Lahjakorttiappi.DatabaseController
         public void removeById(string table ,int id)
         {
             connectDatabase();
-            SqlCommand cmd = new SqlCommand("DELETE FROM [@table] WHERE @id == ID", connect);
+            SqlCommand cmd = new SqlCommand("DELETE FROM @table WHERE ID = @id", connect);
             cmd.Parameters.AddWithValue("@table", table);
             cmd.Parameters.AddWithValue("@id", id);
             using(cmd)
