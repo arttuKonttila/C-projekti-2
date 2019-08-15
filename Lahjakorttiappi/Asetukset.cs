@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Drawing.Imaging;
 using System.IO;
+using System.Xml;
 
 namespace Lahjakorttiappi
 {
@@ -77,6 +78,7 @@ namespace Lahjakorttiappi
         private void btnSave_Click(object sender, EventArgs e)
         {
             textBoxEmptyTest();
+            writeDataToXml();
 
         }
         private void textBoxEmptyTest()
@@ -144,7 +146,14 @@ namespace Lahjakorttiappi
                     MessageBox.Show("Logoa ei poistettu");
                 }
             }
+            
+        }
 
+        private void writeDataToXml()
+        {
+            XmlDocument file = new XmlDocument();
+            file.LoadXml(@"Data/contact.xlm");
+           
             
         }
 

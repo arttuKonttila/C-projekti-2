@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using System.Xml;
 
 namespace Lahjakorttiappi
 {
@@ -18,13 +19,14 @@ namespace Lahjakorttiappi
             string executable = System.Reflection.Assembly.GetExecutingAssembly().Location;
             string path = (System.IO.Path.GetDirectoryName(executable));
             AppDomain.CurrentDomain.SetData("DataDirectory", path);
-            GreateFolders();
+            CreateFolders();
+            CreateFiles();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Paaikkuna());
         }
 
-        static void GreateFolders()
+        static void CreateFolders()
         {
             string data = "data";
             string image = "data/image";
@@ -37,7 +39,7 @@ namespace Lahjakorttiappi
                 }
                 catch (Exception e)
                 {
-                    Console.WriteLine("The process failed: {0}", e.ToString());
+                    MessageBox.Show("The process failed: {0}", e.ToString());
                 }
 
             }
@@ -49,10 +51,33 @@ namespace Lahjakorttiappi
                 }
                 catch (Exception e)
                 {
-                    Console.WriteLine("The process failed: {0}", e.ToString());
+                    MessageBox.Show("The process failed: {0}", e.ToString());
                 }
 
             }
+        }
+
+        static void CreateFiles()
+        {
+            string companyInfo = "data/contact.xml";
+
+            if (!File.Exists(companyInfo))
+            {
+                try
+                {
+                    using (XmlWriter.Create(companyInfo))
+                    {
+                        
+
+                    }
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show("Virhe luotaessa contact.xml tiedostoa" + e.ToString());
+                }
+
+            }
+
         }
     }
 }
