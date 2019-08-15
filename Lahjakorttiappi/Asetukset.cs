@@ -62,7 +62,7 @@ namespace Lahjakorttiappi
             if (open.ShowDialog() == DialogResult.OK)
             {
 
-                // Sets loaded image to picturePox
+                // Sets loaded image to pictureBox
                 logoBox.Image = new Bitmap (open.FileName);
                 //Saves the image to image folder
                 logoBox.Image.Save("image/logo.jpg");
@@ -77,6 +77,7 @@ namespace Lahjakorttiappi
         private void btnSave_Click(object sender, EventArgs e)
         {
             textBoxEmptyTest();
+
         }
         private void textBoxEmptyTest()
         {
@@ -116,12 +117,16 @@ namespace Lahjakorttiappi
             Tuotteet Products = new Tuotteet();
             Products.ShowDialog();
         }
-
+        // Loads logo.jpg to logoBox ImageBox if its greated
         private void loadLogo()
         {
-            logoBox.ImageLocation = @"image\logo.jpg";
+            if (File.Exists(@"image\logo.jpg"))
+                {
+                logoBox.ImageLocation = @"image\logo.jpg";
+                }           
         }
 
+        //Remove logo from images folder 
         private void btnRemoveLogo_Click(object sender, EventArgs e)
         {
             DialogResult delete = MessageBox.Show("Haluatko varmasti poistaa logon? ","Tämä poistaa logon lopullisesti", MessageBoxButtons.YesNo);
@@ -141,6 +146,16 @@ namespace Lahjakorttiappi
             }
 
             
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            DialogResult remove = MessageBox.Show("Haluatko varmasti poistaa yrityksen tiedot? ", "Tämä poistaa tiedot lopullisesti", MessageBoxButtons.YesNo);
+            if (remove == DialogResult.Yes)
+            {
+
+               
+            }
         }
     }
 }
