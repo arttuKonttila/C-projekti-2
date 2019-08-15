@@ -62,10 +62,10 @@ namespace Lahjakorttiappi
             if (open.ShowDialog() == DialogResult.OK)
             {
 
-                // Sets loaded image to picturePox
+                // Sets loaded image to pictureBox
                 logoBox.Image = new Bitmap (open.FileName);
                 //Saves the image to image folder
-                logoBox.Image.Save("image/logo.jpg");
+                logoBox.Image.Save("data/image/logo.jpg");
                
             }
             else
@@ -77,6 +77,7 @@ namespace Lahjakorttiappi
         private void btnSave_Click(object sender, EventArgs e)
         {
             textBoxEmptyTest();
+
         }
         private void textBoxEmptyTest()
         {
@@ -116,20 +117,24 @@ namespace Lahjakorttiappi
             Tuotteet Products = new Tuotteet();
             Products.ShowDialog();
         }
-
+        // Loads logo.jpg to logoBox ImageBox if its greated
         private void loadLogo()
         {
-            logoBox.ImageLocation = @"image\logo.jpg";
+            if (File.Exists(@"data\image\logo.jpg"))
+                {
+                logoBox.ImageLocation = @"data\image\logo.jpg";
+                }           
         }
 
+        //Remove logo from images folder 
         private void btnRemoveLogo_Click(object sender, EventArgs e)
         {
             DialogResult delete = MessageBox.Show("Haluatko varmasti poistaa logon? ","Tämä poistaa logon lopullisesti", MessageBoxButtons.YesNo);
             if (delete == DialogResult.Yes)
             {
 
-                File.Delete(@"image\logo.jpg");
-                if (!File.Exists(@"image\logo.jpg"))
+                File.Delete(@"data\image\logo.jpg");
+                if (!File.Exists(@"data\image\logo.jpg"))
                 {
                     MessageBox.Show("Logo poistettu");
                     logoBox.Dispose();
@@ -141,6 +146,16 @@ namespace Lahjakorttiappi
             }
 
             
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            DialogResult remove = MessageBox.Show("Haluatko varmasti poistaa yrityksen tiedot? ", "Tämä poistaa tiedot lopullisesti", MessageBoxButtons.YesNo);
+            if (remove == DialogResult.Yes)
+            {
+
+               
+            }
         }
     }
 }
