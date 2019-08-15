@@ -48,6 +48,8 @@ namespace Lahjakorttiappi
             }
             ds.Tables.Remove("ProductInfo");
             loadData();
+            dGWProducts.Refresh();
+            dGWProducts.Update();
         }
         private void textBoxEmptyTest()
         {
@@ -92,7 +94,7 @@ namespace Lahjakorttiappi
                 try
                 {
                     int id = Convert.ToInt32(selectedRow.Cells["ID"].Value);
-                    dBController.removeById("Palvelut", id);
+                    dBController.removeProductById(id);
                 }
                 catch(Exception ex)
                 {

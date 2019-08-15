@@ -78,17 +78,17 @@ namespace Lahjakorttiappi.DatabaseController
             return ds;
         }*/
 
-        public void removeById(string table ,int id)
+        public void removeProductById(int id)
         {
             connectDatabase();
-            SqlCommand cmd = new SqlCommand("DELETE FROM @table WHERE ID = @id", connect);
-            cmd.Parameters.AddWithValue("@table", table);
+            SqlCommand cmd = new SqlCommand("DELETE FROM Palvelut WHERE ID = @id", connect);
             cmd.Parameters.AddWithValue("@id", id);
             using(cmd)
             {
                 cmd.ExecuteNonQuery();
-                disconnectDatabse();
+                
             }
+            disconnectDatabse();
         }
         
         //saves the product to database
