@@ -65,7 +65,7 @@ namespace Lahjakorttiappi
                 // Sets loaded image to pictureBox
                 logoBox.Image = new Bitmap (open.FileName);
                 //Saves the image to image folder
-                logoBox.Image.Save("image/logo.jpg");
+                logoBox.Image.Save("data/image/logo.jpg");
                
             }
             else
@@ -120,9 +120,9 @@ namespace Lahjakorttiappi
         // Loads logo.jpg to logoBox ImageBox if its greated
         private void loadLogo()
         {
-            if (File.Exists(@"image\logo.jpg"))
+            if (File.Exists(@"data\image\logo.jpg"))
                 {
-                logoBox.ImageLocation = @"image\logo.jpg";
+                logoBox.ImageLocation = @"data\image\logo.jpg";
                 }           
         }
 
@@ -133,8 +133,8 @@ namespace Lahjakorttiappi
             if (delete == DialogResult.Yes)
             {
 
-                File.Delete(@"image\logo.jpg");
-                if (!File.Exists(@"image\logo.jpg"))
+                File.Delete(@"data\image\logo.jpg");
+                if (!File.Exists(@"data\image\logo.jpg"))
                 {
                     MessageBox.Show("Logo poistettu");
                     logoBox.Dispose();
