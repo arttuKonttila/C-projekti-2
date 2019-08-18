@@ -90,6 +90,7 @@
             this.btnPoista.TabIndex = 1;
             this.btnPoista.Text = "Poista";
             this.btnPoista.UseVisualStyleBackColor = false;
+            this.btnPoista.Click += new System.EventHandler(this.btnPoista_Click);
             // 
             // btnTulosta
             // 
@@ -167,7 +168,7 @@
             this.asetuksetToolStripMenuItem,
             this.lopetaToolStripMenuItem});
             this.tiedostoToolStripMenuItem.Name = "tiedostoToolStripMenuItem";
-            this.tiedostoToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
+            this.tiedostoToolStripMenuItem.Size = new System.Drawing.Size(64, 20);
             this.tiedostoToolStripMenuItem.Text = "Tiedosto";
             // 
             // lisääUusiToolStripMenuItem
