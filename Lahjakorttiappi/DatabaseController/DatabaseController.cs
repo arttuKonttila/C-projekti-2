@@ -90,7 +90,20 @@ namespace Lahjakorttiappi.DatabaseController
             }
             disconnectDatabse();
         }
-        
+
+        public void removeById(int id)
+        {
+            connectDatabase();
+            SqlCommand cmd = new SqlCommand("DELETE FROM Asiakastiedot WHERE ID = @id", connect);
+            cmd.Parameters.AddWithValue("@id", id);
+            using (cmd)
+            {
+                cmd.ExecuteNonQuery();
+
+            }
+            disconnectDatabse();
+        }
+
         //saves the product to database
         public bool addProduct(Class.Products prod)
         {
