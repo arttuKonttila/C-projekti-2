@@ -148,13 +148,37 @@ namespace Lahjakorttiappi
             }
             
         }
-
+        //Write TextBox text to xlm file to use later
         private void writeDataToXml()
         {
-            XmlDocument file = new XmlDocument();
-            file.LoadXml(@"Data/contact.xlm");
-           
-            
+            XmlTextWriter companyInfo = new XmlTextWriter(@"Data/contact.xlm" ,System.Text.Encoding.UTF8);
+            companyInfo.WriteStartDocument();
+            companyInfo.WriteStartElement("Company name");
+            companyInfo.WriteString(txtBoxFirmName.Text);
+            companyInfo.WriteEndElement();
+            companyInfo.WriteStartElement("Company ID");
+            companyInfo.WriteString(txtBoxIdentifier.Text);
+            companyInfo.WriteEndElement();         
+            companyInfo.WriteStartElement("Address");
+            companyInfo.WriteString(txtBoxAdress.Text);
+            companyInfo.WriteEndElement();
+            companyInfo.WriteStartElement("Postal Number");
+            companyInfo.WriteString(txtBoxPostNumber.Text);
+            companyInfo.WriteEndElement();
+            companyInfo.WriteStartElement("State");
+            companyInfo.WriteString(txtBoxPostState.Text);
+            companyInfo.WriteEndElement();
+            companyInfo.WriteStartElement("Phone");
+            companyInfo.WriteString(txtBoxPhone.Text);
+            companyInfo.WriteEndElement();
+            companyInfo.WriteStartElement("Email");
+            companyInfo.WriteString(txtBoxEmail.Text);
+            companyInfo.WriteEndElement();
+            companyInfo.WriteStartElement("Web Site");
+            companyInfo.WriteString(txtBoxWeb.Text);
+            companyInfo.WriteEndElement();
+            companyInfo.WriteStartDocument();
+            companyInfo.Close();
         }
 
         private void btnClear_Click(object sender, EventArgs e)
