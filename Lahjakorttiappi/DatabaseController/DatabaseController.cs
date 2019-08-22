@@ -46,7 +46,9 @@ namespace Lahjakorttiappi.DatabaseController
                          FROM[Asiakastiedot] as aTied INNER JOIN[Palvelut] as palv
                          ON aTied.PalveluID = palv.ID
                          INNER JOIN [Tilaukset] til
-                         ON aTied.TilausID = til.ID"; 
+                         ON aTied.TilausID = til.ID
+                         INNER JOIN [Lahjakortti] as lahj
+                         ON aTied.LahjakorttiID = lahj.ID";
             var c = connect;
             var dataAdapter = new SqlDataAdapter(select, c);
             var commandBuilder = new SqlCommandBuilder(dataAdapter);
@@ -100,6 +102,9 @@ namespace Lahjakorttiappi.DatabaseController
         public void removeCustomerInfoById(int id)
         {
             connectDatabase();
+            SqlCommand tits = new SqlCommand(@"SELECT PalveluID, TilausID, LahjakorttiID
+                                            FROM [Asiakastiedot]" , connect);
+
             SqlCommand cmd = new SqlCommand("DELETE FROM Asiakastiedot WHERE ID = @id", connect);
             cmd.Parameters.AddWithValue("@id", id);
             using (cmd)
