@@ -103,8 +103,9 @@ namespace Lahjakorttiappi.DatabaseController
         {
             connectDatabase();
             SqlCommand tits = new SqlCommand(@"SELECT PalveluID, TilausID, LahjakorttiID
-                                            FROM [Asiakastiedot]" , connect);
-
+                                            FROM [Asiakastiedot]
+                                            WHERE ID = @id" , connect);
+            tits.Parameters.AddWithValue("@id", id);
             SqlCommand cmd = new SqlCommand("DELETE FROM Asiakastiedot WHERE ID = @id", connect);
             cmd.Parameters.AddWithValue("@id", id);
             using (cmd)
