@@ -59,17 +59,32 @@ namespace Lahjakorttiappi
 
         static void CreateFiles()
         {
-            string companyInfo = "data/contact.xml";
+            string companyInfoxml = "data/contact.xml";
 
-            if (!File.Exists(companyInfo))
+            if (!File.Exists(companyInfoxml))
             {
                 try
                 {
-                    using (XmlWriter.Create(companyInfo))
-                    {
-                        
+                    XmlWriterSettings xmlWriterSettings = new XmlWriterSettings();
+                    xmlWriterSettings.Indent= true;
+                    xmlWriterSettings.NewLineOnAttributes= true;
 
-                    }
+                    using (XmlWriter create =XmlWriter.Create(companyInfoxml, xmlWriterSettings))
+                    {
+                        create.WriteStartDocument();
+                        create.WriteStartElement ("Company");
+                        create.WriteElementString("CompanyName","");
+                        create.WriteElementString ("CompanyID","");
+                        create.WriteElementString ("Address","");
+                        create.WriteElementString("PostalNumber","");
+                        create.WriteElementString("PostalState","");
+                        create.WriteElementString ("Phone","");
+                        create.WriteElementString("Email","");
+                        create.WriteElementString("WebSite","");
+                        create.WriteEndElement();
+                        create.WriteEndDocument();
+                        create.Flush();
+                   }
                 }
                 catch (Exception e)
                 {

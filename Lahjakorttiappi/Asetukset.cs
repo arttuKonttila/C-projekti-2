@@ -17,11 +17,35 @@ namespace Lahjakorttiappi
     {
         static string logoName = "logo.jpg";
         string path = Path.Combine(Environment.CurrentDirectory, @"Pictures\", logoName);
+        string companyData = "data/contact.xml";
+        string companyLogo = "data/image/logo.jpg";
         public Asetukset()
         {
             InitializeComponent();
+            loadCompanyInfo();
             loadLogo();
         }
+
+        private void loadCompanyInfo()
+        {
+            
+
+            DataSet read = new DataSet();
+            read.ReadXml(companyData);
+
+            foreach (DataRow dr in read.Tables[0].Rows)
+            {
+                txtBoxFirmName.Text = dr["CompanyName"].ToString().Trim();
+                txtBoxIdentifier.Text = dr["CompanyID"].ToString().Trim();
+                txtBoxAdress.Text = dr["Address"].ToString().Trim();
+                txtBoxPostNumber.Text = dr["PostalNumber"].ToString().Trim();
+                txtBoxPostState.Text = dr["PostalState"].ToString().Trim();
+                txtBoxPhone.Text = dr["Phone"].ToString().Trim();
+                txtBoxEmail.Text = dr["Email"].ToString().Trim();
+                txtBoxWeb.Text = dr["WebSite"].ToString().Trim();
+            }   
+
+        } 
 
         private void txtBoxIdentifier_TextChanged(object sender, EventArgs e)
         {
@@ -54,7 +78,7 @@ namespace Lahjakorttiappi
             //Gets file from user to use as logo
             OpenFileDialog open = new OpenFileDialog();
             open.InitialDirectory = @"C:\";
-            open.Title = "Select your preferred logo";
+            open.Title = "Lisää logo";
             open.DefaultExt = "jpg";
             open.CheckFileExists = true;
             open.CheckPathExists = true;
@@ -66,7 +90,7 @@ namespace Lahjakorttiappi
                 // Sets loaded image to pictureBox
                 logoBox.Image = new Bitmap (open.FileName);
                 //Saves the image to image folder
-                logoBox.Image.Save("data/image/logo.jpg");
+                logoBox.Image.Save(companyLogo);
                
             }
             else
@@ -122,9 +146,9 @@ namespace Lahjakorttiappi
         // Loads logo.jpg to logoBox ImageBox if its greated
         private void loadLogo()
         {
-            if (File.Exists(@"data\image\logo.jpg"))
+            if (File.Exists(companyLogo))
                 {
-                logoBox.ImageLocation = @"data\image\logo.jpg";
+                logoBox.ImageLocation = companyLogo;
                 }           
         }
 
@@ -135,8 +159,8 @@ namespace Lahjakorttiappi
             if (delete == DialogResult.Yes)
             {
 
-                File.Delete(@"data\image\logo.jpg");
-                if (!File.Exists(@"data\image\logo.jpg"))
+                File.Delete(companyLogo);
+                if (!File.Exists(companyLogo))
                 {
                     MessageBox.Show("Logo poistettu");
                     logoBox.Dispose();
@@ -151,34 +175,26 @@ namespace Lahjakorttiappi
         //Write TextBox text to xlm file to use later
         private void writeDataToXml()
         {
-            XmlTextWriter companyInfo = new XmlTextWriter(@"Data/contact.xlm" ,System.Text.Encoding.UTF8);
-            companyInfo.WriteStartDocument();
-            companyInfo.WriteStartElement("Company name");
-            companyInfo.WriteString(txtBoxFirmName.Text);
-            companyInfo.WriteEndElement();
-            companyInfo.WriteStartElement("Company ID");
-            companyInfo.WriteString(txtBoxIdentifier.Text);
-            companyInfo.WriteEndElement();         
-            companyInfo.WriteStartElement("Address");
-            companyInfo.WriteString(txtBoxAdress.Text);
-            companyInfo.WriteEndElement();
-            companyInfo.WriteStartElement("Postal Number");
-            companyInfo.WriteString(txtBoxPostNumber.Text);
-            companyInfo.WriteEndElement();
-            companyInfo.WriteStartElement("State");
-            companyInfo.WriteString(txtBoxPostState.Text);
-            companyInfo.WriteEndElement();
-            companyInfo.WriteStartElement("Phone");
-            companyInfo.WriteString(txtBoxPhone.Text);
-            companyInfo.WriteEndElement();
-            companyInfo.WriteStartElement("Email");
-            companyInfo.WriteString(txtBoxEmail.Text);
-            companyInfo.WriteEndElement();
-            companyInfo.WriteStartElement("Web Site");
-            companyInfo.WriteString(txtBoxWeb.Text);
-            companyInfo.WriteEndElement();
-            companyInfo.WriteStartDocument();
-            companyInfo.Close();
+            
+            XmlWriterSettings xmlWriterSettings = new XmlWriterSettings();
+            xmlWriterSettings.Indent = true;
+            xmlWriterSettings.NewLineOnAttributes = true;
+            using (XmlWriter create =XmlWriter.Create(companyData, xmlWriterSettings))
+                    {
+                        create.WriteStartDocument();
+                        create.WriteStartElement ("Company");
+                        create.WriteElementString("CompanyName",txtBoxFirmName.Text);
+                        create.WriteElementString ("CompanyID",txtBoxIdentifier.Text);
+                        create.WriteElementString ("Address",txtBoxAdress.Text);
+                        create.WriteElementString("PostalNumber",txtBoxPostNumber.Text);
+                        create.WriteElementString("PostalState",txtBoxPostState.Text);
+                        create.WriteElementString ("Phone",txtBoxPhone.Text);
+                        create.WriteElementString("Email",txtBoxEmail.Text);
+                        create.WriteElementString("WebSite",txtBoxWeb.Text);
+                        create.WriteEndElement();
+                        create.WriteEndDocument();
+                        create.Flush();
+                   }           
         }
 
         private void btnClear_Click(object sender, EventArgs e)
@@ -187,7 +203,31 @@ namespace Lahjakorttiappi
             if (remove == DialogResult.Yes)
             {
 
-               
+                XmlWriterSettings xmlWriterSettings = new XmlWriterSettings();
+                xmlWriterSettings.Indent = true;
+                xmlWriterSettings.NewLineOnAttributes = true;
+
+                using (XmlWriter create = XmlWriter.Create(companyData, xmlWriterSettings))
+                {
+                    create.WriteStartDocument();
+                    create.WriteStartElement("Company");
+                    create.WriteElementString("CompanyName", "");
+                    create.WriteElementString("CompanyID", "");
+                    create.WriteElementString("Address", "");
+                    create.WriteElementString("PostalNumber", "");
+                    create.WriteElementString("PostalState", "");
+                    create.WriteElementString("Phone", "");
+                    create.WriteElementString("Email", "");
+                    create.WriteElementString("WebSite", "");
+                    create.WriteEndElement();
+                    create.WriteEndDocument();
+                    create.Flush();
+                }
+                foreach (TextBox clear in PnInfo.Controls.OfType<TextBox>())
+                {
+                    clear.Text = "";
+
+                }
             }
         }
     }
