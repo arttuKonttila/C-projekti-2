@@ -42,7 +42,11 @@ namespace Lahjakorttiappi.DatabaseController
         public DataSet bringAllData(DataSet ds)
         {
             connectDatabase();
-            var select = "SELECT * FROM Asiakastiedot";
+            var select = @"SELECT aTied.ID, Etunimi, Sukunimi, Osoite, PuhNro, Sahkoposti, Postinumero, Paikka
+                         FROM[Asiakastiedot] as aTied INNER JOIN[Palvelut] as palv
+                         ON aTied.PalveluID = palv.ID
+                         INNER JOIN [Tilaukset] til
+                         ON aTied.TilausID = til.ID"; 
             var c = connect;
             var dataAdapter = new SqlDataAdapter(select, c);
             var commandBuilder = new SqlCommandBuilder(dataAdapter);
@@ -78,6 +82,7 @@ namespace Lahjakorttiappi.DatabaseController
             return ds;
         }*/
 
+        //removes products from database
         public void removeProductById(int id)
         {
             connectDatabase();
@@ -91,7 +96,8 @@ namespace Lahjakorttiappi.DatabaseController
             disconnectDatabse();
         }
 
-        public void removeById(int id)
+        //removes Customer Info from database
+        public void removeCustomerInfoById(int id)
         {
             connectDatabase();
             SqlCommand cmd = new SqlCommand("DELETE FROM Asiakastiedot WHERE ID = @id", connect);
