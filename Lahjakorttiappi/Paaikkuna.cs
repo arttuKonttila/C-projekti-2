@@ -103,7 +103,7 @@ namespace Lahjakorttiappi
                 try
                 {
                     int id = Convert.ToInt32(selectedRow.Cells["ID"].Value);
-                    dBController.removeById(id);
+                    dBController.removeCustomerInfoById(id);
                 }
                 catch (Exception ex)
                 {
