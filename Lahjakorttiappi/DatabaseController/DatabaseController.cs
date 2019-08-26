@@ -42,13 +42,14 @@ namespace Lahjakorttiappi.DatabaseController
         public DataSet bringAllData(DataSet ds)
         {
             connectDatabase();
-            var select = @"SELECT aTied.ID, Etunimi, Sukunimi, Osoite, PuhNro, Sahkoposti, Postinumero, Paikka
-                         FROM[Asiakastiedot] as aTied INNER JOIN[Palvelut] as palv
-                         ON aTied.PalveluID = palv.ID
-                         INNER JOIN [Tilaukset] til
-                         ON aTied.TilausID = til.ID
-                         INNER JOIN [Lahjakortti] as lahj
-                         ON aTied.LahjakorttiID = lahj.ID";
+            var select = @"SELECT aTied.ID, aTied.Etunimi, aTied.Sukunimi, aTied.Osoite, aTied.PuhNro, aTied.Sahkoposti, aTied.Postinumero, aTied.Paikka, lahj.Voimassaolo, lahj.Myyjä, palv.Palvelu, til.PVM, til.Kerrat, til.Kesto, til.Maksettu, til.Saaja
+                        FROM [Asiakastiedot] as aTied
+                        INNER JOIN[Palvelut] as palv
+                        ON aTied.PalveluID = palv.ID
+                        INNER JOIN [Tilaukset] til
+                        ON aTied.TilausID = til.ID
+                        INNER JOIN [Lahjakortti] as lahj
+                        ON aTied.LahjakorttiID = lahj.ID";
             var c = connect;
             var dataAdapter = new SqlDataAdapter(select, c);
             var commandBuilder = new SqlCommandBuilder(dataAdapter);
@@ -96,16 +97,16 @@ namespace Lahjakorttiappi.DatabaseController
                 
             }
             disconnectDatabse();
-        }
+    }
 
         //removes Customer Info from database
         public void removeCustomerInfoById(int id)
         {
             connectDatabase();
-            SqlCommand tits = new SqlCommand(@"SELECT PalveluID, TilausID, LahjakorttiID
+            SqlCommand command = new SqlCommand(@"SELECT PalveluID, TilausID, LahjakorttiID
                                             FROM [Asiakastiedot]
                                             WHERE ID = @id" , connect);
-            tits.Parameters.AddWithValue("@id", id);
+            command.Parameters.AddWithValue("@id", id);
             SqlCommand cmd = new SqlCommand("DELETE FROM Asiakastiedot WHERE ID = @id", connect);
             cmd.Parameters.AddWithValue("@id", id);
             using (cmd)
