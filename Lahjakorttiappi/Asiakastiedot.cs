@@ -25,10 +25,13 @@ namespace Lahjakorttiappi
 {
     public partial class AsiakasTiedot : Form
     {
-       
         public AsiakasTiedot()
         {
             InitializeComponent();
+            products = dbController.bringProducts();
+            cmBoxService.DataSource = products;
+            cmBoxService.DisplayMember = "Palvelu";
+            cmBoxService.ValueMember = "PalveluNro";
         }
 
 
@@ -51,6 +54,7 @@ namespace Lahjakorttiappi
             info.Postinumero = txtBoxPoNbr.Text;
             info.Paikka = txtBoxPoPlace.Text;
             info.Adress = TxtBoxAdress.Text;
+            info.PalveluID = Convert.ToInt32(cmBoxService.SelectedValue);
             return info;
         }
 
@@ -64,6 +68,9 @@ namespace Lahjakorttiappi
         private void btnAdd_Click(object sender, EventArgs e)
         {
             textBoxEmptyTest();
+            Class.Asiakastiedot customer = new Class.Asiakastiedot();
+            customer = getCustomerInfo();
+            dbController.addCustomerInfo(customer);
         }
 
         private void textBoxEmptyTest()
