@@ -44,7 +44,7 @@ namespace Lahjakorttiappi
                 txtBoxEmail.Text = dr["Email"].ToString().Trim();
                 txtBoxWeb.Text = dr["WebSite"].ToString().Trim();
             }   
-
+            
         } 
 
         private void txtBoxIdentifier_TextChanged(object sender, EventArgs e)

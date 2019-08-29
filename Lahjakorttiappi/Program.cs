@@ -30,6 +30,7 @@ namespace Lahjakorttiappi
         {
             string data = "data";
             string image = "data/image";
+            string pdf = "data/lahjakortit/";
             
             if (!Directory.Exists(data))
             {
@@ -48,6 +49,18 @@ namespace Lahjakorttiappi
                 try
                 {
                     Directory.CreateDirectory(image);
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show("The process failed: {0}", e.ToString());
+                }
+
+            }
+            if (!Directory.Exists(pdf))
+            {
+                try
+                {
+                    Directory.CreateDirectory(pdf);
                 }
                 catch (Exception e)
                 {
