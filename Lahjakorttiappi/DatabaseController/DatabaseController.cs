@@ -115,7 +115,7 @@ namespace Lahjakorttiappi.DatabaseController
                 {
                     CustomerInfoId.Add(Convert.ToInt32(read.GetValue(0)));
                     CustomerInfoId.Add(Convert.ToInt32(read.GetValue(1)));
-                    CustomerInfoId.Add(Convert.ToInt32(read.GetValue(3)));
+                    CustomerInfoId.Add(Convert.ToInt32(read.GetValue(2)));
                 }
             }
             SqlCommand cmd = new SqlCommand("DELETE FROM Asiakastiedot WHERE ID = @id", connect);
