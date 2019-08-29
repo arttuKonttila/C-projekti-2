@@ -73,6 +73,26 @@ namespace Lahjakorttiappi.DatabaseController
             return ds;
         }
 
+        public List<Class.Products> bringProducts()
+        {
+            List<Class.Products> prod = new List<Class.Products>();
+            SqlCommand cmd = new SqlCommand("SELECT * FROM Palvelut", connect);
+            connectDatabase();
+            SqlDataReader read = cmd.ExecuteReader();
+            if(read.HasRows)
+            {
+                while(read.Read())
+                {
+                    Class.Products product = new Class.Products();
+                    product.PalveluNro = Convert.ToInt32(read.GetValue(0));
+                    product.Palvelu = read.GetValue(1).ToString();
+                    prod.Add(product);
+                }
+            }
+            disconnectDatabse();
+            return prod;
+        }
+
         /*public DataSet bringProductsOnly(DataSet ds)
         {
             connectDatabase();
@@ -187,7 +207,7 @@ namespace Lahjakorttiappi.DatabaseController
 
         public void addCustomerInfo(Class.Asiakastiedot info)
         {
-
+            
         }
     }
 }
