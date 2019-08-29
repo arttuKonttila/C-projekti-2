@@ -104,6 +104,8 @@ namespace Lahjakorttiappi.DatabaseController
         {
             List<int> CustomerInfoId = new List<int>();
             connectDatabase();
+
+            //bring the ids from customerinfo table so we can utilize them to delete data from all the tables
             SqlCommand command = new SqlCommand(@"SELECT PalveluID, TilausID, LahjakorttiID
                                             FROM [Asiakastiedot]
                                             WHERE ID = @id" , connect);
@@ -118,6 +120,7 @@ namespace Lahjakorttiappi.DatabaseController
                     CustomerInfoId.Add(Convert.ToInt32(read.GetValue(2)));
                 }
             }
+            read.Close();
             SqlCommand cmd = new SqlCommand("DELETE FROM Asiakastiedot WHERE ID = @id", connect);
             cmd.Parameters.AddWithValue("@id", id);
             using (cmd)
@@ -178,6 +181,11 @@ namespace Lahjakorttiappi.DatabaseController
         }
 
         public void changeCustomerInfo(Class.Asiakastiedot info)
+        {
+
+        }
+
+        public void addCustomerInfo(Class.Asiakastiedot info)
         {
 
         }

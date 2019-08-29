@@ -12,6 +12,7 @@ namespace Lahjakorttiappi
 {
     public partial class AsiakasTiedot : Form
     {
+        DatabaseController.DatabaseController dbController = new DatabaseController.DatabaseController();
         public AsiakasTiedot()
         {
             InitializeComponent();
@@ -50,6 +51,9 @@ namespace Lahjakorttiappi
         private void btnAdd_Click(object sender, EventArgs e)
         {
             textBoxEmptyTest();
+            Class.Asiakastiedot customer = new Class.Asiakastiedot();
+            customer = getCustomerInfo();
+            dbController.addCustomerInfo(customer);
         }
 
         private void textBoxEmptyTest()
