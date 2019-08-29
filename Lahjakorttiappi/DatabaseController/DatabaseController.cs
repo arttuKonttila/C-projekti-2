@@ -102,17 +102,46 @@ namespace Lahjakorttiappi.DatabaseController
         //removes Customer Info from database
         public void removeCustomerInfoById(int id)
         {
+            List<int> CustomerInfoId = new List<int>();
             connectDatabase();
             SqlCommand command = new SqlCommand(@"SELECT PalveluID, TilausID, LahjakorttiID
                                             FROM [Asiakastiedot]
                                             WHERE ID = @id" , connect);
             command.Parameters.AddWithValue("@id", id);
+            SqlDataReader read = command.ExecuteReader();
+            if(read.HasRows)
+            {
+                while(read.Read())
+                {
+                    CustomerInfoId.Add(Convert.ToInt32(read.GetValue(0)));
+                    CustomerInfoId.Add(Convert.ToInt32(read.GetValue(1)));
+                    CustomerInfoId.Add(Convert.ToInt32(read.GetValue(3)));
+                }
+            }
             SqlCommand cmd = new SqlCommand("DELETE FROM Asiakastiedot WHERE ID = @id", connect);
             cmd.Parameters.AddWithValue("@id", id);
             using (cmd)
             {
                 cmd.ExecuteNonQuery();
 
+            }
+            SqlCommand deletePalvelu = new SqlCommand("DELETE FROM Palvelut WHERE ID = @id", connect);
+            deletePalvelu.Parameters.AddWithValue("@id", CustomerInfoId[0]);
+            using(deletePalvelu)
+            {
+                deletePalvelu.ExecuteNonQuery();
+            }
+            SqlCommand deleteTilaukset = new SqlCommand("DELETE FROM Tilaukset WHERE ID = @id", connect);
+            deleteTilaukset.Parameters.AddWithValue("@id", CustomerInfoId[1]);
+            using(deleteTilaukset)
+            {
+                deleteTilaukset.ExecuteNonQuery();
+            }
+            SqlCommand deleteLahjakortti = new SqlCommand("DELETE FROM Lahjakortti WHERE ID = @id", connect);
+            deleteLahjakortti.Parameters.AddWithValue("@id", CustomerInfoId[2]);
+            using(deleteLahjakortti)
+            {
+                deleteLahjakortti.ExecuteNonQuery();
             }
             disconnectDatabse();
         }
