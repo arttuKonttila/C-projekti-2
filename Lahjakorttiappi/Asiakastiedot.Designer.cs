@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.pnlGiftCardByer = new System.Windows.Forms.Panel();
-            this.txtBoxID = new System.Windows.Forms.TextBox();
             this.lblID = new System.Windows.Forms.Label();
             this.lblEmail = new System.Windows.Forms.Label();
             this.lblPhone = new System.Windows.Forms.Label();
@@ -60,6 +59,7 @@
             this.cmBoxService = new System.Windows.Forms.ComboBox();
             this.numAmount = new System.Windows.Forms.NumericUpDown();
             this.dtmSellTime = new System.Windows.Forms.DateTimePicker();
+            this.lblCustomerNmbr = new System.Windows.Forms.Label();
             this.pnlGiftCardByer.SuspendLayout();
             this.pnlControls.SuspendLayout();
             this.pnGiftCardInfo.SuspendLayout();
@@ -69,7 +69,7 @@
             // pnlGiftCardByer
             // 
             this.pnlGiftCardByer.AccessibleDescription = "Tietojen lisäys paneeli";
-            this.pnlGiftCardByer.Controls.Add(this.txtBoxID);
+            this.pnlGiftCardByer.Controls.Add(this.lblCustomerNmbr);
             this.pnlGiftCardByer.Controls.Add(this.lblID);
             this.pnlGiftCardByer.Controls.Add(this.lblEmail);
             this.pnlGiftCardByer.Controls.Add(this.lblPhone);
@@ -88,16 +88,6 @@
             this.pnlGiftCardByer.Name = "pnlGiftCardByer";
             this.pnlGiftCardByer.Size = new System.Drawing.Size(589, 317);
             this.pnlGiftCardByer.TabIndex = 0;
-            // 
-            // txtBoxID
-            // 
-            this.txtBoxID.AccessibleName = "Asiakas numero";
-            this.txtBoxID.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBoxID.Location = new System.Drawing.Point(214, 33);
-            this.txtBoxID.Name = "txtBoxID";
-            this.txtBoxID.ReadOnly = true;
-            this.txtBoxID.Size = new System.Drawing.Size(66, 29);
-            this.txtBoxID.TabIndex = 14;
             // 
             // lblID
             // 
@@ -407,6 +397,16 @@
             this.dtmSellTime.Size = new System.Drawing.Size(278, 32);
             this.dtmSellTime.TabIndex = 0;
             // 
+            // lblCustomerNmbr
+            // 
+            this.lblCustomerNmbr.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblCustomerNmbr.Font = new System.Drawing.Font("Arial Narrow", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCustomerNmbr.Location = new System.Drawing.Point(213, 28);
+            this.lblCustomerNmbr.Name = "lblCustomerNmbr";
+            this.lblCustomerNmbr.Size = new System.Drawing.Size(119, 33);
+            this.lblCustomerNmbr.TabIndex = 14;
+            this.lblCustomerNmbr.Click += new System.EventHandler(this.LblCustomerNmbr_Click);
+            // 
             // AsiakasTiedot
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -459,7 +459,7 @@
         private System.Windows.Forms.DateTimePicker dtmSellTime;
         private System.Windows.Forms.Label lblSeller;
         private System.Windows.Forms.ComboBox cmBoxSeller;
-        private System.Windows.Forms.TextBox txtBoxID;
         private System.Windows.Forms.Label lblID;
+        private System.Windows.Forms.Label lblCustomerNmbr;
     }
 }

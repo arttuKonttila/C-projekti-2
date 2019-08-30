@@ -148,5 +148,10 @@ namespace Lahjakorttiappi
             dokumentti.Close();
           
         }
+
+        private void LblCustomerNmbr_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
