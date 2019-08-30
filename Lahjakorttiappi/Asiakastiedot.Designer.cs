@@ -59,7 +59,7 @@
             this.cmBoxService = new System.Windows.Forms.ComboBox();
             this.numAmount = new System.Windows.Forms.NumericUpDown();
             this.dtmSellTime = new System.Windows.Forms.DateTimePicker();
-            this.lblCustomerNmbr = new System.Windows.Forms.Label();
+            this.lblIDShow = new System.Windows.Forms.Label();
             this.pnlGiftCardByer.SuspendLayout();
             this.pnlControls.SuspendLayout();
             this.pnGiftCardInfo.SuspendLayout();
@@ -69,7 +69,7 @@
             // pnlGiftCardByer
             // 
             this.pnlGiftCardByer.AccessibleDescription = "Tietojen lisäys paneeli";
-            this.pnlGiftCardByer.Controls.Add(this.lblCustomerNmbr);
+            this.pnlGiftCardByer.Controls.Add(this.lblIDShow);
             this.pnlGiftCardByer.Controls.Add(this.lblID);
             this.pnlGiftCardByer.Controls.Add(this.lblEmail);
             this.pnlGiftCardByer.Controls.Add(this.lblPhone);
@@ -397,15 +397,15 @@
             this.dtmSellTime.Size = new System.Drawing.Size(278, 32);
             this.dtmSellTime.TabIndex = 0;
             // 
-            // lblCustomerNmbr
+            // lblIDShow
             // 
-            this.lblCustomerNmbr.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lblCustomerNmbr.Font = new System.Drawing.Font("Arial Narrow", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCustomerNmbr.Location = new System.Drawing.Point(213, 28);
-            this.lblCustomerNmbr.Name = "lblCustomerNmbr";
-            this.lblCustomerNmbr.Size = new System.Drawing.Size(119, 33);
-            this.lblCustomerNmbr.TabIndex = 14;
-            this.lblCustomerNmbr.Click += new System.EventHandler(this.LblCustomerNmbr_Click);
+            this.lblIDShow.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblIDShow.Font = new System.Drawing.Font("Arial Narrow", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIDShow.Location = new System.Drawing.Point(213, 28);
+            this.lblIDShow.Name = "lblIDShow";
+            this.lblIDShow.Size = new System.Drawing.Size(119, 33);
+            this.lblIDShow.TabIndex = 14;
+
             // 
             // AsiakasTiedot
             // 
@@ -460,6 +460,6 @@
         private System.Windows.Forms.Label lblSeller;
         private System.Windows.Forms.ComboBox cmBoxSeller;
         private System.Windows.Forms.Label lblID;
-        private System.Windows.Forms.Label lblCustomerNmbr;
+        private System.Windows.Forms.Label lblIDShow;
     }
 }

@@ -19,6 +19,7 @@ namespace Lahjakorttiappi
         string path = Path.Combine(Environment.CurrentDirectory, @"Pictures\", logoName);
         string companyData = "data/contact.xml";
         string companyLogo = "data/image/logo.jpg";
+
         public Asetukset()
         {
             InitializeComponent();
@@ -28,8 +29,6 @@ namespace Lahjakorttiappi
 
         private void loadCompanyInfo()
         {
-            
-
             DataSet read = new DataSet();
             read.ReadXml(companyData);
 
@@ -43,29 +42,8 @@ namespace Lahjakorttiappi
                 txtBoxPhone.Text = dr["Phone"].ToString().Trim();
                 txtBoxEmail.Text = dr["Email"].ToString().Trim();
                 txtBoxWeb.Text = dr["WebSite"].ToString().Trim();
-            }   
-            
+            }             
         } 
-
-        private void txtBoxIdentifier_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void lblOpenTiime_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void btnExit_Click(object sender, EventArgs e)
         {
@@ -73,8 +51,7 @@ namespace Lahjakorttiappi
         }
 
         private void btnAddLogo_Click(object sender, EventArgs e)
-        {
-           
+        {         
             //Gets file from user to use as logo
             OpenFileDialog open = new OpenFileDialog();
             open.InitialDirectory = @"C:\";
@@ -90,9 +67,9 @@ namespace Lahjakorttiappi
                 // Sets loaded image to pictureBox
                 logoBox.Image = new Bitmap (open.FileName);
                 //Saves the image to image folder
-                logoBox.Image.Save(companyLogo);
-               
+                logoBox.Image.Save(companyLogo);             
             }
+
             else
             {
                 return;
@@ -103,8 +80,8 @@ namespace Lahjakorttiappi
         {
             textBoxEmptyTest();
             writeDataToXml();
-
         }
+
         private void textBoxEmptyTest()
         {
             //Basic info message if some or all TextBoxes are empty
@@ -124,18 +101,14 @@ namespace Lahjakorttiappi
                     //Puts the cursor to the TextBox whits is empty
                     testattava.Select();
                     kytkin = false;
-
                 }
-
             }
 
             if (kytkin == false)
             {
                 //Shows Message box whit the TextBoxes names in seperat
                 MessageBox.Show(ilmoitus);
-
             }
-
         }
 
         private void btnAddItems_Click(object sender, EventArgs e)
@@ -169,13 +142,12 @@ namespace Lahjakorttiappi
                 {
                     MessageBox.Show("Logoa ei poistettu");
                 }
-            }
-            
+            }         
         }
+
         //Write TextBox text to xlm file to use later
         private void writeDataToXml()
-        {
-            
+        {         
             XmlWriterSettings xmlWriterSettings = new XmlWriterSettings();
             xmlWriterSettings.Indent = true;
             xmlWriterSettings.NewLineOnAttributes = true;
@@ -202,7 +174,6 @@ namespace Lahjakorttiappi
             DialogResult remove = MessageBox.Show("Haluatko varmasti poistaa yrityksen tiedot? ", "Tämä poistaa tiedot lopullisesti", MessageBoxButtons.YesNo);
             if (remove == DialogResult.Yes)
             {
-
                 XmlWriterSettings xmlWriterSettings = new XmlWriterSettings();
                 xmlWriterSettings.Indent = true;
                 xmlWriterSettings.NewLineOnAttributes = true;
@@ -226,7 +197,6 @@ namespace Lahjakorttiappi
                 foreach (TextBox clear in PnInfo.Controls.OfType<TextBox>())
                 {
                     clear.Text = "";
-
                 }
             }
         }

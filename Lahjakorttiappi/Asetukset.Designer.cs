@@ -54,7 +54,7 @@
             this.lblLogo = new System.Windows.Forms.Label();
             this.btnAddItems = new System.Windows.Forms.Button();
             this.rTextBoxOpenTimes = new System.Windows.Forms.RichTextBox();
-            this.lblOpenTiime = new System.Windows.Forms.Label();
+            this.lblInfo = new System.Windows.Forms.Label();
             this.btnRemoveLogo = new System.Windows.Forms.Button();
             this.logoBox = new System.Windows.Forms.PictureBox();
             this.btnAddLogo = new System.Windows.Forms.Button();
@@ -155,7 +155,7 @@
             this.lblPostState.Size = new System.Drawing.Size(162, 24);
             this.lblPostState.TabIndex = 8;
             this.lblPostState.Text = "Postitoimipaikka";
-            this.lblPostState.Click += new System.EventHandler(this.label2_Click);
+            
             // 
             // txtBoxPostNumber
             // 
@@ -198,7 +198,7 @@
             this.txtBoxIdentifier.Name = "txtBoxIdentifier";
             this.txtBoxIdentifier.Size = new System.Drawing.Size(459, 32);
             this.txtBoxIdentifier.TabIndex = 3;
-            this.txtBoxIdentifier.TextChanged += new System.EventHandler(this.txtBoxIdentifier_TextChanged);
+           
             // 
             // lblIdentifier
             // 
@@ -236,7 +236,7 @@
             this.pnControls.Name = "pnControls";
             this.pnControls.Size = new System.Drawing.Size(166, 575);
             this.pnControls.TabIndex = 1;
-            this.pnControls.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            
             // 
             // btnExit
             // 
@@ -278,7 +278,7 @@
             this.pnlMoreIfno.Controls.Add(this.lblLogo);
             this.pnlMoreIfno.Controls.Add(this.btnAddItems);
             this.pnlMoreIfno.Controls.Add(this.rTextBoxOpenTimes);
-            this.pnlMoreIfno.Controls.Add(this.lblOpenTiime);
+            this.pnlMoreIfno.Controls.Add(this.lblInfo);
             this.pnlMoreIfno.Controls.Add(this.btnRemoveLogo);
             this.pnlMoreIfno.Controls.Add(this.logoBox);
             this.pnlMoreIfno.Controls.Add(this.btnAddLogo);
@@ -325,15 +325,15 @@
             this.rTextBoxOpenTimes.TabIndex = 5;
             this.rTextBoxOpenTimes.Text = "";
             // 
-            // lblOpenTiime
+            // lblInfo
             // 
-            this.lblOpenTiime.AutoSize = true;
-            this.lblOpenTiime.Location = new System.Drawing.Point(11, 409);
-            this.lblOpenTiime.Name = "lblOpenTiime";
-            this.lblOpenTiime.Size = new System.Drawing.Size(123, 24);
-            this.lblOpenTiime.TabIndex = 4;
-            this.lblOpenTiime.Text = "Auki olo ajat";
-            this.lblOpenTiime.Click += new System.EventHandler(this.lblOpenTiime_Click);
+            this.lblInfo.AutoSize = true;
+            this.lblInfo.Location = new System.Drawing.Point(11, 409);
+            this.lblInfo.Name = "lblInfo";
+            this.lblInfo.Size = new System.Drawing.Size(103, 24);
+            this.lblInfo.TabIndex = 4;
+            this.lblInfo.Text = "Lisätietoa";
+          
             // 
             // btnRemoveLogo
             // 
@@ -412,7 +412,7 @@
         private System.Windows.Forms.TextBox txtBoxWeb;
         private System.Windows.Forms.Label lblWeb;
         private System.Windows.Forms.Panel pnlMoreIfno;
-        private System.Windows.Forms.Label lblOpenTiime;
+        private System.Windows.Forms.Label lblInfo;
         private System.Windows.Forms.Button btnRemoveLogo;
         private System.Windows.Forms.PictureBox logoBox;
         private System.Windows.Forms.Button btnAddLogo;

@@ -25,6 +25,7 @@ namespace Lahjakorttiappi
 {
     public partial class AsiakasTiedot : Form
     {
+        
         public AsiakasTiedot()
         {
             InitializeComponent();
@@ -41,7 +42,7 @@ namespace Lahjakorttiappi
             Class.Asiakastiedot info = new Class.Asiakastiedot();
             try
             {
-                info.AsiakasNro = Convert.ToInt32(txtBoxID.Text);
+                info.AsiakasNro = Convert.ToInt32(lblIDShow.Text);
             }
             catch
             {
@@ -108,34 +109,50 @@ namespace Lahjakorttiappi
 
         private void BtnSend_Click(object sender, EventArgs e)
         {
+            textBoxEmptyTest();
+            makePdf();        
+        }
 
-
-            
+        private void makePdf()
+        {
             string pdfDestination = ("/data/lahjakorttit/lahjakortti.pdf ");
             string pdfBackground = ("/Resources/giftCardBack.jpg");
             string logoDest = ("/data/logo.jpg");
-            
+            string companyData = ("/data/contact.xml");
             string customer = txtBoxFirstName.Text + " " + txtBoxLastName.Text;
-            string service = cmBoxService.SelectedItem.ToString() + " " + cmBoxTime.SelectedItem.ToString() + " " + numAmount.Value.ToString()+ " kertaa" ;
-            string date = "Lahjakortti on voimassa "+ dtmSellTime.Value.ToString()+ " vuoden eteenpäin.";        
-
+            string service = cmBoxService.SelectedItem.ToString() + " " + cmBoxTime.SelectedItem.ToString() + " " + numAmount.Value.ToString() + " kertaa";
+            string date = "Lahjakortti on voimassa " + dtmSellTime.Value.ToString() + " vuoden eteenpäin.";
+            string company = "", cmAddress = "", cmEmail = "", cmPhone = "", cmPostNum = "", cmPostState = "", cmWeb = "";
             // var kuva = Properties.Resources.giftCardBack.RawFormat;
             // System.Drawing.Image image = Properties.Resources.giftCardBack;
             // iText.Layout.Element.Image background = Properties.Resources.giftCardBack;
             // System.Drawing.im
             iText.Layout.Element.Image background = new iText.Layout.Element.Image(ImageDataFactory.Create(pdfBackground));
             iText.Layout.Element.Image logo = new iText.Layout.Element.Image(ImageDataFactory.Create(logoDest));
-            
+            DataSet read = new DataSet();
+            read.ReadXml(companyData);
+
+            foreach (DataRow dr in read.Tables[0].Rows)
+            {
+                company = dr["CompanyName"].ToString().Trim();
+                cmAddress = dr["Address"].ToString().Trim();
+                cmPostNum = dr["PostalNumber"].ToString().Trim();
+                cmPostState = dr["PostalState"].ToString().Trim();
+                cmPhone = dr["Phone"].ToString().Trim();
+                cmEmail = dr["Email"].ToString().Trim();
+                cmWeb = dr["WebSite"].ToString().Trim();
+            }
             PdfWriter writer = new PdfWriter(pdfDestination);
             PdfDocument pdf = new PdfDocument(writer);
             PdfFont font = PdfFontFactory.CreateFont(StandardFonts.HELVETICA);
             Document dokumentti = new Document(pdf, PageSize.A4.Rotate());
-           
+
             dokumentti.Add(background);
             Paragraph h1 = new Paragraph("LAHJAKORTTI").SetBold().SetFont(font).SetFontSize(35);
             Paragraph hello = new Paragraph("Hei " + customer).SetFont(font).SetFontSize(20);
             Paragraph body = new Paragraph("Sinulla on lahjakortti" + service).SetFont(font).SetFontSize(18);
             Paragraph valid = new Paragraph(date).SetFont(font).SetFontSize(16);
+            Paragraph companyInfo = new Paragraph(company + "/n" + cmAddress + "/n" + cmPostNum + " " + cmPostState + "/n" + cmPhone + "/n" + cmEmail + "/n" + cmWeb).SetFont(font).SetFontSize(12);
             // Tryed to get the paragraph to be accessible.
             //h1.getAccessibilityProperties().setRole(StandardRoles.H1);
             dokumentti.Add(h1);
@@ -144,14 +161,10 @@ namespace Lahjakorttiappi
             dokumentti.Add(hello);
             dokumentti.Add(body);
             dokumentti.Add(valid);
-            
+            dokumentti.Add(companyInfo);
             dokumentti.Close();
-          
         }
 
-        private void LblCustomerNmbr_Click(object sender, EventArgs e)
-        {
-
-        }
+       
     }
 }
