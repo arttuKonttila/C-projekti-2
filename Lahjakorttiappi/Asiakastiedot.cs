@@ -25,12 +25,14 @@ namespace Lahjakorttiappi
 {
     public partial class AsiakasTiedot : Form
     {
+        DatabaseController.DatabaseController kanta = new DatabaseController.DatabaseController();
         
         public AsiakasTiedot()
         {
             InitializeComponent();
-            products = dbController.bringProducts();
-            cmBoxService.DataSource = products;
+            List<Class.Products> allProducts = new List<Class.Products>();
+            allProducts = kanta.bringProducts();
+            cmBoxService.DataSource = allProducts;
             cmBoxService.DisplayMember = "Palvelu";
             cmBoxService.ValueMember = "PalveluNro";
         }
@@ -71,7 +73,7 @@ namespace Lahjakorttiappi
             textBoxEmptyTest();
             Class.Asiakastiedot customer = new Class.Asiakastiedot();
             customer = getCustomerInfo();
-            dbController.addCustomerInfo(customer);
+            kanta.addCustomerInfo(customer);
         }
 
         private void textBoxEmptyTest()
