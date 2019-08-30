@@ -5,10 +5,13 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Reflection;
+using System.Resources;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using iText.IO.Font.Constants;
 using iText.IO.Image;
+using System.IO;
 using iText.IO.Util;
 using iText.Kernel.Font;
 using iText.Kernel.Geom;
@@ -18,8 +21,7 @@ using iText.Layout.Element;
 using iText.Layout.Properties;
 using iText.Layout.Renderer;
 using iText.Kernel.Utils;
-
-
+using Image = System.Drawing.Image;
 
 namespace Lahjakorttiappi
 {
@@ -117,19 +119,20 @@ namespace Lahjakorttiappi
 
         private void makePdf()
         {
-            string pdfDestination = ("/data/lahjakorttit/lahjakortti.pdf ");
-            string pdfBackground = ("/Resources/giftCardBack.jpg");
-            string logoDest = ("/data/logo.jpg");
-            string companyData = ("/data/contact.xml");
+            string pdfDestination = System.IO.Path.Combine(Environment.CurrentDirectory, "data/lahjakorttit/lahjakortti.pdf ");
+            //string pdfBackground = System.Reflection.Assembly.GetExecutingAssembly(giftCardBack.jpg);
+            string path = System.IO.Path.Combine(Environment.CurrentDirectory, "data/image/logo.jpg");
+            string logoDest = path; // (@"/data/image/logo.jpg");
+            string companyData = System.IO.Path.Combine(Environment.CurrentDirectory, "data/contact.xml");
             string customer = txtBoxFirstName.Text + " " + txtBoxLastName.Text;
-            string service = cmBoxService.SelectedItem.ToString() + " " + cmBoxTime.SelectedItem.ToString() + " " + numAmount.Value.ToString() + " kertaa";
+            string service = this.cmBoxService.GetItemText(this.cmBoxService.SelectedItem) + " " + this.cmBoxTime.GetItemText(cmBoxTime.SelectedItem) + numAmount.Value.ToString() + " kertaa";
             string date = "Lahjakortti on voimassa " + dtmSellTime.Value.ToString() + " vuoden eteenpäin.";
             string company = "", cmAddress = "", cmEmail = "", cmPhone = "", cmPostNum = "", cmPostState = "", cmWeb = "";
             // var kuva = Properties.Resources.giftCardBack.RawFormat;
             // System.Drawing.Image image = Properties.Resources.giftCardBack;
             // iText.Layout.Element.Image background = Properties.Resources.giftCardBack;
             // System.Drawing.im
-            iText.Layout.Element.Image background = new iText.Layout.Element.Image(ImageDataFactory.Create(pdfBackground));
+            //iText.Layout.Element.Image background = new iText.Layout.Element.Image(ImageDataFactory.Create(pdfBackground));
             iText.Layout.Element.Image logo = new iText.Layout.Element.Image(ImageDataFactory.Create(logoDest));
             DataSet read = new DataSet();
             read.ReadXml(companyData);
@@ -149,7 +152,7 @@ namespace Lahjakorttiappi
             PdfFont font = PdfFontFactory.CreateFont(StandardFonts.HELVETICA);
             Document dokumentti = new Document(pdf, PageSize.A4.Rotate());
 
-            dokumentti.Add(background);
+            //dokumentti.Add(background);
             Paragraph h1 = new Paragraph("LAHJAKORTTI").SetBold().SetFont(font).SetFontSize(35);
             Paragraph hello = new Paragraph("Hei " + customer).SetFont(font).SetFontSize(20);
             Paragraph body = new Paragraph("Sinulla on lahjakortti" + service).SetFont(font).SetFontSize(18);
