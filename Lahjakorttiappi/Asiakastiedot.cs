@@ -23,12 +23,21 @@ using iText.Layout.Renderer;
 using iText.Kernel.Utils;
 using Image = System.Drawing.Image;
 
+
 namespace Lahjakorttiappi
 {
     public partial class AsiakasTiedot : Form
     {
         DatabaseController.DatabaseController kanta = new DatabaseController.DatabaseController();
-        
+        DateTime sellTime = new DateTime();
+        public Class.Asiakastiedot info = new Class.Asiakastiedot();
+
+        public DateTime SellTime()
+        {
+            sellTime = dtmSellTime.Value;
+            return sellTime;
+        }
+
         public AsiakasTiedot()
         {
             InitializeComponent();
@@ -43,7 +52,7 @@ namespace Lahjakorttiappi
         //saves the data from text fields into a public string format so that i can be utilized in the main form
         public Class.Asiakastiedot getCustomerInfo()
         {
-            Class.Asiakastiedot info = new Class.Asiakastiedot();
+            
             try
             {
                 info.AsiakasNro = Convert.ToInt32(lblIDShow.Text);
@@ -60,6 +69,8 @@ namespace Lahjakorttiappi
             info.Paikka = txtBoxPoPlace.Text;
             info.Adress = TxtBoxAdress.Text;
             info.PalveluID = Convert.ToInt32(cmBoxService.SelectedValue);
+            info.PalveluAika = Convert.ToInt32(cmBoxTime.SelectedValue);
+            info.PalveluMaara = Convert.ToInt32(numAmount);
             return info;
         }
 
@@ -114,61 +125,12 @@ namespace Lahjakorttiappi
         private void BtnSend_Click(object sender, EventArgs e)
         {
             textBoxEmptyTest();
-            makePdf();        
+            Class.MakePDF tuloste = new Class.MakePDF();
+            tuloste.Main(this);
+            
         }
 
-        private void makePdf()
-        {
-            string pdfDestination = System.IO.Path.Combine(Environment.CurrentDirectory, "data/lahjakorttit/lahjakortti.pdf ");
-            //string pdfBackground = System.Reflection.Assembly.GetExecutingAssembly(giftCardBack.jpg);
-            string path = System.IO.Path.Combine(Environment.CurrentDirectory, "data/image/logo.jpg");
-            string logoDest = path; // (@"/data/image/logo.jpg");
-            string companyData = System.IO.Path.Combine(Environment.CurrentDirectory, "data/contact.xml");
-            string customer = txtBoxFirstName.Text + " " + txtBoxLastName.Text;
-            string service = this.cmBoxService.GetItemText(this.cmBoxService.SelectedItem) + " " + this.cmBoxTime.GetItemText(cmBoxTime.SelectedItem) + numAmount.Value.ToString() + " kertaa";
-            string date = "Lahjakortti on voimassa " + dtmSellTime.Value.ToString() + " vuoden eteenpäin.";
-            string company = "", cmAddress = "", cmEmail = "", cmPhone = "", cmPostNum = "", cmPostState = "", cmWeb = "";
-            // var kuva = Properties.Resources.giftCardBack.RawFormat;
-            // System.Drawing.Image image = Properties.Resources.giftCardBack;
-            // iText.Layout.Element.Image background = Properties.Resources.giftCardBack;
-            // System.Drawing.im
-            //iText.Layout.Element.Image background = new iText.Layout.Element.Image(ImageDataFactory.Create(pdfBackground));
-            iText.Layout.Element.Image logo = new iText.Layout.Element.Image(ImageDataFactory.Create(logoDest));
-            DataSet read = new DataSet();
-            read.ReadXml(companyData);
-
-            foreach (DataRow dr in read.Tables[0].Rows)
-            {
-                company = dr["CompanyName"].ToString().Trim();
-                cmAddress = dr["Address"].ToString().Trim();
-                cmPostNum = dr["PostalNumber"].ToString().Trim();
-                cmPostState = dr["PostalState"].ToString().Trim();
-                cmPhone = dr["Phone"].ToString().Trim();
-                cmEmail = dr["Email"].ToString().Trim();
-                cmWeb = dr["WebSite"].ToString().Trim();
-            }
-            PdfWriter writer = new PdfWriter(pdfDestination);
-            PdfDocument pdf = new PdfDocument(writer);
-            PdfFont font = PdfFontFactory.CreateFont(StandardFonts.HELVETICA);
-            Document dokumentti = new Document(pdf, PageSize.A4.Rotate());
-
-            //dokumentti.Add(background);
-            Paragraph h1 = new Paragraph("LAHJAKORTTI").SetBold().SetFont(font).SetFontSize(35);
-            Paragraph hello = new Paragraph("Hei " + customer).SetFont(font).SetFontSize(20);
-            Paragraph body = new Paragraph("Sinulla on lahjakortti" + service).SetFont(font).SetFontSize(18);
-            Paragraph valid = new Paragraph(date).SetFont(font).SetFontSize(16);
-            Paragraph companyInfo = new Paragraph(company + "/n" + cmAddress + "/n" + cmPostNum + " " + cmPostState + "/n" + cmPhone + "/n" + cmEmail + "/n" + cmWeb).SetFont(font).SetFontSize(12);
-            // Tryed to get the paragraph to be accessible.
-            //h1.getAccessibilityProperties().setRole(StandardRoles.H1);
-            dokumentti.Add(h1);
-            dokumentti.Add(logo);
-            dokumentti.Add(h1);
-            dokumentti.Add(hello);
-            dokumentti.Add(body);
-            dokumentti.Add(valid);
-            dokumentti.Add(companyInfo);
-            dokumentti.Close();
-        }
+       
 
        
     }
