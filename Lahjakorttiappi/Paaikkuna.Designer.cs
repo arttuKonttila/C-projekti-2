@@ -32,7 +32,6 @@
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.btnMuokkaa = new System.Windows.Forms.Button();
             this.btnPoista = new System.Windows.Forms.Button();
-            this.btnTulosta = new System.Windows.Forms.Button();
             this.btnLisaa = new System.Windows.Forms.Button();
             this.btnLaheta = new System.Windows.Forms.Button();
             this.cmBoxOrder = new System.Windows.Forms.ComboBox();
@@ -92,16 +91,6 @@
             this.btnPoista.UseVisualStyleBackColor = false;
             this.btnPoista.Click += new System.EventHandler(this.btnPoista_Click);
             // 
-            // btnTulosta
-            // 
-            this.btnTulosta.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTulosta.Location = new System.Drawing.Point(6, 160);
-            this.btnTulosta.Name = "btnTulosta";
-            this.btnTulosta.Size = new System.Drawing.Size(124, 41);
-            this.btnTulosta.TabIndex = 3;
-            this.btnTulosta.Text = "Tulosta";
-            this.btnTulosta.UseVisualStyleBackColor = true;
-            // 
             // btnLisaa
             // 
             this.btnLisaa.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -116,7 +105,7 @@
             // btnLaheta
             // 
             this.btnLaheta.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLaheta.Location = new System.Drawing.Point(6, 207);
+            this.btnLaheta.Location = new System.Drawing.Point(6, 160);
             this.btnLaheta.Name = "btnLaheta";
             this.btnLaheta.Size = new System.Drawing.Size(124, 41);
             this.btnLaheta.TabIndex = 4;
@@ -138,7 +127,6 @@
             this.gBoxControl.AccessibleName = "Hallinta paneeli";
             this.gBoxControl.Controls.Add(this.btnLaheta);
             this.gBoxControl.Controls.Add(this.btnLisaa);
-            this.gBoxControl.Controls.Add(this.btnTulosta);
             this.gBoxControl.Controls.Add(this.btnPoista);
             this.gBoxControl.Controls.Add(this.btnMuokkaa);
             this.gBoxControl.Location = new System.Drawing.Point(970, 26);
@@ -373,7 +361,6 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.Button btnMuokkaa;
         private System.Windows.Forms.Button btnPoista;
-        private System.Windows.Forms.Button btnTulosta;
         private System.Windows.Forms.Button btnLisaa;
         private System.Windows.Forms.Button btnLaheta;
         private System.Windows.Forms.ComboBox cmBoxOrder;
