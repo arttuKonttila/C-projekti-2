@@ -205,9 +205,37 @@ namespace Lahjakorttiappi.DatabaseController
 
         }
 
-        public void addCustomerInfo(Class.Asiakastiedot info)
+        public void addCustomerData(Class.Asiakastiedot info, Class.giftCard giftCard, Class.Orders order)
         {
+            connectDatabase();
+
+            SqlCommand cmd1 = new SqlCommand("INSERT INTO [Lahjakortti](Voimassaolo, Myyjä)" +
+                        "VALUES (@expiration, @seller)", connect);
+            cmd1.Parameters.AddWithValue("@expiration", giftCard.Voimassaolo);
+            cmd1.Parameters.AddWithValue("@seller", giftCard.Myyja);
+
+
+            SqlCommand cmd2 = new SqlCommand("INSERT INTO [Tilaukset](PVM, Kesto, Kerrat, Saaja, Maksettu)" + 
+                        "VALUES (@pvm, @kesto, @usages, @recipient, @paid)", connect);
+            cmd2.Parameters.AddWithValue("@pvm", order.Pvm);
+            cmd2.Parameters.AddWithValue("@kesto", order.Duration);
+            cmd2.Parameters.AddWithValue("@usages", order.Usages);
+            cmd2.Parameters.AddWithValue("@recipient", order.Recipient);
+            cmd2.Parameters.AddWithValue("@paid", order.Paid);
+
+
+            SqlCommand cmd = new SqlCommand("INSERT INTO [Asiakastiedot](Etunimi, Sukunimi, Osoite, PuhNro, Sahkoposti, Postinumero, Paikka, PalveluID, TilausID, LahjakorttiID)" +
+                        "VALUES (@eNim, @sNim, @os, @pNro, @sPosti, @zip, @ptPaikka)", connect);
+            cmd.Parameters.AddWithValue("@eNim", info.Etunimi);
+            cmd.Parameters.AddWithValue("@sNim", info.Sukunimi);
+            cmd.Parameters.AddWithValue("@os", info.Osoite);
+            cmd.Parameters.AddWithValue("@pNro", info.PuhNro);
+            cmd.Parameters.AddWithValue("@sPosti", info.Sahkoposti);
+            cmd.Parameters.AddWithValue("@zip", info.Postinumero);
+            cmd.Parameters.AddWithValue("@ptPaikka", info.Paikka);
+
             
+            disconnectDatabse();
         }
     }
 }

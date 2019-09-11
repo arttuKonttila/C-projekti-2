@@ -33,9 +33,11 @@ namespace Lahjakorttiappi
             {
                 try
                 {
+                    /*
                     Class.Asiakastiedot info = new Class.Asiakastiedot();
                     info = lisaa.getCustomerInfo();
                     dBController.changeCustomerInfo(info);
+                    */
                 }
                 catch
                 {

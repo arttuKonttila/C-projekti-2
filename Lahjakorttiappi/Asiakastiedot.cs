@@ -28,10 +28,11 @@ namespace Lahjakorttiappi
 {
     public partial class AsiakasTiedot : Form
     {
-        DatabaseController.DatabaseController kanta = new DatabaseController.DatabaseController();
+        DatabaseController.DatabaseController dBController = new DatabaseController.DatabaseController();
         DateTime sellTime = new DateTime();
-        public Class.Asiakastiedot info = new Class.Asiakastiedot();
-
+        public Class.Asiakastiedot customerInfo = new Class.Asiakastiedot();
+        public Class.giftCard giftCard = new Class.giftCard();
+        public Class.Orders order = new Class.Orders();
         public DateTime SellTime()
         {
             sellTime = dtmSellTime.Value;
@@ -42,7 +43,7 @@ namespace Lahjakorttiappi
         {
             InitializeComponent();
             List<Class.Products> allProducts = new List<Class.Products>();
-            allProducts = kanta.bringProducts();
+            allProducts = dBController.bringProducts();
             cmBoxService.DataSource = allProducts;
             cmBoxService.DisplayMember = "Palvelu";
             cmBoxService.ValueMember = "PalveluNro";
@@ -50,28 +51,39 @@ namespace Lahjakorttiappi
 
 
         //saves the data from text fields into a public string format so that i can be utilized in the main form
-        public Class.Asiakastiedot getCustomerInfo()
+        public void saveInfo()
         {
             
             try
             {
-                info.AsiakasNro = Convert.ToInt32(lblIDShow.Text);
+                customerInfo.AsiakasNro = Convert.ToInt32(lblIDShow.Text);
             }
             catch
             {
 
             }
-            info.Etunimi = txtBoxFirstName.Text;
-            info.Sukunimi = txtBoxLastName.Text;
-            info.PuhNro = txtBoxPhone.Text;
-            info.Sahkoposti = txtBoxEmail.Text;
-            info.Postinumero = txtBoxPoNbr.Text;
-            info.Paikka = txtBoxPoPlace.Text;
-            info.Adress = TxtBoxAdress.Text;
-            info.PalveluID = Convert.ToInt32(cmBoxService.SelectedValue);
-            info.PalveluAika = Convert.ToInt32(cmBoxTime.SelectedValue);
-            info.PalveluMaara = Convert.ToInt32(numAmount);
-            return info;
+            customerInfo.Etunimi = txtBoxFirstName.Text;
+            customerInfo.Sukunimi = txtBoxLastName.Text;
+            customerInfo.PuhNro = txtBoxPhone.Text;
+            customerInfo.Sahkoposti = txtBoxEmail.Text;
+            customerInfo.Postinumero = txtBoxPoNbr.Text;
+            customerInfo.Paikka = txtBoxPoPlace.Text;
+            customerInfo.Adress = TxtBoxAdress.Text;
+            customerInfo.PalveluID = Convert.ToInt32(cmBoxService.SelectedValue);
+
+            giftCard.Myyja = cmBoxSeller.Text;
+            giftCard.Voimassaolo = dtmExpirationDate.Value;
+            order.Pvm = dtmSellTime.Value;
+            order.Usages = cmBoxTime.Text;
+            if(paidCheckBox.Checked == true)
+            {
+                order.Paid = 1;
+            }
+            else
+            {
+                order.Paid = 0;
+            }
+            dBController.addCustomerData(info, giftCard, order);
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -84,9 +96,7 @@ namespace Lahjakorttiappi
         private void btnAdd_Click(object sender, EventArgs e)
         {
             textBoxEmptyTest();
-            Class.Asiakastiedot customer = new Class.Asiakastiedot();
-            customer = getCustomerInfo();
-            kanta.addCustomerInfo(customer);
+            saveInfo();
         }
 
         private void textBoxEmptyTest()

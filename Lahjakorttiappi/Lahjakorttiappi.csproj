@@ -103,6 +103,8 @@
       <DependentUpon>Asetukset.cs</DependentUpon>
     </Compile>
     <Compile Include="Class\Asiakastiedot.cs" />
+    <Compile Include="Class\giftCard.cs" />
+    <Compile Include="Class\Orders.cs" />
     <Compile Include="Class\Products.cs" />
     <Compile Include="DatabaseController\DatabaseController.cs" />
     <Compile Include="Class\MakePDF.cs" />
