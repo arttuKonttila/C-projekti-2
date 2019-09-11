@@ -32,7 +32,6 @@
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.btnMuokkaa = new System.Windows.Forms.Button();
             this.btnPoista = new System.Windows.Forms.Button();
-            this.btnTulosta = new System.Windows.Forms.Button();
             this.btnLisaa = new System.Windows.Forms.Button();
             this.btnLaheta = new System.Windows.Forms.Button();
             this.cmBoxOrder = new System.Windows.Forms.ComboBox();
@@ -92,16 +91,6 @@
             this.btnPoista.UseVisualStyleBackColor = false;
             this.btnPoista.Click += new System.EventHandler(this.btnPoista_Click);
             // 
-            // btnTulosta
-            // 
-            this.btnTulosta.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTulosta.Location = new System.Drawing.Point(6, 160);
-            this.btnTulosta.Name = "btnTulosta";
-            this.btnTulosta.Size = new System.Drawing.Size(124, 41);
-            this.btnTulosta.TabIndex = 3;
-            this.btnTulosta.Text = "Tulosta";
-            this.btnTulosta.UseVisualStyleBackColor = true;
-            // 
             // btnLisaa
             // 
             this.btnLisaa.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -116,7 +105,7 @@
             // btnLaheta
             // 
             this.btnLaheta.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLaheta.Location = new System.Drawing.Point(6, 207);
+            this.btnLaheta.Location = new System.Drawing.Point(6, 160);
             this.btnLaheta.Name = "btnLaheta";
             this.btnLaheta.Size = new System.Drawing.Size(124, 41);
             this.btnLaheta.TabIndex = 4;
@@ -128,7 +117,7 @@
             this.cmBoxOrder.AccessibleName = "Järjestys";
             this.cmBoxOrder.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmBoxOrder.FormattingEnabled = true;
-            this.cmBoxOrder.Location = new System.Drawing.Point(969, 486);
+            this.cmBoxOrder.Location = new System.Drawing.Point(1238, 480);
             this.cmBoxOrder.Name = "cmBoxOrder";
             this.cmBoxOrder.Size = new System.Drawing.Size(163, 32);
             this.cmBoxOrder.TabIndex = 6;
@@ -138,10 +127,9 @@
             this.gBoxControl.AccessibleName = "Hallinta paneeli";
             this.gBoxControl.Controls.Add(this.btnLaheta);
             this.gBoxControl.Controls.Add(this.btnLisaa);
-            this.gBoxControl.Controls.Add(this.btnTulosta);
             this.gBoxControl.Controls.Add(this.btnPoista);
             this.gBoxControl.Controls.Add(this.btnMuokkaa);
-            this.gBoxControl.Location = new System.Drawing.Point(970, 26);
+            this.gBoxControl.Location = new System.Drawing.Point(1239, 36);
             this.gBoxControl.Name = "gBoxControl";
             this.gBoxControl.Size = new System.Drawing.Size(162, 438);
             this.gBoxControl.TabIndex = 7;
@@ -156,7 +144,7 @@
             this.haeToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1132, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1413, 24);
             this.menuStrip1.TabIndex = 8;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -209,7 +197,7 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(12, 45);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(951, 514);
+            this.dataGridView1.Size = new System.Drawing.Size(1220, 514);
             this.dataGridView1.TabIndex = 9;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -348,7 +336,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1132, 789);
+            this.ClientSize = new System.Drawing.Size(1413, 789);
             this.Controls.Add(this.cmBoxOrder);
             this.Controls.Add(this.pnlSearch);
             this.Controls.Add(this.dataGridView1);
@@ -373,7 +361,6 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.Button btnMuokkaa;
         private System.Windows.Forms.Button btnPoista;
-        private System.Windows.Forms.Button btnTulosta;
         private System.Windows.Forms.Button btnLisaa;
         private System.Windows.Forms.Button btnLaheta;
         private System.Windows.Forms.ComboBox cmBoxOrder;
