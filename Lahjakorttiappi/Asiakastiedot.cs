@@ -83,7 +83,7 @@ namespace Lahjakorttiappi
             {
                 order.Paid = 0;
             }
-            dBController.addCustomerData(info, giftCard, order);
+            dBController.addCustomerData(customerInfo, giftCard, order);
         }
 
         private void btnExit_Click(object sender, EventArgs e)
