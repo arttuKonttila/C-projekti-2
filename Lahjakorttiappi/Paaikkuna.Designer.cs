@@ -117,7 +117,7 @@
             this.cmBoxOrder.AccessibleName = "Järjestys";
             this.cmBoxOrder.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmBoxOrder.FormattingEnabled = true;
-            this.cmBoxOrder.Location = new System.Drawing.Point(1238, 480);
+            this.cmBoxOrder.Location = new System.Drawing.Point(1238, 303);
             this.cmBoxOrder.Name = "cmBoxOrder";
             this.cmBoxOrder.Size = new System.Drawing.Size(163, 32);
             this.cmBoxOrder.TabIndex = 6;
@@ -131,7 +131,7 @@
             this.gBoxControl.Controls.Add(this.btnMuokkaa);
             this.gBoxControl.Location = new System.Drawing.Point(1239, 36);
             this.gBoxControl.Name = "gBoxControl";
-            this.gBoxControl.Size = new System.Drawing.Size(162, 438);
+            this.gBoxControl.Size = new System.Drawing.Size(162, 226);
             this.gBoxControl.TabIndex = 7;
             this.gBoxControl.TabStop = false;
             this.gBoxControl.Text = "Hallinta";

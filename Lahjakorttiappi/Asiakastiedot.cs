@@ -70,7 +70,7 @@ namespace Lahjakorttiappi
             info.Adress = TxtBoxAdress.Text;
             info.PalveluID = Convert.ToInt32(cmBoxService.SelectedValue);
             info.PalveluAika = Convert.ToInt32(cmBoxTime.SelectedValue);
-            info.PalveluMaara = Convert.ToInt32(numAmount);
+            info.PalveluMaara = Convert.ToInt32(numAmount.Value);
             return info;
         }
 
