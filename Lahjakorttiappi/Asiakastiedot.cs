@@ -58,11 +58,12 @@ namespace Lahjakorttiappi
             customerInfo.Sahkoposti = txtBoxEmail.Text;
             customerInfo.Postinumero = txtBoxPoNbr.Text;
             customerInfo.Paikka = txtBoxPoPlace.Text;
-            customerInfo.Adress = TxtBoxAdress.Text;
+            customerInfo.Osoite = TxtBoxAdress.Text;
             customerInfo.PalveluID = Convert.ToInt32(cmBoxService.SelectedValue);
 
             giftCard.Myyja = cmBoxSeller.Text;
             giftCard.Voimassaolo = dtmExpirationDate.Value;
+            order.Recipient = cmBoxSeller.Text;
             order.Pvm = dtmSellTime.Value;
             order.Usages = numAmount.Text;
             order.Duration = cmBoxTime.Text;
@@ -126,6 +127,7 @@ namespace Lahjakorttiappi
         private void BtnSend_Click(object sender, EventArgs e)
         {
             textBoxEmptyTest();
+            saveInfo();
             Class.MakePDF tuloste = new Class.MakePDF();
             tuloste.Main(this);
             

@@ -210,42 +210,44 @@ namespace Lahjakorttiappi.DatabaseController
             connectDatabase();
 
             SqlCommand cmd1 = new SqlCommand("INSERT INTO [Lahjakortti](Voimassaolo, Myyjä)" +
-                        "VALUES (@expiration, @seller)", connect);
+                        "VALUES (@expiration, @seller); SELECT SCOPE_IDENTITY(); ", connect);
             cmd1.Parameters.AddWithValue("@expiration", giftCard.Voimassaolo);
             cmd1.Parameters.AddWithValue("@seller", giftCard.Myyja);
-            cmd1.ExecuteNonQuery();
+            var tulos1 = cmd1.ExecuteScalar();
+            info.LahjakorttiID = Convert.ToInt32(tulos1);
 
-            SqlCommand cmd3 = new SqlCommand("SELECT * FROM [Lahjakortti] ORDER BY ID DESC", connect);
+           /* SqlCommand cmd3 = new SqlCommand("SELECT * FROM [Lahjakortti] ORDER BY ID DESC,SELECT SCOPE_IDENTITY(); ", connect);
             SqlDataReader read = cmd3.ExecuteReader();
             if(read.HasRows)
             {
-                while(read.Read())
-                {
-                    info.LahjakorttiID = Convert.ToInt32(read.GetValue(0));
-                }
-                read.Close();
-            }
 
-            SqlCommand cmd2 = new SqlCommand("INSERT INTO [Tilaukset](PVM, Kesto, Kerrat, Saaja, Maksettu)" + 
-                        "VALUES (@pvm, @kesto, @usages, @recipient, @paid)", connect);
+                read.Read();
+                    info.LahjakorttiID = Convert.ToInt32(read.GetValue(0));
+
+                read.Close();
+            }*/
+
+            SqlCommand cmd2 = new SqlCommand("INSERT INTO [Tilaukset](PVM, Kesto, Kerrat, Saaja, Maksettu)" +
+                        "VALUES (@pvm, @kesto, @usages, @recipient, @paid); SELECT SCOPE_IDENTITY();", connect);
             cmd2.Parameters.AddWithValue("@pvm", order.Pvm);
             cmd2.Parameters.AddWithValue("@kesto", order.Duration);
             cmd2.Parameters.AddWithValue("@usages", order.Usages);
             cmd2.Parameters.AddWithValue("@recipient", order.Recipient);
             cmd2.Parameters.AddWithValue("@paid", order.Paid);
-            cmd2.ExecuteNonQuery();
-
+            var tulos = cmd2.ExecuteScalar();
+            info.TilausID = Convert.ToInt32(tulos);
+            /*
             SqlCommand cmd4 = new SqlCommand("SELECT * FROM [Tilaukset] ORDER BY ID DESC", connect);
             read = cmd4.ExecuteReader();
             if(read.HasRows)
             {
-                while(read.Read())
-                {
+
+                read.Read(); 
                     info.TilausID = Convert.ToInt32(read.GetValue(0));
-                }
+                
                 read.Close();
             }
-
+            */
             SqlCommand cmd = new SqlCommand("INSERT INTO [Asiakastiedot](Etunimi, Sukunimi, Osoite, PuhNro, Sahkoposti, Postinumero, Paikka, PalveluID, TilausID, LahjakorttiID)" +
                         "VALUES (@eNim, @sNim, @os, @pNro, @sPosti, @zip, @ptPaikka, @palvID, @tilID, @lahjID)", connect);
             cmd.Parameters.AddWithValue("@eNim", info.Etunimi);

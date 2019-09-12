@@ -85,11 +85,6 @@ namespace Lahjakorttiappi.Class
             set { lahjakorttiID = value; }
         }
 
-        string adress;
-        public string Adress
-        {
-            get { return adress; }
-            set { adress = value; }
-        }
+       
     }
 }
