@@ -26,6 +26,8 @@ namespace Lahjakorttiappi.Class
         public const String pdfDest = "/data/lahjakortit/lahjakortti.pdf";
         public const String logo = "data/image/logo.jpg";
         AsiakasTiedot parent;
+        giftCard giftcard;
+        Orders order;
 
         public void Main(AsiakasTiedot kutsuvaLomake)
         {
@@ -44,7 +46,7 @@ namespace Lahjakorttiappi.Class
             string logoDest = path; // (@"/data/image/logo.jpg");
             string companyData = System.IO.Path.Combine(Environment.CurrentDirectory, "data/contact.xml");
             string customer = parent.customerInfo.Etunimi + " " + parent.customerInfo.Sukunimi;
-            string service = parent.customerInfo.TilausID + " " + parent.customerInfo.PalveluAika + parent.customerInfo.PalveluMaara + " kertaa";
+            string service = parent.customerInfo.TilausID + " "  + order.Duration +" "+ order.Usages + " kertaa";
             string date = "Lahjakortti on voimassa " + parent.SellTime().ToString() + " vuoden eteenpäin.";
             string company = "", cmAddress = "", cmEmail = "", cmPhone = "", cmPostNum = "", cmPostState = "", cmWeb = "";
             // var kuva = Properties.Resources.giftCardBack.RawFormat;

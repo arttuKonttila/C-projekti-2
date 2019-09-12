@@ -9,19 +9,9 @@ using System.Reflection;
 using System.Resources;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using iText.IO.Font.Constants;
-using iText.IO.Image;
 using System.IO;
-using iText.IO.Util;
-using iText.Kernel.Font;
-using iText.Kernel.Geom;
-using iText.Kernel.Pdf;
-using iText.Layout;
-using iText.Layout.Element;
-using iText.Layout.Properties;
-using iText.Layout.Renderer;
-using iText.Kernel.Utils;
-using Image = System.Drawing.Image;
+
+
 
 
 namespace Lahjakorttiappi
@@ -74,7 +64,8 @@ namespace Lahjakorttiappi
             giftCard.Myyja = cmBoxSeller.Text;
             giftCard.Voimassaolo = dtmExpirationDate.Value;
             order.Pvm = dtmSellTime.Value;
-            order.Usages = cmBoxTime.Text;
+            order.Usages = numAmount.Text;
+            order.Duration = cmBoxTime.Text;
             if(paidCheckBox.Checked == true)
             {
                 order.Paid = 1;
