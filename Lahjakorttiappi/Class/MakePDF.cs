@@ -43,8 +43,8 @@ namespace Lahjakorttiappi.Class
             string path = System.IO.Path.Combine(Environment.CurrentDirectory, "data/image/logo.jpg");
             string logoDest = path; // (@"/data/image/logo.jpg");
             string companyData = System.IO.Path.Combine(Environment.CurrentDirectory, "data/contact.xml");
-            string customer = parent.info.Etunimi + " " + parent.info.Sukunimi;
-            string service = parent.info.TilausID + " " + parent.info.PalveluAika + parent.info.PalveluMaara + " kertaa";
+            string customer = parent.customerInfo.Etunimi + " " + parent.customerInfo.Sukunimi;
+            string service = parent.customerInfo.TilausID + " " + parent.customerInfo.PalveluAika + parent.customerInfo.PalveluMaara + " kertaa";
             string date = "Lahjakortti on voimassa " + parent.SellTime().ToString() + " vuoden eteenpäin.";
             string company = "", cmAddress = "", cmEmail = "", cmPhone = "", cmPostNum = "", cmPostState = "", cmWeb = "";
             // var kuva = Properties.Resources.giftCardBack.RawFormat;

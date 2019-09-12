@@ -78,21 +78,12 @@ namespace Lahjakorttiappi.Class
             set { tilausID = value; }
         }
 
-        int palveluAika;
-        public int PalveluAika
+        int lahjakorttiID;
+        public int LahjakorttiID
         {
-            get { return palveluAika; }
-            set { palveluAika = value; }
+            get { return lahjakorttiID; }
+            set { lahjakorttiID = value; }
         }
-
-        int palveluMaara;
-        public int PalveluMaara
-        {
-            get { return palveluMaara; }
-            set { palveluMaara = value; }
-
-        }
-
 
         string adress;
         public string Adress
