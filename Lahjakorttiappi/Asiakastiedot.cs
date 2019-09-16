@@ -48,7 +48,6 @@ namespace Lahjakorttiappi
             {
                 return;
             }
-            
         }
 
 
@@ -102,6 +101,7 @@ namespace Lahjakorttiappi
             TxtBoxAdress.Text = customerInfo.Osoite;
             cmBoxService.SelectedValue = customerInfo.PalveluID;
         }
+
         private void btnExit_Click(object sender, EventArgs e)
         {
            //Tähän olisi hyvä laittaa kyselyä varmistamaan sulkeminen ja siitä jos ei ole tallennettu tietoja niin haluaako käyttäjä tallentaa

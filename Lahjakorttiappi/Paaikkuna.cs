@@ -23,20 +23,18 @@ namespace Lahjakorttiappi
 
         private void btnMuokkaa_Click(object sender, EventArgs e)
         {
-            int selectedId = 0;
+            AsiakasTiedot lisaa = new AsiakasTiedot();
             int selectedRowIndex = dataGridView1.SelectedCells[0].RowIndex;
             DataGridViewRow selectedRow = dataGridView1.Rows[selectedRowIndex];
             try
             {
-                selectedId = Convert.ToInt32(selectedRow.Cells["ID"].Value);
+                lisaa.muokkaaID = Convert.ToInt32(selectedRow.Cells["ID"].Value);
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
             }
-            AsiakasTiedot lisaa = new AsiakasTiedot();
             lisaa.muokkaaClick = true;
-            lisaa.muokkaaID = selectedId;
             lisaa.ShowDialog();
             var dialogResult = lisaa.DialogResult;
             //saves the text field data into the database
