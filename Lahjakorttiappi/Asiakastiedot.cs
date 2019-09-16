@@ -23,6 +23,8 @@ namespace Lahjakorttiappi
         public Class.Asiakastiedot customerInfo = new Class.Asiakastiedot();
         public Class.giftCard giftCard = new Class.giftCard();
         public Class.Orders order = new Class.Orders();
+        public bool muokkaaClick = false;
+        public int muokkaaID = 0;
         public DateTime SellTime()
         {
             sellTime = dtmSellTime.Value;
@@ -37,6 +39,16 @@ namespace Lahjakorttiappi
             cmBoxService.DataSource = allProducts;
             cmBoxService.DisplayMember = "Palvelu";
             cmBoxService.ValueMember = "PalveluNro";
+            if (muokkaaClick == true || muokkaaID != 0)
+            {
+                dBController.fetchData(muokkaaID, customerInfo, giftCard, order);
+                fillData();
+            }
+            else
+            {
+                return;
+            }
+            
         }
 
 
@@ -78,6 +90,18 @@ namespace Lahjakorttiappi
             dBController.addCustomerData(customerInfo, giftCard, order);
         }
 
+        public void fillData()
+        {
+            lblIDShow.Text = customerInfo.AsiakasNro.ToString();
+            txtBoxFirstName.Text = customerInfo.Etunimi;
+            txtBoxLastName.Text = customerInfo.Sukunimi;
+            txtBoxPhone.Text = customerInfo.PuhNro;
+            txtBoxEmail.Text = customerInfo.Sahkoposti;
+            txtBoxPoNbr.Text = customerInfo.Postinumero;
+            txtBoxPoPlace.Text = customerInfo.Paikka;
+            TxtBoxAdress.Text = customerInfo.Osoite;
+            cmBoxService.SelectedValue = customerInfo.PalveluID;
+        }
         private void btnExit_Click(object sender, EventArgs e)
         {
            //Tähän olisi hyvä laittaa kyselyä varmistamaan sulkeminen ja siitä jos ei ole tallennettu tietoja niin haluaako käyttäjä tallentaa

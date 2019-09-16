@@ -93,6 +93,61 @@ namespace Lahjakorttiappi.DatabaseController
             return prod;
         }
 
+        public void fetchData(int indexID, Class.Asiakastiedot customerInfo, Class.giftCard giftCard, Class.Orders order)
+        {
+            SqlCommand cmd = new SqlCommand("SELECT * FROM Asiakastiedot WHERE ID = @id", connect);
+            cmd.Parameters.AddWithValue("@id", indexID);
+            connectDatabase();
+            SqlDataReader read = cmd.ExecuteReader();
+            if(read.HasRows)
+            {
+                while(read.Read())
+                {
+                    customerInfo.AsiakasNro = Convert.ToInt32(read.GetValue(0));
+                    customerInfo.Etunimi = read.GetValue(1).ToString();
+                    customerInfo.Sukunimi = read.GetValue(2).ToString();
+                    customerInfo.Osoite = read.GetValue(3).ToString();
+                    customerInfo.PuhNro = read.GetValue(4).ToString();
+                    customerInfo.Sahkoposti = read.GetValue(5).ToString();
+                    customerInfo.Postinumero = read.GetValue(6).ToString();
+                    customerInfo.Paikka = read.GetValue(7).ToString();
+                    customerInfo.PalveluID = Convert.ToInt32(read.GetValue(8));
+                    customerInfo.TilausID = Convert.ToInt32(read.GetValue(9));
+                    customerInfo.LahjakorttiID = Convert.ToInt32(read.GetValue(10));
+                }
+            }
+            read.Close();
+            SqlCommand cmd1 = new SqlCommand("SELECT * FROM LahjakorttiID WHERE ID = @id", connect);
+            cmd1.Parameters.AddWithValue("@id", customerInfo.LahjakorttiID);
+            read = cmd1.ExecuteReader();
+            if(read.HasRows)
+            {
+                while(read.Read())
+                {
+                    giftCard.ID = Convert.ToInt32(read.GetValue(0));
+                    giftCard.Voimassaolo = Convert.ToDateTime(read.GetValue(1));
+                    giftCard.Myyja = read.GetValue(2).ToString();
+                }
+            }
+            read.Close();
+            SqlCommand cmd2 = new SqlCommand("SELECT * FROM Tilaukset WHERE ID = @id", connect);
+            cmd2.Parameters.AddWithValue("@id", customerInfo.TilausID);
+            read = cmd2.ExecuteReader();
+            if(read.HasRows)
+            {
+                while(read.Read())
+                {
+                    order.ID = Convert.ToInt32(read.GetValue(0));
+                    order.Pvm = Convert.ToDateTime(read.GetValue(1));
+                    order.Duration = read.GetValue(2).ToString();
+                    order.Usages = read.GetValue(3).ToString();
+                    order.Recipient = read.GetValue(4).ToString();
+                    order.Paid = Convert.ToInt32(read.GetValue(5));
+                }
+            }
+            disconnectDatabse();
+        }
+
         /*public DataSet bringProductsOnly(DataSet ds)
         {
             connectDatabase();
@@ -264,5 +319,6 @@ namespace Lahjakorttiappi.DatabaseController
             
             disconnectDatabse();
         }
+
     }
 }
