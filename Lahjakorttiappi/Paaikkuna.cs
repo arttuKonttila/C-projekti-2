@@ -61,10 +61,10 @@ namespace Lahjakorttiappi
 
         private void loadData()
         {
-
-            dBController.bringAllData(ds);
+            DataSet dsTesti = new DataSet();
+            dBController.bringAllData(dsTesti);
             dataGridView1.AutoGenerateColumns = true;
-            dataGridView1.DataSource = ds;
+            dataGridView1.DataSource = dsTesti;
             dataGridView1.DataMember = "CustomerInfo";
         }
 
@@ -87,6 +87,8 @@ namespace Lahjakorttiappi
         {
             AsiakasTiedot Lisaa = new AsiakasTiedot();
             Lisaa.ShowDialog();
+            loadData();
+
         }
 
         private void asetuksetToolStripMenuItem_Click(object sender, EventArgs e)
@@ -133,7 +135,7 @@ namespace Lahjakorttiappi
 
         private void Paaikkuna_Load(object sender, EventArgs e)
         {
-            loadData();
+           // loadData();
         }
     }
     
