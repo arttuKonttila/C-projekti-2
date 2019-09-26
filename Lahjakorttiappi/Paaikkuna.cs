@@ -19,15 +19,24 @@ namespace Lahjakorttiappi
         {
             InitializeComponent();
             loadData();
-           
         }
 
         private void btnMuokkaa_Click(object sender, EventArgs e)
         {
             AsiakasTiedot lisaa = new AsiakasTiedot();
+            int selectedRowIndex = dataGridView1.SelectedCells[0].RowIndex;
+            DataGridViewRow selectedRow = dataGridView1.Rows[selectedRowIndex];
+            try
+            {
+                lisaa.muokkaaID = Convert.ToInt32(selectedRow.Cells["ID"].Value);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            lisaa.muokkaaClick = true;
             lisaa.ShowDialog();
             var dialogResult = lisaa.DialogResult;
-
             //saves the text field data into the database
             if(dialogResult == DialogResult.OK) 
             {
