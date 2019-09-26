@@ -122,7 +122,10 @@ namespace Lahjakorttiappi
             }
         }
 
-       
+        private void Paaikkuna_Load(object sender, EventArgs e)
+        {
+            loadData();
+        }
     }
     
 }

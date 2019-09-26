@@ -346,6 +346,7 @@
             this.Name = "Paaikkuna";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Pääikkuna";
+            this.Load += new System.EventHandler(this.Paaikkuna_Load);
             this.gBoxControl.ResumeLayout(false);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
