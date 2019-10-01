@@ -60,16 +60,14 @@
             this.lblAmmount = new System.Windows.Forms.Label();
             this.lblTime = new System.Windows.Forms.Label();
             this.lblService = new System.Windows.Forms.Label();
-            this.cmBoxTime = new System.Windows.Forms.ComboBox();
+            this.cmBoxDuration = new System.Windows.Forms.ComboBox();
             this.cmBoxService = new System.Windows.Forms.ComboBox();
-            this.numAmount = new System.Windows.Forms.NumericUpDown();
+            this.numAmountBox = new System.Windows.Forms.NumericUpDown();
             this.dtmSellTime = new System.Windows.Forms.DateTimePicker();
-            this.btnManageTimes = new System.Windows.Forms.Button();
-            this.btnManageStaff = new System.Windows.Forms.Button();
             this.pnlGiftCardByer.SuspendLayout();
             this.pnlControls.SuspendLayout();
             this.pnGiftCardInfo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numAmount)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numAmountBox)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlGiftCardByer
@@ -265,15 +263,13 @@
             // 
             // pnlControls
             // 
-            this.pnlControls.Controls.Add(this.btnManageStaff);
-            this.pnlControls.Controls.Add(this.btnManageTimes);
             this.pnlControls.Controls.Add(this.btnSend);
             this.pnlControls.Controls.Add(this.btnExit);
             this.pnlControls.Controls.Add(this.btnEmpty);
             this.pnlControls.Controls.Add(this.btnAdd);
             this.pnlControls.Location = new System.Drawing.Point(607, 13);
             this.pnlControls.Name = "pnlControls";
-            this.pnlControls.Size = new System.Drawing.Size(181, 492);
+            this.pnlControls.Size = new System.Drawing.Size(181, 317);
             this.pnlControls.TabIndex = 1;
             // 
             // btnSend
@@ -281,7 +277,7 @@
             this.btnSend.AccessibleName = "Lähetä ";
             this.btnSend.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnSend.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSend.Location = new System.Drawing.Point(15, 246);
+            this.btnSend.Location = new System.Drawing.Point(15, 238);
             this.btnSend.Name = "btnSend";
             this.btnSend.Size = new System.Drawing.Size(152, 71);
             this.btnSend.TabIndex = 3;
@@ -293,7 +289,7 @@
             // 
             this.btnExit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnExit.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExit.Location = new System.Drawing.Point(15, 169);
+            this.btnExit.Location = new System.Drawing.Point(15, 161);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(152, 71);
             this.btnExit.TabIndex = 2;
@@ -304,7 +300,7 @@
             // btnEmpty
             // 
             this.btnEmpty.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEmpty.Location = new System.Drawing.Point(15, 92);
+            this.btnEmpty.Location = new System.Drawing.Point(15, 84);
             this.btnEmpty.Name = "btnEmpty";
             this.btnEmpty.Size = new System.Drawing.Size(152, 71);
             this.btnEmpty.TabIndex = 1;
@@ -316,7 +312,7 @@
             this.btnAdd.AccessibleName = "Lisäys painike";
             this.btnAdd.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnAdd.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdd.Location = new System.Drawing.Point(15, 15);
+            this.btnAdd.Location = new System.Drawing.Point(15, 7);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(152, 71);
             this.btnAdd.TabIndex = 0;
@@ -334,29 +330,29 @@
             this.pnGiftCardInfo.Controls.Add(this.lblAmmount);
             this.pnGiftCardInfo.Controls.Add(this.lblTime);
             this.pnGiftCardInfo.Controls.Add(this.lblService);
-            this.pnGiftCardInfo.Controls.Add(this.cmBoxTime);
+            this.pnGiftCardInfo.Controls.Add(this.cmBoxDuration);
             this.pnGiftCardInfo.Controls.Add(this.cmBoxService);
-            this.pnGiftCardInfo.Controls.Add(this.numAmount);
+            this.pnGiftCardInfo.Controls.Add(this.numAmountBox);
             this.pnGiftCardInfo.Controls.Add(this.dtmSellTime);
             this.pnGiftCardInfo.Location = new System.Drawing.Point(13, 341);
             this.pnGiftCardInfo.Name = "pnGiftCardInfo";
-            this.pnGiftCardInfo.Size = new System.Drawing.Size(588, 164);
+            this.pnGiftCardInfo.Size = new System.Drawing.Size(775, 164);
             this.pnGiftCardInfo.TabIndex = 2;
             // 
             // dtmExpirationDate
             // 
             this.dtmExpirationDate.CalendarFont = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtmExpirationDate.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtmExpirationDate.Location = new System.Drawing.Point(308, 110);
+            this.dtmExpirationDate.Location = new System.Drawing.Point(399, 107);
             this.dtmExpirationDate.Name = "dtmExpirationDate";
-            this.dtmExpirationDate.Size = new System.Drawing.Size(278, 32);
+            this.dtmExpirationDate.Size = new System.Drawing.Size(352, 32);
             this.dtmExpirationDate.TabIndex = 10;
             // 
             // lblExpirationDate
             // 
             this.lblExpirationDate.AutoSize = true;
             this.lblExpirationDate.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblExpirationDate.Location = new System.Drawing.Point(303, 80);
+            this.lblExpirationDate.Location = new System.Drawing.Point(395, 80);
             this.lblExpirationDate.Name = "lblExpirationDate";
             this.lblExpirationDate.Size = new System.Drawing.Size(180, 24);
             this.lblExpirationDate.TabIndex = 9;
@@ -366,7 +362,7 @@
             // 
             this.lblSeller.AutoSize = true;
             this.lblSeller.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSeller.Location = new System.Drawing.Point(184, 83);
+            this.lblSeller.Location = new System.Drawing.Point(217, 80);
             this.lblSeller.Name = "lblSeller";
             this.lblSeller.Size = new System.Drawing.Size(65, 24);
             this.lblSeller.TabIndex = 8;
@@ -377,7 +373,7 @@
             this.cmBoxSeller.AccessibleName = "Myyjä";
             this.cmBoxSeller.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmBoxSeller.FormattingEnabled = true;
-            this.cmBoxSeller.Location = new System.Drawing.Point(189, 110);
+            this.cmBoxSeller.Location = new System.Drawing.Point(221, 107);
             this.cmBoxSeller.Name = "cmBoxSeller";
             this.cmBoxSeller.Size = new System.Drawing.Size(110, 32);
             this.cmBoxSeller.TabIndex = 7;
@@ -386,7 +382,7 @@
             // 
             this.lblSellDate.AutoSize = true;
             this.lblSellDate.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSellDate.Location = new System.Drawing.Point(303, 9);
+            this.lblSellDate.Location = new System.Drawing.Point(395, 9);
             this.lblSellDate.Name = "lblSellDate";
             this.lblSellDate.Size = new System.Drawing.Size(186, 24);
             this.lblSellDate.TabIndex = 6;
@@ -396,11 +392,11 @@
             // 
             this.lblAmmount.AutoSize = true;
             this.lblAmmount.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAmmount.Location = new System.Drawing.Point(184, 9);
+            this.lblAmmount.Location = new System.Drawing.Point(217, 11);
             this.lblAmmount.Name = "lblAmmount";
-            this.lblAmmount.Size = new System.Drawing.Size(70, 24);
+            this.lblAmmount.Size = new System.Drawing.Size(125, 24);
             this.lblAmmount.TabIndex = 5;
-            this.lblAmmount.Text = "Määrä";
+            this.lblAmmount.Text = "Käyttökerrat";
             // 
             // lblTime
             // 
@@ -408,9 +404,9 @@
             this.lblTime.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTime.Location = new System.Drawing.Point(9, 83);
             this.lblTime.Name = "lblTime";
-            this.lblTime.Size = new System.Drawing.Size(68, 24);
+            this.lblTime.Size = new System.Drawing.Size(65, 24);
             this.lblTime.TabIndex = 4;
-            this.lblTime.Text = "Pituus";
+            this.lblTime.Text = "Kesto";
             // 
             // lblService
             // 
@@ -422,15 +418,15 @@
             this.lblService.TabIndex = 3;
             this.lblService.Text = "Palvelu";
             // 
-            // cmBoxTime
+            // cmBoxDuration
             // 
-            this.cmBoxTime.AccessibleName = "Kesto";
-            this.cmBoxTime.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmBoxTime.FormattingEnabled = true;
-            this.cmBoxTime.Location = new System.Drawing.Point(13, 110);
-            this.cmBoxTime.Name = "cmBoxTime";
-            this.cmBoxTime.Size = new System.Drawing.Size(151, 32);
-            this.cmBoxTime.TabIndex = 2;
+            this.cmBoxDuration.AccessibleName = "Kesto";
+            this.cmBoxDuration.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmBoxDuration.FormattingEnabled = true;
+            this.cmBoxDuration.Location = new System.Drawing.Point(13, 110);
+            this.cmBoxDuration.Name = "cmBoxDuration";
+            this.cmBoxDuration.Size = new System.Drawing.Size(151, 32);
+            this.cmBoxDuration.TabIndex = 2;
             // 
             // cmBoxService
             // 
@@ -442,51 +438,23 @@
             this.cmBoxService.Size = new System.Drawing.Size(151, 32);
             this.cmBoxService.TabIndex = 0;
             // 
-            // numAmount
+            // numAmountBox
             // 
-            this.numAmount.AccessibleName = "Kerrtojen märä";
-            this.numAmount.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numAmount.Location = new System.Drawing.Point(189, 38);
-            this.numAmount.Name = "numAmount";
-            this.numAmount.Size = new System.Drawing.Size(66, 32);
-            this.numAmount.TabIndex = 1;
+            this.numAmountBox.AccessibleName = "Kerrtojen märä";
+            this.numAmountBox.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numAmountBox.Location = new System.Drawing.Point(221, 38);
+            this.numAmountBox.Name = "numAmountBox";
+            this.numAmountBox.Size = new System.Drawing.Size(66, 32);
+            this.numAmountBox.TabIndex = 1;
             // 
             // dtmSellTime
             // 
             this.dtmSellTime.CalendarFont = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtmSellTime.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtmSellTime.Location = new System.Drawing.Point(307, 37);
+            this.dtmSellTime.Location = new System.Drawing.Point(399, 37);
             this.dtmSellTime.Name = "dtmSellTime";
-            this.dtmSellTime.Size = new System.Drawing.Size(278, 32);
+            this.dtmSellTime.Size = new System.Drawing.Size(352, 32);
             this.dtmSellTime.TabIndex = 0;
-            // 
-            // btnManageTimes
-            // 
-            this.btnManageTimes.AccessibleName = "Lisää aikoja";
-            this.btnManageTimes.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btnManageTimes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.btnManageTimes.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnManageTimes.Location = new System.Drawing.Point(15, 356);
-            this.btnManageTimes.Name = "btnManageTimes";
-            this.btnManageTimes.Size = new System.Drawing.Size(152, 59);
-            this.btnManageTimes.TabIndex = 4;
-            this.btnManageTimes.Text = "Hallitse aikoja";
-            this.btnManageTimes.UseVisualStyleBackColor = false;
-            this.btnManageTimes.Click += new System.EventHandler(this.BtnManageTimes_Click);
-            // 
-            // btnManageStaff
-            // 
-            this.btnManageStaff.AccessibleName = "Hallitse henkilökuntaa";
-            this.btnManageStaff.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btnManageStaff.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.btnManageStaff.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnManageStaff.Location = new System.Drawing.Point(15, 421);
-            this.btnManageStaff.Name = "btnManageStaff";
-            this.btnManageStaff.Size = new System.Drawing.Size(152, 59);
-            this.btnManageStaff.TabIndex = 5;
-            this.btnManageStaff.Text = "Hallitse henkilökuntaa";
-            this.btnManageStaff.UseVisualStyleBackColor = false;
-            this.btnManageStaff.Click += new System.EventHandler(this.BtnManageStaff_Click);
             // 
             // AsiakasTiedot
             // 
@@ -503,7 +471,7 @@
             this.pnlControls.ResumeLayout(false);
             this.pnGiftCardInfo.ResumeLayout(false);
             this.pnGiftCardInfo.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numAmount)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numAmountBox)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -534,9 +502,9 @@
         private System.Windows.Forms.Label lblAmmount;
         private System.Windows.Forms.Label lblTime;
         private System.Windows.Forms.Label lblService;
-        private System.Windows.Forms.ComboBox cmBoxTime;
+        private System.Windows.Forms.ComboBox cmBoxDuration;
         private System.Windows.Forms.ComboBox cmBoxService;
-        private System.Windows.Forms.NumericUpDown numAmount;
+        private System.Windows.Forms.NumericUpDown numAmountBox;
         private System.Windows.Forms.DateTimePicker dtmSellTime;
         private System.Windows.Forms.Label lblSeller;
         private System.Windows.Forms.ComboBox cmBoxSeller;
@@ -546,7 +514,5 @@
         private System.Windows.Forms.Label lblExpirationDate;
         private System.Windows.Forms.CheckBox paidCheckBox;
         private System.Windows.Forms.Label paidLabel;
-        private System.Windows.Forms.Button btnManageStaff;
-        private System.Windows.Forms.Button btnManageTimes;
     }
 }

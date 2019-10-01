@@ -10,9 +10,7 @@ namespace Lahjakorttiappi.Class
     {
         private int id;
         private DateTime voimassaolo;
-        private string myyja;
         public int ID { get {return id; } set {id = value; } }
         public DateTime Voimassaolo { get {return voimassaolo; } set {voimassaolo = value; } }
-        public string Myyja { get {return myyja; } set {myyja = value; } }
     }
 }
