@@ -47,6 +47,11 @@ namespace Lahjakorttiappi
             cmBoxDuration.DisplayMember = "Duration";
             cmBoxDuration.ValueMember = "ID";
 
+            List<Class.Seller> allSellers = new List<Class.Seller>();
+            allSellers = dBController.getSellers();
+            cmBoxSeller.DataSource = allSellers;
+            cmBoxSeller.DisplayMember = "Myyja";
+            cmBoxSeller.ValueMember = "ID";
 
             if (muokkaaClick == true || muokkaaID != 0)
             {
@@ -82,7 +87,7 @@ namespace Lahjakorttiappi
             customerInfo.Osoite = TxtBoxAdress.Text;
             customerInfo.PalveluID = Convert.ToInt32(cmBoxService.SelectedValue);
 
-            giftCard.Myyja = cmBoxSeller.Text;
+            // = cmBoxSeller.Text;
             giftCard.Voimassaolo = dtmExpirationDate.Value;
             order.Recipient = cmBoxSeller.Text;
             order.Pvm = dtmSellTime.Value;

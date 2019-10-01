@@ -44,12 +44,14 @@ namespace Lahjakorttiappi.DatabaseController
             connectDatabase();
             var select = @"SELECT aTied.ID, aTied.Etunimi, aTied.Sukunimi, aTied.Osoite, aTied.PuhNro, aTied.Sahkoposti, aTied.Postinumero, aTied.Paikka, lahj.Voimassaolo, lahj.Myyjä, palv.Palvelu, til.PVM, til.Kerrat, til.Kesto, til.Maksettu, til.Saaja
                         FROM [Asiakastiedot] as aTied
-                        INNER JOIN[Palvelut] as palv
+                        INNER JOIN [Palvelut] as palv
                         ON aTied.PalveluID = palv.ID
                         INNER JOIN [Tilaukset] til
                         ON aTied.TilausID = til.ID
                         INNER JOIN [Lahjakortti] as lahj
-                        ON aTied.LahjakorttiID = lahj.ID";
+                        ON aTied.LahjakorttiID = lahj.ID
+                        INNER JOIN [Myyja] as sell
+                        ON aTied.MyyjaID = sell.ID";
             var c = connect;
             var dataAdapter = new SqlDataAdapter(select, c);
             var commandBuilder = new SqlCommandBuilder(dataAdapter);
@@ -126,7 +128,6 @@ namespace Lahjakorttiappi.DatabaseController
                 {
                     giftCard.ID = Convert.ToInt32(read.GetValue(0));
                     giftCard.Voimassaolo = Convert.ToDateTime(read.GetValue(1));
-                    giftCard.Myyja = read.GetValue(2).ToString();
                 }
             }
             read.Close();
@@ -264,10 +265,9 @@ namespace Lahjakorttiappi.DatabaseController
         {
             connectDatabase();
 
-            SqlCommand cmd1 = new SqlCommand("INSERT INTO [Lahjakortti](Voimassaolo, Myyjä)" +
-                        "VALUES (@expiration, @seller); SELECT SCOPE_IDENTITY(); ", connect);
+            SqlCommand cmd1 = new SqlCommand("INSERT INTO [Lahjakortti](Voimassaolo)" +
+                        "VALUES (@expiration); SELECT SCOPE_IDENTITY(); ", connect);
             cmd1.Parameters.AddWithValue("@expiration", giftCard.Voimassaolo);
-            cmd1.Parameters.AddWithValue("@seller", giftCard.Myyja);
             var tulos1 = cmd1.ExecuteScalar();
             info.LahjakorttiID = Convert.ToInt32(tulos1);
 
@@ -344,5 +344,24 @@ namespace Lahjakorttiappi.DatabaseController
             return allOrders;
         }
 
+        public List<Class.Seller> getSellers()
+        {
+            List<Class.Seller> allSellers = new List<Class.Seller>();
+            SqlCommand cmd = new SqlCommand("SELECT * FROM Myyja", connect);
+            connectDatabase();
+            SqlDataReader read = cmd.ExecuteReader();
+            if (read.HasRows)
+            {
+                while (read.Read())
+                {
+                    Class.Seller seller = new Class.Seller();
+                    seller.ID = Convert.ToInt32(read.GetValue(0));
+                    seller.Myyja = read.GetValue(1).ToString();
+                    allSellers.Add(seller);
+                }
+            }
+            disconnectDatabse();
+            return allSellers;
+        }
     }
 }

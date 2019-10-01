@@ -106,6 +106,7 @@
     <Compile Include="Class\giftCard.cs" />
     <Compile Include="Class\Orders.cs" />
     <Compile Include="Class\Products.cs" />
+    <Compile Include="Class\Seller.cs" />
     <Compile Include="DatabaseController\DatabaseController.cs" />
     <Compile Include="Class\MakePDF.cs" />
     <Compile Include="HallitseAikoja.cs">
