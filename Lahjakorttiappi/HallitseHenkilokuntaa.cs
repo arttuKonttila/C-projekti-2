@@ -12,6 +12,8 @@ namespace Lahjakorttiappi
 {
     public partial class HallitseHenkilokuntaa : Form
     {
+        DatabaseController.DatabaseController dBController = new DatabaseController.DatabaseController();
+        DataSet ds = new DataSet();
         public HallitseHenkilokuntaa()
         {
             InitializeComponent();
@@ -29,7 +31,9 @@ namespace Lahjakorttiappi
 
         private void BtnAddStaff_Click(object sender, EventArgs e)
         {
-
+            Class.Seller seller = new Class.Seller();
+            seller.Myyja = txtBoxNameStaff.Text;
+            
         }
     }
 }
