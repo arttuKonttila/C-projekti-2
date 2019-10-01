@@ -68,7 +68,6 @@
             this.txtBoxNameStaff.Name = "txtBoxNameStaff";
             this.txtBoxNameStaff.Size = new System.Drawing.Size(221, 32);
             this.txtBoxNameStaff.TabIndex = 0;
-            this.txtBoxNameStaff.TextChanged += new System.EventHandler(this.TxtBoxNameStaff_TextChanged);
             // 
             // dgwStaffMembers
             // 
@@ -78,7 +77,6 @@
             this.dgwStaffMembers.Name = "dgwStaffMembers";
             this.dgwStaffMembers.Size = new System.Drawing.Size(212, 329);
             this.dgwStaffMembers.TabIndex = 3;
-            this.dgwStaffMembers.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgwStaffMembers_CellContentClick);
             // 
             // lblAddName
             // 
@@ -89,7 +87,6 @@
             this.lblAddName.Size = new System.Drawing.Size(105, 24);
             this.lblAddName.TabIndex = 0;
             this.lblAddName.Text = "Lisää nimi";
-            this.lblAddName.Click += new System.EventHandler(this.LblAddName_Click);
             // 
             // btnCloseWindow
             // 

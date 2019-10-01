@@ -121,8 +121,7 @@
             this.Controls.Add(this.btnRemoveTime);
             this.Controls.Add(this.btnAddTime);
             this.Name = "HallitseAikoja";
-            this.Text = "Hallitse Aikoja";
-            this.Load += new System.EventHandler(this.HallitseAikoja_Load);
+            this.Text = "Hallitse Aikoja";          
             ((System.ComponentModel.ISupportInitialize)(this.dgwTimes)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

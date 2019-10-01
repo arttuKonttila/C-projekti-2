@@ -22,21 +22,6 @@ namespace Lahjakorttiappi
             this.Close();
         }
 
-        private void LblAddName_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void DgwStaffMembers_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void TxtBoxNameStaff_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void BtnRemoveStaff_Click(object sender, EventArgs e)
         {
 

@@ -17,10 +17,7 @@ namespace Lahjakorttiappi
             InitializeComponent();
         }
 
-        private void HallitseAikoja_Load(object sender, EventArgs e)
-        {
-
-        }
+     
 
         private void BtnCloseWindow_Click(object sender, EventArgs e)
         {
