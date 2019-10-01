@@ -99,13 +99,16 @@
             // 
             // paidCheckBox
             // 
-            this.paidCheckBox.AutoSize = true;
-            this.paidCheckBox.Location = new System.Drawing.Point(156, 292);
+            this.paidCheckBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.paidCheckBox.BackColor = System.Drawing.SystemColors.Control;
+            this.paidCheckBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.paidCheckBox.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.paidCheckBox.Location = new System.Drawing.Point(213, 278);
             this.paidCheckBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.paidCheckBox.Name = "paidCheckBox";
-            this.paidCheckBox.Size = new System.Drawing.Size(15, 14);
+            this.paidCheckBox.Size = new System.Drawing.Size(43, 32);
             this.paidCheckBox.TabIndex = 15;
-            this.paidCheckBox.UseVisualStyleBackColor = true;
+            this.paidCheckBox.UseVisualStyleBackColor = false;
             // 
             // paidLabel
             // 
