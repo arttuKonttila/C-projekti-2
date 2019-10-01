@@ -200,5 +200,19 @@ namespace Lahjakorttiappi
                 }
             }
         }
+
+     
+
+        private void BtnManageStaff_Click(object sender, EventArgs e)
+        {
+            HallitseHenkilokuntaa manageStaff = new HallitseHenkilokuntaa();
+            manageStaff.ShowDialog();
+        }
+
+        private void BtnManageTimes_Click(object sender, EventArgs e)
+        {
+            HallitseAikoja manageTimes = new HallitseAikoja();
+            manageTimes.ShowDialog();
+        }
     }
 }

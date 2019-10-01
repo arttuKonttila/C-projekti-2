@@ -50,6 +50,10 @@
             this.btnClear = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.pnlMoreIfno = new System.Windows.Forms.Panel();
+            this.lblManageStaff = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btnManageStaff = new System.Windows.Forms.Button();
+            this.btnManageTimes = new System.Windows.Forms.Button();
             this.lblItems = new System.Windows.Forms.Label();
             this.lblLogo = new System.Windows.Forms.Label();
             this.btnManagetems = new System.Windows.Forms.Button();
@@ -58,10 +62,6 @@
             this.btnRemoveLogo = new System.Windows.Forms.Button();
             this.logoBox = new System.Windows.Forms.PictureBox();
             this.btnAddLogo = new System.Windows.Forms.Button();
-            this.btnAddTimes = new System.Windows.Forms.Button();
-            this.btnManageStaff = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.lblManageStaff = new System.Windows.Forms.Label();
             this.PnInfo.SuspendLayout();
             this.pnControls.SuspendLayout();
             this.pnlMoreIfno.SuspendLayout();
@@ -278,7 +278,7 @@
             this.pnlMoreIfno.Controls.Add(this.lblManageStaff);
             this.pnlMoreIfno.Controls.Add(this.label1);
             this.pnlMoreIfno.Controls.Add(this.btnManageStaff);
-            this.pnlMoreIfno.Controls.Add(this.btnAddTimes);
+            this.pnlMoreIfno.Controls.Add(this.btnManageTimes);
             this.pnlMoreIfno.Controls.Add(this.lblItems);
             this.pnlMoreIfno.Controls.Add(this.lblLogo);
             this.pnlMoreIfno.Controls.Add(this.btnManagetems);
@@ -291,6 +291,47 @@
             this.pnlMoreIfno.Name = "pnlMoreIfno";
             this.pnlMoreIfno.Size = new System.Drawing.Size(397, 575);
             this.pnlMoreIfno.TabIndex = 1;
+            // 
+            // lblManageStaff
+            // 
+            this.lblManageStaff.AccessibleName = "Hallitse henkilökuntaa";
+            this.lblManageStaff.AutoSize = true;
+            this.lblManageStaff.Location = new System.Drawing.Point(223, 202);
+            this.lblManageStaff.Name = "lblManageStaff";
+            this.lblManageStaff.Size = new System.Drawing.Size(128, 24);
+            this.lblManageStaff.TabIndex = 9;
+            this.lblManageStaff.Text = "Henkilökunta";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(223, 101);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(148, 24);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "Tarjottavat ajat";
+            // 
+            // btnManageStaff
+            // 
+            this.btnManageStaff.AccessibleName = " Lisää tuotteita";
+            this.btnManageStaff.Location = new System.Drawing.Point(227, 230);
+            this.btnManageStaff.Name = "btnManageStaff";
+            this.btnManageStaff.Size = new System.Drawing.Size(154, 60);
+            this.btnManageStaff.TabIndex = 10;
+            this.btnManageStaff.Text = "Hallitse henkilökuntaa";
+            this.btnManageStaff.UseVisualStyleBackColor = true;
+            this.btnManageStaff.Click += new System.EventHandler(this.BtnManageStaff_Click);
+            // 
+            // btnManageTimes
+            // 
+            this.btnManageTimes.AccessibleName = " Lisää Aikoja";
+            this.btnManageTimes.Location = new System.Drawing.Point(227, 128);
+            this.btnManageTimes.Name = "btnManageTimes";
+            this.btnManageTimes.Size = new System.Drawing.Size(154, 60);
+            this.btnManageTimes.TabIndex = 8;
+            this.btnManageTimes.Text = "Hallitse aikoja";
+            this.btnManageTimes.UseVisualStyleBackColor = true;
+            this.btnManageTimes.Click += new System.EventHandler(this.BtnManageTimes_Click);
             // 
             // lblItems
             // 
@@ -371,45 +412,6 @@
             this.btnAddLogo.UseVisualStyleBackColor = true;
             this.btnAddLogo.Click += new System.EventHandler(this.btnAddLogo_Click);
             // 
-            // btnAddTimes
-            // 
-            this.btnAddTimes.AccessibleName = " Lisää Aikoja";
-            this.btnAddTimes.Location = new System.Drawing.Point(227, 128);
-            this.btnAddTimes.Name = "btnAddTimes";
-            this.btnAddTimes.Size = new System.Drawing.Size(154, 60);
-            this.btnAddTimes.TabIndex = 8;
-            this.btnAddTimes.Text = "Hallitse aikoja";
-            this.btnAddTimes.UseVisualStyleBackColor = true;
-            // 
-            // btnManageStaff
-            // 
-            this.btnManageStaff.AccessibleName = " Lisää tuotteita";
-            this.btnManageStaff.Location = new System.Drawing.Point(227, 230);
-            this.btnManageStaff.Name = "btnManageStaff";
-            this.btnManageStaff.Size = new System.Drawing.Size(154, 60);
-            this.btnManageStaff.TabIndex = 10;
-            this.btnManageStaff.Text = "Hallitse henkilökuntaa";
-            this.btnManageStaff.UseVisualStyleBackColor = true;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(223, 101);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(148, 24);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "Tarjottavat ajat";
-            // 
-            // lblManageStaff
-            // 
-            this.lblManageStaff.AccessibleName = "Hallitse henkilökuntaa";
-            this.lblManageStaff.AutoSize = true;
-            this.lblManageStaff.Location = new System.Drawing.Point(223, 202);
-            this.lblManageStaff.Name = "lblManageStaff";
-            this.lblManageStaff.Size = new System.Drawing.Size(128, 24);
-            this.lblManageStaff.TabIndex = 9;
-            this.lblManageStaff.Text = "Henkilökunta";
-            // 
             // Asetukset
             // 
             this.AccessibleName = "Asetukset";
@@ -468,6 +470,6 @@
         private System.Windows.Forms.Label lblManageStaff;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnManageStaff;
-        private System.Windows.Forms.Button btnAddTimes;
+        private System.Windows.Forms.Button btnManageTimes;
     }
 }
