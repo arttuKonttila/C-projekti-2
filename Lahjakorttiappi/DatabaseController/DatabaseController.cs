@@ -42,7 +42,7 @@ namespace Lahjakorttiappi.DatabaseController
         public DataSet bringAllData(DataSet ds)
         {
             connectDatabase();
-            var select = @"SELECT aTied.ID, aTied.Etunimi, aTied.Sukunimi, aTied.Osoite, aTied.PuhNro, aTied.Sahkoposti, aTied.Postinumero, aTied.Paikka, lahj.Voimassaolo, lahj.Myyjä, palv.Palvelu, til.PVM, til.Kerrat, til.Kesto, til.Maksettu, til.Saaja
+            var select = @"SELECT aTied.ID, aTied.Etunimi, aTied.Sukunimi, aTied.Osoite, aTied.PuhNro, aTied.Sahkoposti, aTied.Postinumero, aTied.Paikka, lahj.Voimassaolo, palv.Palvelu, til.PVM, til.Kerrat, til.Kesto, til.Maksettu, til.Saaja
                         FROM [Asiakastiedot] as aTied
                         INNER JOIN [Palvelut] as palv
                         ON aTied.PalveluID = palv.ID
