@@ -52,12 +52,16 @@
             this.pnlMoreIfno = new System.Windows.Forms.Panel();
             this.lblItems = new System.Windows.Forms.Label();
             this.lblLogo = new System.Windows.Forms.Label();
-            this.btnAddItems = new System.Windows.Forms.Button();
+            this.btnManagetems = new System.Windows.Forms.Button();
             this.rTextBoxOpenTimes = new System.Windows.Forms.RichTextBox();
             this.lblInfo = new System.Windows.Forms.Label();
             this.btnRemoveLogo = new System.Windows.Forms.Button();
             this.logoBox = new System.Windows.Forms.PictureBox();
             this.btnAddLogo = new System.Windows.Forms.Button();
+            this.btnAddTimes = new System.Windows.Forms.Button();
+            this.btnManageStaff = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lblManageStaff = new System.Windows.Forms.Label();
             this.PnInfo.SuspendLayout();
             this.pnControls.SuspendLayout();
             this.pnlMoreIfno.SuspendLayout();
@@ -155,7 +159,6 @@
             this.lblPostState.Size = new System.Drawing.Size(162, 24);
             this.lblPostState.TabIndex = 8;
             this.lblPostState.Text = "Postitoimipaikka";
-            
             // 
             // txtBoxPostNumber
             // 
@@ -198,7 +201,6 @@
             this.txtBoxIdentifier.Name = "txtBoxIdentifier";
             this.txtBoxIdentifier.Size = new System.Drawing.Size(459, 32);
             this.txtBoxIdentifier.TabIndex = 3;
-           
             // 
             // lblIdentifier
             // 
@@ -232,11 +234,10 @@
             this.pnControls.Controls.Add(this.btnExit);
             this.pnControls.Controls.Add(this.btnClear);
             this.pnControls.Controls.Add(this.btnSave);
-            this.pnControls.Location = new System.Drawing.Point(724, 13);
+            this.pnControls.Location = new System.Drawing.Point(914, 12);
             this.pnControls.Name = "pnControls";
             this.pnControls.Size = new System.Drawing.Size(166, 575);
-            this.pnControls.TabIndex = 1;
-            
+            this.pnControls.TabIndex = 2;
             // 
             // btnExit
             // 
@@ -273,82 +274,86 @@
             // 
             // pnlMoreIfno
             // 
-            this.pnlMoreIfno.AccessibleName = "Lisätiedot";
+            this.pnlMoreIfno.AccessibleName = "Lisätiedot paneeli";
+            this.pnlMoreIfno.Controls.Add(this.lblManageStaff);
+            this.pnlMoreIfno.Controls.Add(this.label1);
+            this.pnlMoreIfno.Controls.Add(this.btnManageStaff);
+            this.pnlMoreIfno.Controls.Add(this.btnAddTimes);
             this.pnlMoreIfno.Controls.Add(this.lblItems);
             this.pnlMoreIfno.Controls.Add(this.lblLogo);
-            this.pnlMoreIfno.Controls.Add(this.btnAddItems);
+            this.pnlMoreIfno.Controls.Add(this.btnManagetems);
             this.pnlMoreIfno.Controls.Add(this.rTextBoxOpenTimes);
             this.pnlMoreIfno.Controls.Add(this.lblInfo);
             this.pnlMoreIfno.Controls.Add(this.btnRemoveLogo);
             this.pnlMoreIfno.Controls.Add(this.logoBox);
             this.pnlMoreIfno.Controls.Add(this.btnAddLogo);
-            this.pnlMoreIfno.Location = new System.Drawing.Point(511, 13);
+            this.pnlMoreIfno.Location = new System.Drawing.Point(511, 12);
             this.pnlMoreIfno.Name = "pnlMoreIfno";
-            this.pnlMoreIfno.Size = new System.Drawing.Size(207, 575);
-            this.pnlMoreIfno.TabIndex = 2;
+            this.pnlMoreIfno.Size = new System.Drawing.Size(397, 575);
+            this.pnlMoreIfno.TabIndex = 1;
             // 
             // lblItems
             // 
             this.lblItems.AutoSize = true;
-            this.lblItems.Location = new System.Drawing.Point(11, 2);
+            this.lblItems.Location = new System.Drawing.Point(223, 3);
             this.lblItems.Name = "lblItems";
             this.lblItems.Size = new System.Drawing.Size(86, 24);
-            this.lblItems.TabIndex = 8;
+            this.lblItems.TabIndex = 5;
             this.lblItems.Text = "Tuotteet";
             // 
             // lblLogo
             // 
             this.lblLogo.AutoSize = true;
-            this.lblLogo.Location = new System.Drawing.Point(11, 101);
+            this.lblLogo.Location = new System.Drawing.Point(11, 3);
             this.lblLogo.Name = "lblLogo";
             this.lblLogo.Size = new System.Drawing.Size(142, 24);
-            this.lblLogo.TabIndex = 7;
+            this.lblLogo.TabIndex = 0;
             this.lblLogo.Text = "Yrityksen logo";
             // 
-            // btnAddItems
+            // btnManagetems
             // 
-            this.btnAddItems.AccessibleName = " Lisää tuotteita";
-            this.btnAddItems.Location = new System.Drawing.Point(15, 29);
-            this.btnAddItems.Name = "btnAddItems";
-            this.btnAddItems.Size = new System.Drawing.Size(136, 60);
-            this.btnAddItems.TabIndex = 6;
-            this.btnAddItems.Text = "Lisää tuotteita";
-            this.btnAddItems.UseVisualStyleBackColor = true;
-            this.btnAddItems.Click += new System.EventHandler(this.btnAddItems_Click);
+            this.btnManagetems.AccessibleName = "Hallitse tuotteita";
+            this.btnManagetems.Location = new System.Drawing.Point(227, 30);
+            this.btnManagetems.Name = "btnManagetems";
+            this.btnManagetems.Size = new System.Drawing.Size(154, 60);
+            this.btnManagetems.TabIndex = 6;
+            this.btnManagetems.Text = "Hallitse tuotteita";
+            this.btnManagetems.UseVisualStyleBackColor = true;
+            this.btnManagetems.Click += new System.EventHandler(this.btnAddItems_Click);
             // 
             // rTextBoxOpenTimes
             // 
-            this.rTextBoxOpenTimes.AccessibleName = "Auki olo ajat";
-            this.rTextBoxOpenTimes.Location = new System.Drawing.Point(15, 436);
+            this.rTextBoxOpenTimes.AccessibleName = "Lisätietoja";
+            this.rTextBoxOpenTimes.Location = new System.Drawing.Point(15, 351);
             this.rTextBoxOpenTimes.Name = "rTextBoxOpenTimes";
-            this.rTextBoxOpenTimes.Size = new System.Drawing.Size(175, 132);
-            this.rTextBoxOpenTimes.TabIndex = 5;
+            this.rTextBoxOpenTimes.Size = new System.Drawing.Size(366, 201);
+            this.rTextBoxOpenTimes.TabIndex = 4;
             this.rTextBoxOpenTimes.Text = "";
             // 
             // lblInfo
             // 
             this.lblInfo.AutoSize = true;
-            this.lblInfo.Location = new System.Drawing.Point(11, 409);
+            this.lblInfo.Location = new System.Drawing.Point(11, 324);
             this.lblInfo.Name = "lblInfo";
             this.lblInfo.Size = new System.Drawing.Size(103, 24);
-            this.lblInfo.TabIndex = 4;
+            this.lblInfo.TabIndex = 3;
             this.lblInfo.Text = "Lisätietoa";
-          
             // 
             // btnRemoveLogo
             // 
             this.btnRemoveLogo.AccessibleName = "Lisää logo";
-            this.btnRemoveLogo.Location = new System.Drawing.Point(15, 179);
+            this.btnRemoveLogo.Location = new System.Drawing.Point(15, 89);
             this.btnRemoveLogo.Name = "btnRemoveLogo";
             this.btnRemoveLogo.Size = new System.Drawing.Size(136, 45);
-            this.btnRemoveLogo.TabIndex = 3;
+            this.btnRemoveLogo.TabIndex = 2;
             this.btnRemoveLogo.Text = "Poista logo";
             this.btnRemoveLogo.UseVisualStyleBackColor = true;
             this.btnRemoveLogo.Click += new System.EventHandler(this.btnRemoveLogo_Click);
             // 
             // logoBox
             // 
-            this.logoBox.Location = new System.Drawing.Point(15, 238);
+            this.logoBox.AccessibleName = "Yrityksen logo";
+            this.logoBox.Location = new System.Drawing.Point(15, 148);
             this.logoBox.Name = "logoBox";
             this.logoBox.Size = new System.Drawing.Size(175, 159);
             this.logoBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -358,7 +363,7 @@
             // btnAddLogo
             // 
             this.btnAddLogo.AccessibleName = "Lisää logo";
-            this.btnAddLogo.Location = new System.Drawing.Point(15, 128);
+            this.btnAddLogo.Location = new System.Drawing.Point(15, 38);
             this.btnAddLogo.Name = "btnAddLogo";
             this.btnAddLogo.Size = new System.Drawing.Size(136, 45);
             this.btnAddLogo.TabIndex = 1;
@@ -366,11 +371,50 @@
             this.btnAddLogo.UseVisualStyleBackColor = true;
             this.btnAddLogo.Click += new System.EventHandler(this.btnAddLogo_Click);
             // 
+            // btnAddTimes
+            // 
+            this.btnAddTimes.AccessibleName = " Lisää Aikoja";
+            this.btnAddTimes.Location = new System.Drawing.Point(227, 128);
+            this.btnAddTimes.Name = "btnAddTimes";
+            this.btnAddTimes.Size = new System.Drawing.Size(154, 60);
+            this.btnAddTimes.TabIndex = 8;
+            this.btnAddTimes.Text = "Hallitse aikoja";
+            this.btnAddTimes.UseVisualStyleBackColor = true;
+            // 
+            // btnManageStaff
+            // 
+            this.btnManageStaff.AccessibleName = " Lisää tuotteita";
+            this.btnManageStaff.Location = new System.Drawing.Point(227, 230);
+            this.btnManageStaff.Name = "btnManageStaff";
+            this.btnManageStaff.Size = new System.Drawing.Size(154, 60);
+            this.btnManageStaff.TabIndex = 10;
+            this.btnManageStaff.Text = "Hallitse henkilökuntaa";
+            this.btnManageStaff.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(223, 101);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(148, 24);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "Tarjottavat ajat";
+            // 
+            // lblManageStaff
+            // 
+            this.lblManageStaff.AccessibleName = "Hallitse henkilökuntaa";
+            this.lblManageStaff.AutoSize = true;
+            this.lblManageStaff.Location = new System.Drawing.Point(223, 202);
+            this.lblManageStaff.Name = "lblManageStaff";
+            this.lblManageStaff.Size = new System.Drawing.Size(128, 24);
+            this.lblManageStaff.TabIndex = 9;
+            this.lblManageStaff.Text = "Henkilökunta";
+            // 
             // Asetukset
             // 
             this.AccessibleName = "Asetukset";
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(899, 603);
+            this.ClientSize = new System.Drawing.Size(1093, 603);
             this.Controls.Add(this.pnlMoreIfno);
             this.Controls.Add(this.pnControls);
             this.Controls.Add(this.PnInfo);
@@ -417,9 +461,13 @@
         private System.Windows.Forms.PictureBox logoBox;
         private System.Windows.Forms.Button btnAddLogo;
         private System.Windows.Forms.RichTextBox rTextBoxOpenTimes;
-        private System.Windows.Forms.Button btnAddItems;
+        private System.Windows.Forms.Button btnManagetems;
         private System.Windows.Forms.Label lblItems;
         private System.Windows.Forms.Label lblLogo;
         internal System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.Label lblManageStaff;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnManageStaff;
+        private System.Windows.Forms.Button btnAddTimes;
     }
 }
