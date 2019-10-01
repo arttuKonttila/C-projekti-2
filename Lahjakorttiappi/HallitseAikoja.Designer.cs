@@ -31,7 +31,6 @@
             this.btnCloseWindow = new System.Windows.Forms.Button();
             this.lblAddTime = new System.Windows.Forms.Label();
             this.dgwTimes = new System.Windows.Forms.DataGridView();
-            this.txtBoxNameStaff = new System.Windows.Forms.TextBox();
             this.btnRemoveTime = new System.Windows.Forms.Button();
             this.btnAddTime = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -68,14 +67,6 @@
             this.dgwTimes.Name = "dgwTimes";
             this.dgwTimes.Size = new System.Drawing.Size(161, 329);
             this.dgwTimes.TabIndex = 5;
-            // 
-            // txtBoxNameStaff
-            // 
-            this.txtBoxNameStaff.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBoxNameStaff.Location = new System.Drawing.Point(11, 51);
-            this.txtBoxNameStaff.Name = "txtBoxNameStaff";
-            this.txtBoxNameStaff.Size = new System.Drawing.Size(221, 32);
-            this.txtBoxNameStaff.TabIndex = 6;
             // 
             // btnRemoveTime
             // 
@@ -117,11 +108,10 @@
             this.Controls.Add(this.btnCloseWindow);
             this.Controls.Add(this.lblAddTime);
             this.Controls.Add(this.dgwTimes);
-            this.Controls.Add(this.txtBoxNameStaff);
             this.Controls.Add(this.btnRemoveTime);
             this.Controls.Add(this.btnAddTime);
             this.Name = "HallitseAikoja";
-            this.Text = "Hallitse Aikoja";          
+            this.Text = "Hallitse Aikoja";
             ((System.ComponentModel.ISupportInitialize)(this.dgwTimes)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -133,7 +123,6 @@
         private System.Windows.Forms.Button btnCloseWindow;
         private System.Windows.Forms.Label lblAddTime;
         private System.Windows.Forms.DataGridView dgwTimes;
-        private System.Windows.Forms.TextBox txtBoxNameStaff;
         private System.Windows.Forms.Button btnRemoveTime;
         private System.Windows.Forms.Button btnAddTime;
         private System.Windows.Forms.TextBox textBox1;
