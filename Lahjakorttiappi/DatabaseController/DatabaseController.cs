@@ -320,5 +320,29 @@ namespace Lahjakorttiappi.DatabaseController
             disconnectDatabse();
         }
 
+        public List<Class.Orders> getOrders()
+        {
+            List<Class.Orders> allOrders = new List<Class.Orders>();
+            SqlCommand cmd = new SqlCommand("SELECT * FROM Tilaukset", connect);
+            connectDatabase();
+            SqlDataReader read = cmd.ExecuteReader();
+            if (read.HasRows)
+            {
+                while (read.Read())
+                {
+                    Class.Orders order = new Class.Orders();
+                    order.ID = Convert.ToInt32(read.GetValue(0));
+                    order.Pvm = Convert.ToDateTime(read.GetValue(1));
+                    order.Duration = read.GetValue(2).ToString();
+                    order.Usages = read.GetValue(3).ToString();
+                    order.Recipient = read.GetValue(4).ToString();
+                    order.Paid = Convert.ToInt32(read.GetValue(5));
+                    allOrders.Add(order);
+                }
+            }
+            disconnectDatabse();
+            return allOrders;
+        }
+
     }
 }

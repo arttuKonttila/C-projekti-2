@@ -34,11 +34,20 @@ namespace Lahjakorttiappi
         public AsiakasTiedot()
         {
             InitializeComponent();
+
             List<Class.Products> allProducts = new List<Class.Products>();
             allProducts = dBController.bringProducts();
             cmBoxService.DataSource = allProducts;
             cmBoxService.DisplayMember = "Palvelu";
             cmBoxService.ValueMember = "PalveluNro";
+
+            List<Class.Orders> allOrders = new List<Class.Orders>();
+            allOrders = dBController.getOrders();
+            cmBoxDuration.DataSource = allOrders;
+            cmBoxDuration.DisplayMember = "Duration";
+            cmBoxDuration.ValueMember = "ID";
+
+
             if (muokkaaClick == true || muokkaaID != 0)
             {
                 dBController.fetchData(muokkaaID, customerInfo, giftCard, order);
@@ -48,6 +57,7 @@ namespace Lahjakorttiappi
             {
                 return;
             }
+
         }
 
 
@@ -76,8 +86,8 @@ namespace Lahjakorttiappi
             giftCard.Voimassaolo = dtmExpirationDate.Value;
             order.Recipient = cmBoxSeller.Text;
             order.Pvm = dtmSellTime.Value;
-            order.Usages = numAmount.Text;
-            order.Duration = cmBoxTime.Text;
+            order.Usages = numAmountBox.Text;
+            order.Duration = cmBoxDuration.Text;
             if(paidCheckBox.Checked == true)
             {
                 order.Paid = 1;
@@ -100,6 +110,19 @@ namespace Lahjakorttiappi
             txtBoxPoPlace.Text = customerInfo.Paikka;
             TxtBoxAdress.Text = customerInfo.Osoite;
             cmBoxService.SelectedValue = customerInfo.PalveluID;
+            cmBoxDuration.SelectedValue = order.ID;
+            numAmountBox.Value = Convert.ToDecimal(order.Usages);
+            dtmSellTime.Value = order.Pvm;
+            dtmExpirationDate.Value = giftCard.Voimassaolo;
+            if(order.Paid == 1)
+            {
+                paidCheckBox.Checked = true;
+            }
+            else
+            {
+                paidCheckBox.Checked = false;
+            }
+
         }
 
         private void btnExit_Click(object sender, EventArgs e)
