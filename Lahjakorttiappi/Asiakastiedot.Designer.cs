@@ -102,7 +102,7 @@
             this.paidCheckBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.paidCheckBox.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.paidCheckBox.Location = new System.Drawing.Point(213, 278);
-            this.paidCheckBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.paidCheckBox.Margin = new System.Windows.Forms.Padding(2);
             this.paidCheckBox.Name = "paidCheckBox";
             this.paidCheckBox.Size = new System.Drawing.Size(43, 32);
             this.paidCheckBox.TabIndex = 15;
@@ -450,6 +450,7 @@
             // dtmSellTime
             // 
             this.dtmSellTime.CalendarFont = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtmSellTime.CustomFormat = "";
             this.dtmSellTime.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtmSellTime.Location = new System.Drawing.Point(399, 37);
             this.dtmSellTime.Name = "dtmSellTime";

@@ -23,7 +23,7 @@ namespace Lahjakorttiappi
         public Class.Asiakastiedot customerInfo = new Class.Asiakastiedot();
         public Class.giftCard giftCard = new Class.giftCard();
         public Class.Orders order = new Class.Orders();
-        public bool muokkaaClick = false;
+        public bool muokkaaClick;
         public int muokkaaID = 0;
         public DateTime SellTime()
         {
@@ -53,15 +53,15 @@ namespace Lahjakorttiappi
             cmBoxSeller.DisplayMember = "Myyja";
             cmBoxSeller.ValueMember = "ID";
 
-            if (muokkaaClick == true || muokkaaID != 0)
-            {
+            //if (muokkaaClick == true || muokkaaID != 0)
+            //{
                 dBController.fetchData(muokkaaID, customerInfo, giftCard, order);
                 fillData();
-            }
+            /*}
             else
             {
                 return;
-            }
+            }*/
 
         }
 
@@ -117,8 +117,8 @@ namespace Lahjakorttiappi
             cmBoxService.SelectedValue = customerInfo.PalveluID;
             cmBoxDuration.SelectedValue = order.ID;
             numAmountBox.Value = Convert.ToDecimal(order.Usages);
-            dtmSellTime.Value = order.Pvm;
-            dtmExpirationDate.Value = giftCard.Voimassaolo;
+            //dtmSellTime.Value = order.Pvm;
+            //dtmExpirationDate.Value = giftCard.Voimassaolo;
             if(order.Paid == 1)
             {
                 paidCheckBox.Checked = true;

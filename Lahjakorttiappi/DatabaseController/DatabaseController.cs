@@ -119,7 +119,7 @@ namespace Lahjakorttiappi.DatabaseController
                 }
             }
             read.Close();
-            SqlCommand cmd1 = new SqlCommand("SELECT * FROM LahjakorttiID WHERE ID = @id", connect);
+            SqlCommand cmd1 = new SqlCommand("SELECT * FROM Lahjakortti WHERE ID = @id", connect);
             cmd1.Parameters.AddWithValue("@id", customerInfo.LahjakorttiID);
             read = cmd1.ExecuteReader();
             if(read.HasRows)
