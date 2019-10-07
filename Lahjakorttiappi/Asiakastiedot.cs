@@ -130,9 +130,17 @@ namespace Lahjakorttiappi
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-           //Tähän olisi hyvä laittaa kyselyä varmistamaan sulkeminen ja siitä jos ei ole tallennettu tietoja niin haluaako käyttäjä tallentaa
-
-            this.Close();
+            //Tähän olisi hyvä laittaa kyselyä varmistamaan sulkeminen ja siitä jos ei ole tallennettu tietoja niin haluaako käyttäjä tallentaa
+            if (MessageBox.Show("Are you sure?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                // user clicked yes
+                this.Close();
+            }    
+            else
+            {
+                // user clicked no
+                return;
+            }
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
