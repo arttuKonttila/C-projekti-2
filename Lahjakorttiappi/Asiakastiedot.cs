@@ -23,8 +23,7 @@ namespace Lahjakorttiappi
         public Class.Asiakastiedot customerInfo = new Class.Asiakastiedot();
         public Class.giftCard giftCard = new Class.giftCard();
         public Class.Orders order = new Class.Orders();
-        public bool muokkaaClick;
-        public int muokkaaID = 0;
+        Tuple<Class.Asiakastiedot, Class.giftCard, Class.Orders> tuple;
         public DateTime SellTime()
         {
             sellTime = dtmSellTime.Value;
@@ -34,7 +33,6 @@ namespace Lahjakorttiappi
         public AsiakasTiedot()
         {
             InitializeComponent();
-
             List<Class.Products> allProducts = new List<Class.Products>();
             allProducts = dBController.bringProducts();
             cmBoxService.DataSource = allProducts;
@@ -53,15 +51,15 @@ namespace Lahjakorttiappi
             cmBoxSeller.DisplayMember = "Myyja";
             cmBoxSeller.ValueMember = "ID";
 
-            //if (muokkaaClick == true || muokkaaID != 0)
-            //{
-                dBController.fetchData(muokkaaID, customerInfo, giftCard, order);
+            if(Paaikkuna.muokkaaClick == true)
+            {
+                tuple = dBController.fetchData(Paaikkuna.muokkaaID, customerInfo, giftCard, order);
                 fillData();
-            /*}
+            }
             else
             {
                 return;
-            }*/
+            }
 
         }
 
@@ -106,20 +104,20 @@ namespace Lahjakorttiappi
 
         public void fillData()
         {
-            lblIDShow.Text = customerInfo.AsiakasNro.ToString();
-            txtBoxFirstName.Text = customerInfo.Etunimi;
-            txtBoxLastName.Text = customerInfo.Sukunimi;
-            txtBoxPhone.Text = customerInfo.PuhNro;
-            txtBoxEmail.Text = customerInfo.Sahkoposti;
-            txtBoxPoNbr.Text = customerInfo.Postinumero;
-            txtBoxPoPlace.Text = customerInfo.Paikka;
-            TxtBoxAdress.Text = customerInfo.Osoite;
-            cmBoxService.SelectedValue = customerInfo.PalveluID;
-            cmBoxDuration.SelectedValue = order.ID;
-            numAmountBox.Value = Convert.ToDecimal(order.Usages);
+            lblIDShow.Text = tuple.Item1.AsiakasNro.ToString();
+            txtBoxFirstName.Text = tuple.Item1.Etunimi;
+            txtBoxLastName.Text = tuple.Item1.Sukunimi;
+            txtBoxPhone.Text = tuple.Item1.PuhNro;
+            txtBoxEmail.Text = tuple.Item1.Sahkoposti;
+            txtBoxPoNbr.Text = tuple.Item1.Postinumero;
+            txtBoxPoPlace.Text = tuple.Item1.Paikka;
+            TxtBoxAdress.Text = tuple.Item1.Osoite;
+            cmBoxService.SelectedValue = tuple.Item1.PalveluID;
+            cmBoxDuration.SelectedValue = tuple.Item3.ID;
+            numAmountBox.Value = Convert.ToDecimal(tuple.Item3.Usages);
             //dtmSellTime.Value = order.Pvm;
             //dtmExpirationDate.Value = giftCard.Voimassaolo;
-            if(order.Paid == 1)
+            if(tuple.Item3.Paid == 1)
             {
                 paidCheckBox.Checked = true;
             }
