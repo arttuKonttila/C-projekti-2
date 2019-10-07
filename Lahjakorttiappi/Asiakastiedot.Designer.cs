@@ -306,6 +306,7 @@
             this.btnEmpty.TabIndex = 1;
             this.btnEmpty.Text = "Tyhjennä";
             this.btnEmpty.UseVisualStyleBackColor = true;
+            this.btnEmpty.Click += new System.EventHandler(this.btnEmpty_Click);
             // 
             // btnAdd
             // 

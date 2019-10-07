@@ -115,8 +115,8 @@ namespace Lahjakorttiappi
             cmBoxService.SelectedValue = tuple.Item1.PalveluID;
             cmBoxDuration.SelectedValue = tuple.Item3.ID;
             numAmountBox.Value = Convert.ToDecimal(tuple.Item3.Usages);
-            //dtmSellTime.Value = order.Pvm;
-            //dtmExpirationDate.Value = giftCard.Voimassaolo;
+            dtmSellTime.Value = tuple.Item3.Pvm;
+            dtmExpirationDate.Value = tuple.Item2.Voimassaolo;
             if(tuple.Item3.Paid == 1)
             {
                 paidCheckBox.Checked = true;
@@ -193,6 +193,40 @@ namespace Lahjakorttiappi
         {
             HallitseHenkilokuntaa manageStaff = new HallitseHenkilokuntaa();
             manageStaff.ShowDialog();
+        }
+
+        private void btnEmpty_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Are you sure?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                // user clicked yes
+                lblIDShow.Text = "";
+                txtBoxFirstName.Text = "";
+                txtBoxLastName.Text = "";
+                txtBoxPhone.Text = "";
+                txtBoxEmail.Text = "";
+                txtBoxPoNbr.Text = "";
+                txtBoxPoPlace.Text = "";
+                TxtBoxAdress.Text = "";
+                cmBoxService.SelectedValue = -1;
+                cmBoxDuration.SelectedValue = -1;
+                numAmountBox.Value = 0;
+                dtmSellTime.Value = new DateTime(1753, 1, 1);
+                dtmExpirationDate.Value = new DateTime(1753, 1, 1);
+                if (paidCheckBox.Checked == true)
+                {
+                    paidCheckBox.Checked = false;
+                }
+                else
+                {
+                    return;
+                }
+            }
+            else
+            {
+                // user clicked no
+                return;
+            }
         }
     }
 }
