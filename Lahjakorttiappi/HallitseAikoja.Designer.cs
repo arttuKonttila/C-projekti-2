@@ -76,7 +76,7 @@
             this.btnRemoveTime.Name = "btnRemoveTime";
             this.btnRemoveTime.Size = new System.Drawing.Size(131, 60);
             this.btnRemoveTime.TabIndex = 4;
-            this.btnRemoveTime.Text = "Poista henkilö";
+            this.btnRemoveTime.Text = "Poista aika";
             this.btnRemoveTime.UseVisualStyleBackColor = true;
             // 
             // btnAddTime

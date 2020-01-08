@@ -140,6 +140,10 @@ namespace Lahjakorttiappi
            // loadData();
         }
 
+        private void cmBoxSeller_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
     
 }
