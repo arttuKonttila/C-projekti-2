@@ -33,7 +33,7 @@
             this.dgwTimes = new System.Windows.Forms.DataGridView();
             this.btnRemoveTime = new System.Windows.Forms.Button();
             this.btnAddTime = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textTimeBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgwTimes)).BeginInit();
             this.SuspendLayout();
             // 
@@ -90,21 +90,21 @@
             this.btnAddTime.Text = "Lisää aika";
             this.btnAddTime.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // textTimeBox
             // 
-            this.textBox1.AccessibleName = "Kirjoita aika";
-            this.textBox1.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(11, 51);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(131, 32);
-            this.textBox1.TabIndex = 1;
+            this.textTimeBox.AccessibleName = "Kirjoita aika";
+            this.textTimeBox.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textTimeBox.Location = new System.Drawing.Point(11, 51);
+            this.textTimeBox.Name = "textTimeBox";
+            this.textTimeBox.Size = new System.Drawing.Size(131, 32);
+            this.textTimeBox.TabIndex = 1;
             // 
             // HallitseAikoja
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(326, 363);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textTimeBox);
             this.Controls.Add(this.btnCloseWindow);
             this.Controls.Add(this.lblAddTime);
             this.Controls.Add(this.dgwTimes);
@@ -125,6 +125,6 @@
         private System.Windows.Forms.DataGridView dgwTimes;
         private System.Windows.Forms.Button btnRemoveTime;
         private System.Windows.Forms.Button btnAddTime;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textTimeBox;
     }
 }

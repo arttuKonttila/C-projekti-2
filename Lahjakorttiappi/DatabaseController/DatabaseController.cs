@@ -367,5 +367,54 @@ namespace Lahjakorttiappi.DatabaseController
             disconnectDatabse();
             return allSellers;
         }
+
+        public void addStaff(Class.Seller seller)
+        {
+            SqlCommand cmd = new SqlCommand("INSERT INTO [Myyja](Nimi)" +
+                    "VALUES (@staffName)", connect);
+            cmd.Parameters.AddWithValue("@staffName", seller.Myyja);
+            try
+            {
+                cmd.ExecuteNonQuery();
+            }
+            catch
+            {
+
+            }
+        }
+        
+        public void removeStaffById(int id)
+        {
+            SqlCommand cmd = new SqlCommand("DELETE FROM [Myyja] WHERE ID = @id", connect);
+            cmd.Parameters.AddWithValue("@id", id);
+            try
+            {
+                cmd.ExecuteNonQuery();
+            }
+            catch
+            {
+
+            }
+        }
+
+        /* public void addTime(string time)
+        {
+            SqlCommand cmd = new SqlCommand("INSERT INTO [Tilaukset](Kesto)" +
+                    "VALUES (@Kesto)", connect);
+            cmd.Parameters.AddWithValue("@Kesto", time);
+            try
+            {
+                cmd.ExecuteNonQuery();
+            }
+            catch
+            {
+
+            }
+        }
+
+        public void removeTime(int id)
+        {
+            SqlCommand cmd = new SqlCommand("DELETE FROM ", connect);
+        }*/
     }
 }
