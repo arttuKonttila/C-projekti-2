@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using iText.IO.Font.Constants;
+/*using iText.IO.Font.Constants;
 using iText.IO.Util;
 using iText.Kernel.Font;
 using iText.Kernel.Geom;
@@ -11,9 +11,12 @@ using iText.Kernel.Pdf;
 using iText.Layout;
 using iText.Layout.Element;
 using iText.Layout.Properties;
-using iText.IO.Image;
+using iText.IO.Image;*/
 using System.IO;
 using System.Data;
+using System.Drawing;
+using Syncfusion.Pdf;
+using Syncfusion.Pdf.Graphics;
 
 
 
@@ -37,7 +40,7 @@ namespace Lahjakorttiappi.Class
             new MakePDF().CreatePdf(pdfDest);
         }
 
-
+       
         public virtual void CreatePdf (String pdfDest)
         {
             string pdfDestination = System.IO.Path.Combine(Environment.CurrentDirectory, "data/lahjakorttit/lahjakortti.pdf");
@@ -54,23 +57,32 @@ namespace Lahjakorttiappi.Class
             // iText.Layout.Element.Image background = Properties.Resources.giftCardBack;
             // System.Drawing.im
             //iText.Layout.Element.Image background = new iText.Layout.Element.Image(ImageDataFactory.Create(pdfBackground));
-            iText.Layout.Element.Image logo = new iText.Layout.Element.Image(ImageDataFactory.Create(logoDest));
+            //iText.Layout.Element.Image logo = new iText.Layout.Element.Image(ImageDataFactory.Create(logoDest));
             DataSet read = new DataSet();
             read.ReadXml(companyData);
 
             foreach (DataRow dr in read.Tables[0].Rows)
             {
                 company = dr["CompanyName"].ToString().Trim();
-                cmAddress = dr["Address"].ToString().Trim();
+                cmAddress = dr  ["Address"].ToString().Trim();
                 cmPostNum = dr["PostalNumber"].ToString().Trim();
                 cmPostState = dr["PostalState"].ToString().Trim();
                 cmPhone = dr["Phone"].ToString().Trim();
                 cmEmail = dr["Email"].ToString().Trim();
                 cmWeb = dr["WebSite"].ToString().Trim();
             }
+            PdfDocument pdfTiedosto = new PdfDocument();
+            PdfPage sivu = pdfTiedosto.Pages.Add();
+            pdfTiedosto.PageSettings.Margins.All = 50;
+            PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 12f, PdfFontStyle.Bold);
+            sivu.Graphics.DrawString("Lahjakortti", font, PdfBrushes.Black,new PointF(100,10));
+            PdfGraphics logoPiirto = sivu.Graphics;
+            PdfBitmap logo = new PdfBitmap(path);
+            logoPiirto.DrawImage(logo, 40, 20);
+            sivu.Graphics.DrawString(customer, font, PdfBrushes.AliceBlue,new PointF(300,200));
 
-
-            PdfDocument pdf = new PdfDocument(new PdfWriter(pdfDestination));
+            pdfTiedosto.Save(pdfDestination);
+            /*PdfDocument pdf = new PdfDocument(new PdfWriter(pdfDestination));
 
             PdfFont font = PdfFontFactory.CreateFont(StandardFonts.HELVETICA);
             Document dokumentti = new Document(pdf, PageSize.A4.Rotate());
@@ -90,9 +102,9 @@ namespace Lahjakorttiappi.Class
             dokumentti.Add(body);
             dokumentti.Add(valid);
             dokumentti.Add(companyInfo);
-            dokumentti.Close();
+            dokumentti.Close();*/
         }
-
+       
     }
 
 
