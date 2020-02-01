@@ -209,10 +209,9 @@ namespace Lahjakorttiappi
             manageStaff.ShowDialog();
         }
 
-        private void BtnManageTimes_Click(object sender, EventArgs e)
+        private void lblManageStaff_Click(object sender, EventArgs e)
         {
-            HallitseAikoja manageTimes = new HallitseAikoja();
-            manageTimes.ShowDialog();
+
         }
     }
 }

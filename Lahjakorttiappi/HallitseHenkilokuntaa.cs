@@ -15,6 +15,7 @@ namespace Lahjakorttiappi
         DatabaseController.DatabaseController dBController = new DatabaseController.DatabaseController();
         DataSet ds = new DataSet();
         DataTable dt = new DataTable();
+        BindingSource source = new BindingSource();
         public HallitseHenkilokuntaa()
         {
             InitializeComponent();
@@ -23,19 +24,18 @@ namespace Lahjakorttiappi
 
         private void loadData()
         {
-            ds.Reset();
             dBController.bringStaffInfo(ds);
+            source.DataSource = ds;
+            source.DataMember = "Seller";
+
             dgwStaffMembers.AutoGenerateColumns = true;
-            dgwStaffMembers.DataSource = ds;
-            dgwStaffMembers.DataMember = "Seller";      
+            dgwStaffMembers.DataSource = source;
+            dgwStaffMembers.DataMember = "Seller";
         }
 
-        private void loadData2()
+        private void refreshData()
         {
-            dt.Reset();
-            dBController.bringStaffInfo2(dt);
-            dgwStaffMembers.AutoGenerateColumns = true;
-            dgwStaffMembers.DataSource = dt;
+            source.ResetBindings(false);
         }
 
         private void BtnCloseWindow_Click(object sender, EventArgs e)
@@ -66,6 +66,7 @@ namespace Lahjakorttiappi
                 MessageBox.Show("Valitse poistettava rivi");
                 return;
             }
+            refreshData();
         }
 
         private void BtnAddStaff_Click(object sender, EventArgs e)
@@ -82,7 +83,7 @@ namespace Lahjakorttiappi
             {
                 MessageBox.Show("Myyjän lisäyksessä tapahtui virhe");
             }
-            loadData2();
+            refreshData();
         }
     }
 }
