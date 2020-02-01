@@ -46,10 +46,9 @@ namespace Lahjakorttiappi
             {
                 MessageBox.Show("Tuotteen lisäyksessä tapahtui virhe");
             }
-            ds.Tables.Remove("ProductInfo");
+            ds.Reset();
             loadData();
-            dGWProducts.Refresh();
-            dGWProducts.Update();
+
         }
         private void textBoxEmptyTest()
         {

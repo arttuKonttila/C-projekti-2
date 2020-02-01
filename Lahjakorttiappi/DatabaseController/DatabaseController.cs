@@ -75,6 +75,31 @@ namespace Lahjakorttiappi.DatabaseController
             return ds;
         }
 
+        public DataSet bringStaffInfo(DataSet ds)
+        {
+            connectDatabase();
+            var select = "SELECT * FROM Myyja";
+            var c = connect;
+            var dataAdapter = new SqlDataAdapter(select, c);
+            var commandBuilder = new SqlCommandBuilder(dataAdapter);
+            ds.Tables.Add("Seller");
+            dataAdapter.Fill(ds, "Seller");
+            disconnectDatabse();
+            return ds;
+        }
+
+        public DataTable bringStaffInfo2(DataTable dt)
+        {
+            connectDatabase();
+            var select = "SELECT * FROM Myyja";
+            var c = connect;
+            var dataAdapter = new SqlDataAdapter(select, c);
+            var commandBuilder = new SqlCommandBuilder(dataAdapter);
+            dataAdapter.Fill(dt);
+            disconnectDatabse();
+            return dt;
+        }
+
         public List<Class.Products> bringProducts()
         {
             List<Class.Products> prod = new List<Class.Products>();
@@ -368,19 +393,24 @@ namespace Lahjakorttiappi.DatabaseController
             return allSellers;
         }
 
-        public void addStaff(Class.Seller seller)
+        public bool addStaff(Class.Seller seller)
         {
+            bool added = true;
             SqlCommand cmd = new SqlCommand("INSERT INTO [Myyja](Nimi)" +
-                    "VALUES (@staffName)", connect);
+                    "VALUES" +
+                    "(@staffName)", connect);
             cmd.Parameters.AddWithValue("@staffName", seller.Myyja);
+            connectDatabase();
             try
             {
                 cmd.ExecuteNonQuery();
             }
-            catch
+            catch(Exception ex)
             {
-
+                added = false;
             }
+            disconnectDatabse();
+            return added;
         }
         
         public void removeStaffById(int id)

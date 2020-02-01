@@ -14,18 +14,28 @@ namespace Lahjakorttiappi
     {
         DatabaseController.DatabaseController dBController = new DatabaseController.DatabaseController();
         DataSet ds = new DataSet();
+        DataTable dt = new DataTable();
         public HallitseHenkilokuntaa()
         {
             InitializeComponent();
+            loadData();
         }
 
         private void loadData()
         {
-
-            dBController.bringProductInfo(ds);
+            ds.Reset();
+            dBController.bringStaffInfo(ds);
             dgwStaffMembers.AutoGenerateColumns = true;
             dgwStaffMembers.DataSource = ds;
-            dgwStaffMembers.DataMember = "seller";
+            dgwStaffMembers.DataMember = "Seller";      
+        }
+
+        private void loadData2()
+        {
+            dt.Reset();
+            dBController.bringStaffInfo2(dt);
+            dgwStaffMembers.AutoGenerateColumns = true;
+            dgwStaffMembers.DataSource = dt;
         }
 
         private void BtnCloseWindow_Click(object sender, EventArgs e)
@@ -62,9 +72,9 @@ namespace Lahjakorttiappi
         {
             Class.Seller seller = new Class.Seller();
             seller.Myyja = txtBoxNameStaff.Text;
-            Class.Products product = new Class.Products();
-            product.Palvelu = txtBoxNameStaff.Text;
-            if (dBController.addProduct(product) == true)
+           /* Class.Products product = new Class.Products();
+            product.Palvelu = txtBoxNameStaff.Text;*/
+            if (dBController.addStaff(seller) == true)
             {
                 MessageBox.Show("Myyjä lisättiin onnistuneesti");
             }
@@ -72,10 +82,7 @@ namespace Lahjakorttiappi
             {
                 MessageBox.Show("Myyjän lisäyksessä tapahtui virhe");
             }
-            ds.Tables.Remove("seller");
-            loadData();
-            dgwStaffMembers.Refresh();
-            dgwStaffMembers.Update();
+            loadData2();
         }
     }
 }
