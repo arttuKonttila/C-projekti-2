@@ -30,7 +30,7 @@ namespace Lahjakorttiappi
 
             dgwStaffMembers.AutoGenerateColumns = true;
             dgwStaffMembers.DataSource = source;
-            dgwStaffMembers.DataMember = "Seller";
+            //dgwStaffMembers.DataMember = "Seller";
         }
 
         private void refreshData()
