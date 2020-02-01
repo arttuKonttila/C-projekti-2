@@ -24,6 +24,7 @@ namespace Lahjakorttiappi
 
         private void loadData()
         {
+
             dBController.bringStaffInfo(ds);
             source.DataSource = ds;
             source.DataMember = "Seller";
@@ -73,8 +74,6 @@ namespace Lahjakorttiappi
         {
             Class.Seller seller = new Class.Seller();
             seller.Myyja = txtBoxNameStaff.Text;
-           /* Class.Products product = new Class.Products();
-            product.Palvelu = txtBoxNameStaff.Text;*/
             if (dBController.addStaff(seller) == true)
             {
                 MessageBox.Show("Myyjä lisättiin onnistuneesti");
@@ -83,6 +82,8 @@ namespace Lahjakorttiappi
             {
                 MessageBox.Show("Myyjän lisäyksessä tapahtui virhe");
             }
+            ds.Tables.Remove("Seller");
+            loadData();
             refreshData();
         }
     }
