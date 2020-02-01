@@ -118,12 +118,6 @@
     <Compile Include="Class\Seller.cs" />
     <Compile Include="DatabaseController\DatabaseController.cs" />
     <Compile Include="Class\MakePDF.cs" />
-    <Compile Include="HallitseAikoja.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="HallitseAikoja.Designer.cs">
-      <DependentUpon>HallitseAikoja.cs</DependentUpon>
-    </Compile>
     <Compile Include="HallitseHenkilokuntaa.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -152,9 +146,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Asetukset.resx">
       <DependentUpon>Asetukset.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="HallitseAikoja.resx">
-      <DependentUpon>HallitseAikoja.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HallitseHenkilokuntaa.resx">
       <DependentUpon>HallitseHenkilokuntaa.cs</DependentUpon>

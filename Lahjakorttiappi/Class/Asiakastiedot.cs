@@ -85,6 +85,12 @@ namespace Lahjakorttiappi.Class
             set { lahjakorttiID = value; }
         }
 
+        int myyjaID;
+        public int MyyjaID
+        {
+            get { return myyjaID; }
+            set { myyjaID = value; }
+        }
        
     }
 }

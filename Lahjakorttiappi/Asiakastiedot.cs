@@ -38,6 +38,7 @@ namespace Lahjakorttiappi
             cmBoxService.DataSource = allProducts;
             cmBoxService.DisplayMember = "Palvelu";
             cmBoxService.ValueMember = "PalveluNro";
+
             List<Class.Seller> allSellers = new List<Class.Seller>();
             allSellers = dBController.getSellers();
             cmBoxSeller.DataSource = allSellers;
@@ -77,6 +78,7 @@ namespace Lahjakorttiappi
             customerInfo.Paikka = txtBoxPoPlace.Text;
             customerInfo.Osoite = TxtBoxAdress.Text;
             customerInfo.PalveluID = Convert.ToInt32(cmBoxService.SelectedValue);
+            customerInfo.MyyjaID = Convert.ToInt32(cmBoxSeller.SelectedValue);
 
             // = cmBoxSeller.Text;
             giftCard.Voimassaolo = dtmExpirationDate.Value;

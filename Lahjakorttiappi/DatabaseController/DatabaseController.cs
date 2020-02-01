@@ -312,8 +312,8 @@ namespace Lahjakorttiappi.DatabaseController
             info.TilausID = Convert.ToInt32(tulos);
 
 
-            SqlCommand cmd = new SqlCommand("INSERT INTO [Asiakastiedot](Etunimi, Sukunimi, Osoite, PuhNro, Sahkoposti, Postinumero, Paikka, PalveluID, TilausID, LahjakorttiID)" +
-                        "VALUES (@eNim, @sNim, @os, @pNro, @sPosti, @zip, @ptPaikka, @palvID, @tilID, @lahjID)", connect);
+            SqlCommand cmd = new SqlCommand("INSERT INTO [Asiakastiedot](Etunimi, Sukunimi, Osoite, PuhNro, Sahkoposti, Postinumero, Paikka, PalveluID, TilausID, LahjakorttiID, MyyjaID)" +
+                        "VALUES (@eNim, @sNim, @os, @pNro, @sPosti, @zip, @ptPaikka, @palvID, @tilID, @lahjID, @myyjaID)", connect);
             cmd.Parameters.AddWithValue("@eNim", info.Etunimi);
             cmd.Parameters.AddWithValue("@sNim", info.Sukunimi);
             cmd.Parameters.AddWithValue("@os", info.Osoite);
@@ -324,9 +324,9 @@ namespace Lahjakorttiappi.DatabaseController
             cmd.Parameters.AddWithValue("@lahjID", info.LahjakorttiID);
             cmd.Parameters.AddWithValue("@tilID", info.TilausID);
             cmd.Parameters.AddWithValue("@palvID", info.PalveluID);
+            cmd.Parameters.AddWithValue("@myyjaID", info.MyyjaID);
+
             cmd.ExecuteNonQuery();
-            cmd1.ExecuteNonQuery();
-            cmd2.ExecuteNonQuery();
             
             disconnectDatabse();
         }
