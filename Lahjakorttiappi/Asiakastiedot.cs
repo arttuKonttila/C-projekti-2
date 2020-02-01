@@ -38,13 +38,6 @@ namespace Lahjakorttiappi
             cmBoxService.DataSource = allProducts;
             cmBoxService.DisplayMember = "Palvelu";
             cmBoxService.ValueMember = "PalveluNro";
-
-            List<Class.Orders> allOrders = new List<Class.Orders>();
-            allOrders = dBController.getOrders();
-            cmBoxDuration.DataSource = allOrders;
-            cmBoxDuration.DisplayMember = "Duration";
-            cmBoxDuration.ValueMember = "ID";
-
             List<Class.Seller> allSellers = new List<Class.Seller>();
             allSellers = dBController.getSellers();
             cmBoxSeller.DataSource = allSellers;
@@ -90,7 +83,7 @@ namespace Lahjakorttiappi
             order.Recipient = cmBoxSeller.Text;
             order.Pvm = dtmSellTime.Value;
             order.Usages = numAmountBox.Text;
-            order.Duration = cmBoxDuration.Text;
+            order.Duration = kestoNumeric.Value.ToString();
             if(paidCheckBox.Checked == true)
             {
                 order.Paid = 1;
@@ -113,7 +106,7 @@ namespace Lahjakorttiappi
             txtBoxPoPlace.Text = tuple.Item1.Paikka;
             TxtBoxAdress.Text = tuple.Item1.Osoite;
             cmBoxService.SelectedValue = tuple.Item1.PalveluID;
-            cmBoxDuration.SelectedValue = tuple.Item3.ID;
+            kestoNumeric.Value = Convert.ToDecimal(tuple.Item3.Duration);
             numAmountBox.Value = Convert.ToDecimal(tuple.Item3.Usages);
             dtmSellTime.Value = tuple.Item3.Pvm;
             dtmExpirationDate.Value = tuple.Item2.Voimassaolo;
@@ -217,7 +210,7 @@ namespace Lahjakorttiappi
                 txtBoxPoPlace.Text = "";
                 TxtBoxAdress.Text = "";
                 cmBoxService.SelectedValue = -1;
-                cmBoxDuration.SelectedValue = -1;
+                kestoNumeric.Value = 0;
                 numAmountBox.Value = 0;
                 dtmSellTime.Value = new DateTime(1753, 1, 1);
                 dtmExpirationDate.Value = new DateTime(1753, 1, 1);
@@ -235,6 +228,16 @@ namespace Lahjakorttiappi
                 // user clicked no
                 return;
             }
+        }
+
+        private void AsiakasTiedot_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmBoxDuration_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

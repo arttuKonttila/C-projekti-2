@@ -300,38 +300,18 @@ namespace Lahjakorttiappi.DatabaseController
             var tulos1 = cmd1.ExecuteScalar();
             info.LahjakorttiID = Convert.ToInt32(tulos1);
 
-           /* SqlCommand cmd3 = new SqlCommand("SELECT * FROM [Lahjakortti] ORDER BY ID DESC,SELECT SCOPE_IDENTITY(); ", connect);
-            SqlDataReader read = cmd3.ExecuteReader();
-            if(read.HasRows)
-            {
-
-                read.Read();
-                    info.LahjakorttiID = Convert.ToInt32(read.GetValue(0));
-
-                read.Close();
-            }*/
 
             SqlCommand cmd2 = new SqlCommand("INSERT INTO [Tilaukset](PVM, Kesto, Kerrat, Saaja, Maksettu)" +
-                        "VALUES (@pvm, @kesto, @usages, @recipient, @paid); SELECT SCOPE_IDENTITY();", connect);
+                        "VALUES (@pvm, @Kesto, @usages, @recipient, @paid); SELECT SCOPE_IDENTITY();", connect);
             cmd2.Parameters.AddWithValue("@pvm", order.Pvm);
-            cmd2.Parameters.AddWithValue("@kesto", order.Duration);
+            cmd2.Parameters.AddWithValue("@Kesto", order.Duration);
             cmd2.Parameters.AddWithValue("@usages", order.Usages);
             cmd2.Parameters.AddWithValue("@recipient", order.Recipient);
             cmd2.Parameters.AddWithValue("@paid", order.Paid);
             var tulos = cmd2.ExecuteScalar();
             info.TilausID = Convert.ToInt32(tulos);
-            /*
-            SqlCommand cmd4 = new SqlCommand("SELECT * FROM [Tilaukset] ORDER BY ID DESC", connect);
-            read = cmd4.ExecuteReader();
-            if(read.HasRows)
-            {
 
-                read.Read(); 
-                    info.TilausID = Convert.ToInt32(read.GetValue(0));
-                
-                read.Close();
-            }
-            */
+
             SqlCommand cmd = new SqlCommand("INSERT INTO [Asiakastiedot](Etunimi, Sukunimi, Osoite, PuhNro, Sahkoposti, Postinumero, Paikka, PalveluID, TilausID, LahjakorttiID)" +
                         "VALUES (@eNim, @sNim, @os, @pNro, @sPosti, @zip, @ptPaikka, @palvID, @tilID, @lahjID)", connect);
             cmd.Parameters.AddWithValue("@eNim", info.Etunimi);
@@ -345,6 +325,8 @@ namespace Lahjakorttiappi.DatabaseController
             cmd.Parameters.AddWithValue("@tilID", info.TilausID);
             cmd.Parameters.AddWithValue("@palvID", info.PalveluID);
             cmd.ExecuteNonQuery();
+            cmd1.ExecuteNonQuery();
+            cmd2.ExecuteNonQuery();
             
             disconnectDatabse();
         }
