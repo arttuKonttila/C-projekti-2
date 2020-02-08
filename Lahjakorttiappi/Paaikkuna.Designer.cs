@@ -58,10 +58,9 @@
             // btnMuokkaa
             // 
             this.btnMuokkaa.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMuokkaa.Location = new System.Drawing.Point(8, 139);
-            this.btnMuokkaa.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnMuokkaa.Location = new System.Drawing.Point(6, 113);
             this.btnMuokkaa.Name = "btnMuokkaa";
-            this.btnMuokkaa.Size = new System.Drawing.Size(165, 50);
+            this.btnMuokkaa.Size = new System.Drawing.Size(124, 41);
             this.btnMuokkaa.TabIndex = 2;
             this.btnMuokkaa.Text = "Muokkaa";
             this.btnMuokkaa.UseVisualStyleBackColor = true;
@@ -71,10 +70,9 @@
             // 
             this.btnPoista.BackColor = System.Drawing.Color.Red;
             this.btnPoista.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPoista.Location = new System.Drawing.Point(8, 81);
-            this.btnPoista.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnPoista.Location = new System.Drawing.Point(6, 66);
             this.btnPoista.Name = "btnPoista";
-            this.btnPoista.Size = new System.Drawing.Size(165, 50);
+            this.btnPoista.Size = new System.Drawing.Size(124, 41);
             this.btnPoista.TabIndex = 1;
             this.btnPoista.Text = "Poista";
             this.btnPoista.UseVisualStyleBackColor = false;
@@ -83,10 +81,9 @@
             // btnLisaa
             // 
             this.btnLisaa.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLisaa.Location = new System.Drawing.Point(8, 23);
-            this.btnLisaa.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnLisaa.Location = new System.Drawing.Point(6, 19);
             this.btnLisaa.Name = "btnLisaa";
-            this.btnLisaa.Size = new System.Drawing.Size(165, 50);
+            this.btnLisaa.Size = new System.Drawing.Size(124, 41);
             this.btnLisaa.TabIndex = 0;
             this.btnLisaa.Text = "Lisää";
             this.btnLisaa.UseVisualStyleBackColor = true;
@@ -95,23 +92,22 @@
             // btnLaheta
             // 
             this.btnLaheta.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLaheta.Location = new System.Drawing.Point(8, 197);
-            this.btnLaheta.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnLaheta.Location = new System.Drawing.Point(6, 160);
             this.btnLaheta.Name = "btnLaheta";
-            this.btnLaheta.Size = new System.Drawing.Size(165, 50);
+            this.btnLaheta.Size = new System.Drawing.Size(124, 41);
             this.btnLaheta.TabIndex = 4;
             this.btnLaheta.Text = "Lahetä";
             this.btnLaheta.UseVisualStyleBackColor = true;
+            this.btnLaheta.Click += new System.EventHandler(this.btnLaheta_Click);
             // 
             // cmBoxOrder
             // 
             this.cmBoxOrder.AccessibleName = "Järjestys";
             this.cmBoxOrder.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmBoxOrder.FormattingEnabled = true;
-            this.cmBoxOrder.Location = new System.Drawing.Point(1651, 373);
-            this.cmBoxOrder.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmBoxOrder.Location = new System.Drawing.Point(1238, 303);
             this.cmBoxOrder.Name = "cmBoxOrder";
-            this.cmBoxOrder.Size = new System.Drawing.Size(216, 39);
+            this.cmBoxOrder.Size = new System.Drawing.Size(163, 32);
             this.cmBoxOrder.TabIndex = 6;
             // 
             // gBoxControl
@@ -121,11 +117,9 @@
             this.gBoxControl.Controls.Add(this.btnLisaa);
             this.gBoxControl.Controls.Add(this.btnPoista);
             this.gBoxControl.Controls.Add(this.btnMuokkaa);
-            this.gBoxControl.Location = new System.Drawing.Point(1652, 44);
-            this.gBoxControl.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gBoxControl.Location = new System.Drawing.Point(1239, 36);
             this.gBoxControl.Name = "gBoxControl";
-            this.gBoxControl.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.gBoxControl.Size = new System.Drawing.Size(216, 278);
+            this.gBoxControl.Size = new System.Drawing.Size(162, 226);
             this.gBoxControl.TabIndex = 7;
             this.gBoxControl.TabStop = false;
             this.gBoxControl.Text = "Hallinta";
@@ -138,8 +132,7 @@
             this.haeToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(8, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(1884, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1413, 24);
             this.menuStrip1.TabIndex = 8;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -151,64 +144,62 @@
             this.asetuksetToolStripMenuItem,
             this.lopetaToolStripMenuItem});
             this.tiedostoToolStripMenuItem.Name = "tiedostoToolStripMenuItem";
-            this.tiedostoToolStripMenuItem.Size = new System.Drawing.Size(79, 24);
+            this.tiedostoToolStripMenuItem.Size = new System.Drawing.Size(64, 20);
             this.tiedostoToolStripMenuItem.Text = "Tiedosto";
             // 
             // lisääUusiToolStripMenuItem
             // 
             this.lisääUusiToolStripMenuItem.Name = "lisääUusiToolStripMenuItem";
-            this.lisääUusiToolStripMenuItem.Size = new System.Drawing.Size(147, 26);
+            this.lisääUusiToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
             this.lisääUusiToolStripMenuItem.Text = "Lisää uusi";
             this.lisääUusiToolStripMenuItem.Click += new System.EventHandler(this.lisääUusiToolStripMenuItem_Click);
             // 
             // poistaToolStripMenuItem
             // 
             this.poistaToolStripMenuItem.Name = "poistaToolStripMenuItem";
-            this.poistaToolStripMenuItem.Size = new System.Drawing.Size(147, 26);
+            this.poistaToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
             this.poistaToolStripMenuItem.Text = "Poista";
             // 
             // asetuksetToolStripMenuItem
             // 
             this.asetuksetToolStripMenuItem.Name = "asetuksetToolStripMenuItem";
-            this.asetuksetToolStripMenuItem.Size = new System.Drawing.Size(147, 26);
+            this.asetuksetToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
             this.asetuksetToolStripMenuItem.Text = "Asetukset";
             this.asetuksetToolStripMenuItem.Click += new System.EventHandler(this.asetuksetToolStripMenuItem_Click);
             // 
             // lopetaToolStripMenuItem
             // 
             this.lopetaToolStripMenuItem.Name = "lopetaToolStripMenuItem";
-            this.lopetaToolStripMenuItem.Size = new System.Drawing.Size(147, 26);
+            this.lopetaToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
             this.lopetaToolStripMenuItem.Text = "Lopeta";
             this.lopetaToolStripMenuItem.Click += new System.EventHandler(this.lopetaToolStripMenuItem_Click);
             // 
             // haeToolStripMenuItem
             // 
             this.haeToolStripMenuItem.Name = "haeToolStripMenuItem";
-            this.haeToolStripMenuItem.Size = new System.Drawing.Size(48, 24);
+            this.haeToolStripMenuItem.Size = new System.Drawing.Size(40, 20);
             this.haeToolStripMenuItem.Text = "Hae";
             // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(16, 55);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 45);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(1627, 633);
+            this.dataGridView1.Size = new System.Drawing.Size(1220, 514);
             this.dataGridView1.TabIndex = 9;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // Paaikkuna
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1884, 715);
+            this.ClientSize = new System.Drawing.Size(1413, 581);
             this.Controls.Add(this.cmBoxOrder);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.gBoxControl);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Paaikkuna";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Pääikkuna";

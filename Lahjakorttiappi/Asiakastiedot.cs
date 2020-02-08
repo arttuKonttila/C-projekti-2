@@ -29,7 +29,7 @@ namespace Lahjakorttiappi
             sellTime = dtmSellTime.Value;
             return sellTime;
         }
-
+        
         public AsiakasTiedot()
         {
             InitializeComponent();
@@ -176,9 +176,11 @@ namespace Lahjakorttiappi
             }
 
         }
-
+        public string etu { get { return txtBoxFirstName.Text; } }
+        public string suku { get { return txtBoxLastName.Text; } }
         private void BtnSend_Click(object sender, EventArgs e)
         {
+            
             textBoxEmptyTest();
             saveInfo();
             Class.MakePDF tuloste = new Class.MakePDF();

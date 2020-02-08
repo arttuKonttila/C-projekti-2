@@ -15,6 +15,7 @@ namespace Lahjakorttiappi
     {
         public static int muokkaaID;
         public static bool muokkaaClick;
+        public string etunimi;
         DatabaseController.DatabaseController dBController = new DatabaseController.DatabaseController();
         DataSet ds = new DataSet();
         public Paaikkuna()
@@ -144,6 +145,14 @@ namespace Lahjakorttiappi
         {
 
         }
+
+        private void btnLaheta_Click(object sender, EventArgs e)
+        {
+            
+        int selectedRowIndex = dataGridView1.SelectedCells[0].RowIndex;
+        DataGridViewRow selectedRow = dataGridView1.Rows[selectedRowIndex];
+            etunimi = 
+    }
     }
     
 }

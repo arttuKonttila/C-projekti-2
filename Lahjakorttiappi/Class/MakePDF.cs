@@ -19,16 +19,16 @@ using Syncfusion.Pdf;
 using Syncfusion.Pdf.Graphics;
 
 
-
-
 namespace Lahjakorttiappi.Class
 
 {
     public class MakePDF
     {
+        public Class.Asiakastiedot tiedot = new Class.Asiakastiedot();
         public const String pdfDest = "/data/lahjakortit/lahjakortti.pdf";
         public const String logo = "data/image/logo.jpg";
-        AsiakasTiedot parent;
+        public string firstName { get; set; }
+        AsiakasTiedot parent = new AsiakasTiedot();
         giftCard giftcard;
         Orders order;
 
@@ -46,9 +46,9 @@ namespace Lahjakorttiappi.Class
             string pdfDestination = System.IO.Path.Combine(Environment.CurrentDirectory, "data/lahjakorttit/lahjakortti.pdf");
             //string pdfBackground = System.Reflection.Assembly.GetExecutingAssembly(giftCardBack.jpg);
             string path = System.IO.Path.Combine(Environment.CurrentDirectory, "data/image/logo.jpg");
-            string logoDest = path; // (@"/data/image/logo.jpg");
+            //string logoDest = path; // (@"/data/image/logo.jpg");
             string companyData = System.IO.Path.Combine(Environment.CurrentDirectory, "data/contact.xml");
-            string customer = parent.customerInfo.Etunimi + " " + parent.customerInfo.Sukunimi;
+            string customer = parent.etu + " " + parent.suku;
             string service = parent.customerInfo.TilausID + " "  + order.Duration +" "+ order.Usages + " kertaa";
             string date = "Lahjakortti on voimassa " + parent.SellTime().ToString() + " vuoden eteenpäin.";
             string company = "", cmAddress = "", cmEmail = "", cmPhone = "", cmPostNum = "", cmPostState = "", cmWeb = "";
@@ -80,7 +80,9 @@ namespace Lahjakorttiappi.Class
             PdfBitmap logo = new PdfBitmap(path);
             logoPiirto.DrawImage(logo, 40, 20);
             sivu.Graphics.DrawString(customer, font, PdfBrushes.AliceBlue,new PointF(300,200));
-
+            sivu.Graphics.DrawString(service, font, PdfBrushes.Black,new PointF(400,200));
+            sivu.Graphics.DrawString(date, font, PdfBrushes.Black, new PointF(500, 200));
+            sivu.Graphics.DrawString(company, font, PdfBrushes.Black, new PointF(600,200));
             pdfTiedosto.Save(pdfDestination);
             /*PdfDocument pdf = new PdfDocument(new PdfWriter(pdfDestination));
 
