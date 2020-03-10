@@ -15,7 +15,9 @@ namespace Lahjakorttiappi
     {
         public static int muokkaaID;
         public static bool muokkaaClick;
-        public string etunimi;
+         string etunimi, sukunimi;
+
+       
         DatabaseController.DatabaseController dBController = new DatabaseController.DatabaseController();
         DataSet ds = new DataSet();
         public Paaikkuna()
@@ -37,11 +39,11 @@ namespace Lahjakorttiappi
             {
                 MessageBox.Show(ex.ToString());
             }
-            AsiakasTiedot lisaa = new AsiakasTiedot();
+            LahjakorttiTiedot lisaa = new LahjakorttiTiedot();
             lisaa.ShowDialog();
             var dialogResult = lisaa.DialogResult;
             //saves the text field data into the database
-            if(dialogResult == DialogResult.OK) 
+            if (dialogResult == DialogResult.OK)
             {
                 try
                 {
@@ -78,7 +80,7 @@ namespace Lahjakorttiappi
             {
                 System.Windows.Forms.Application.Exit();
             }
-          
+
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -88,7 +90,7 @@ namespace Lahjakorttiappi
 
         private void btnLisaa_Click(object sender, EventArgs e)
         {
-            AsiakasTiedot Lisaa = new AsiakasTiedot();
+            LahjakorttiTiedot Lisaa = new LahjakorttiTiedot();
             Lisaa.ShowDialog();
             loadData();
 
@@ -102,7 +104,7 @@ namespace Lahjakorttiappi
 
         private void lisääUusiToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AsiakasTiedot Lisaa = new AsiakasTiedot();
+            LahjakorttiTiedot Lisaa = new LahjakorttiTiedot();
             Lisaa.ShowDialog();
         }
 
@@ -138,21 +140,30 @@ namespace Lahjakorttiappi
 
         private void Paaikkuna_Load(object sender, EventArgs e)
         {
-           // loadData();
+            // loadData();
         }
 
         private void cmBoxSeller_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
+        public string Etu { get { return etunimi; } }
+        public string suku { get { return sukunimi; } }
+
 
         private void btnLaheta_Click(object sender, EventArgs e)
         {
+
+            //int selectedRowIndex = dataGridView1.SelectedCells[5].RowIndex;
+            //DataGridViewRow selectedRow = dataGridView1.Rows[selectedRowIndex];
+            etunimi = Convert.ToString(dataGridView1.CurrentRow.Cells["Etunimi"].Value);
+            sukunimi = Convert.ToString(dataGridView1.CurrentRow.Cells["Sukunimi"].Value);
             
-        int selectedRowIndex = dataGridView1.SelectedCells[0].RowIndex;
-        DataGridViewRow selectedRow = dataGridView1.Rows[selectedRowIndex];
-            etunimi = 
+
+           // Class.MakePDF tuloste = new Class.MakePDF();
+           // tuloste.Main(this);
+
+        }
     }
-    }
-    
+
 }

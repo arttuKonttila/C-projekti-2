@@ -24,17 +24,17 @@ namespace Lahjakorttiappi.Class
 {
     public class MakePDF
     {
-        public Class.Asiakastiedot tiedot = new Class.Asiakastiedot();
+        //public Class.Asiakastiedot tiedot = new Class.Asiakastiedot();
+        public Paaikkuna info = new Paaikkuna();
         public const String pdfDest = "/data/lahjakortit/lahjakortti.pdf";
         public const String logo = "data/image/logo.jpg";
-        public string firstName { get; set; }
-        AsiakasTiedot parent = new AsiakasTiedot();
-        giftCard giftcard;
-        Orders order;
+        pdfInfoclass giftcardInfo = new pdfInfoclass();
+        LahjakorttiTiedot parent = new LahjakorttiTiedot();
+        
 
-        public void Main(AsiakasTiedot kutsuvaLomake)
+        public void Main(LahjakorttiTiedot kutsuvaLomake)
         {
-            parent = kutsuvaLomake;
+            //parent = kutsuvaLomake;
             FileInfo file = new FileInfo(pdfDest);
             file.Directory.Create();
             new MakePDF().CreatePdf(pdfDest);
@@ -44,20 +44,14 @@ namespace Lahjakorttiappi.Class
         public virtual void CreatePdf (String pdfDest)
         {
             string pdfDestination = System.IO.Path.Combine(Environment.CurrentDirectory, "data/lahjakorttit/lahjakortti.pdf");
-            //string pdfBackground = System.Reflection.Assembly.GetExecutingAssembly(giftCardBack.jpg);
+          
             string path = System.IO.Path.Combine(Environment.CurrentDirectory, "data/image/logo.jpg");
-            //string logoDest = path; // (@"/data/image/logo.jpg");
+           
             string companyData = System.IO.Path.Combine(Environment.CurrentDirectory, "data/contact.xml");
-            string customer = parent.etu + " " + parent.suku;
-            string service = parent.customerInfo.TilausID + " "  + order.Duration +" "+ order.Usages + " kertaa";
-            string date = "Lahjakortti on voimassa " + parent.SellTime().ToString() + " vuoden eteenpäin.";
+            string customer = giftcardInfo.Firstname + " " + giftcardInfo.Lastname;
+            string service =  "Teillä on hieronta lahjakortti:  "  + giftcardInfo.Duration +" minuutin hierontaa "+ giftcardInfo.Amount + " kertaa";
+            string giftCardExDate = "Lahjakortti on voimassa " + giftcardInfo.ExDate + " saakka";
             string company = "", cmAddress = "", cmEmail = "", cmPhone = "", cmPostNum = "", cmPostState = "", cmWeb = "";
-            // var kuva = Properties.Resources.giftCardBack.RawFormat;
-            // System.Drawing.Image image = Properties.Resources.giftCardBack;
-            // iText.Layout.Element.Image background = Properties.Resources.giftCardBack;
-            // System.Drawing.im
-            //iText.Layout.Element.Image background = new iText.Layout.Element.Image(ImageDataFactory.Create(pdfBackground));
-            //iText.Layout.Element.Image logo = new iText.Layout.Element.Image(ImageDataFactory.Create(logoDest));
             DataSet read = new DataSet();
             read.ReadXml(companyData);
 
@@ -80,8 +74,8 @@ namespace Lahjakorttiappi.Class
             PdfBitmap logo = new PdfBitmap(path);
             logoPiirto.DrawImage(logo, 40, 20);
             sivu.Graphics.DrawString(customer, font, PdfBrushes.AliceBlue,new PointF(300,200));
-            sivu.Graphics.DrawString(service, font, PdfBrushes.Black,new PointF(400,200));
-            sivu.Graphics.DrawString(date, font, PdfBrushes.Black, new PointF(500, 200));
+            //sivu.Graphics.DrawString(service, font, PdfBrushes.Black,new PointF(400,200));
+            //sivu.Graphics.DrawString(date, font, PdfBrushes.Black, new PointF(500, 200));
             sivu.Graphics.DrawString(company, font, PdfBrushes.Black, new PointF(600,200));
             pdfTiedosto.Save(pdfDestination);
             /*PdfDocument pdf = new PdfDocument(new PdfWriter(pdfDestination));
